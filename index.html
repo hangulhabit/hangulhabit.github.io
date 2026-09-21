@@ -1,0 +1,1349 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://dhtmddbs2-coder.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="Hangul Habit">
+<meta property="og:description" content="Free 5-day Korean lesson pilot delivered daily over WhatsApp, with voice feedback on your pronunciation.">
+<meta property="og:url" content="https://dhtmddbs2-coder.github.io/">
+<meta property="og:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hangul Habit">
+<meta name="twitter:description" content="Free 5-day Korean lesson pilot delivered daily over WhatsApp, with voice feedback on your pronunciation.">
+<meta name="twitter:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<title>Hangul Habit</title>
+<meta name="description" id="metaDescription" content="Free 5-day Korean lesson pilot delivered daily over WhatsApp, with voice feedback on your pronunciation.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Hangul Habit",
+  "description": "A 5-day free Korean-language pilot delivered daily over WhatsApp, with real human feedback on pronunciation. Paid monthly, 6-month, and yearly plans available after the free pilot, each with a 14-day free trial.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Hangul Habit",
+    "sameAs": "https://dhtmddbs2-coder.github.io/"
+  },
+  "url": "https://dhtmddbs2-coder.github.io/",
+  "inLanguage": ["en", "ja", "ka", "zh"],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "5-Day Free Pilot",
+      "price": "0",
+      "priceCurrency": "KRW",
+      "url": "https://dhtmddbs2-coder.github.io/"
+    },
+    {
+      "@type": "Offer",
+      "name": "Monthly Subscription",
+      "price": "3000",
+      "priceCurrency": "KRW",
+      "url": "https://dhtmddbs2-coder.github.io/pricing.html"
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg: #12172a;
+    --bg-raised: #1a2140;
+    --bg-inset: #0d1120;
+    --ink: #f3ede1;
+    --ink-dim: #b9c0d6;
+    --ink-faint: #7c85a3;
+    --coral: #ff6b5b;
+    --coral-dim: #c94c3f;
+    --jade: #2fa88a;
+    --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --bubble-in: #232a4d;
+    --bubble-out: #1f6f5c;
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="light"]) {
+      --bg: #faf6ee;
+      --bg-raised: #ffffff;
+      --bg-inset: #f0e9d8;
+      --ink: #1c1a14;
+      --ink-dim: #514c3e;
+      --ink-faint: #8b8574;
+      --coral: #e14f3e;
+      --coral-dim: #c23c2d;
+      --jade: #1f7d64;
+      --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+      --bubble-in: #efe9db;
+      --bubble-out: #1f7d64;
+      --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee;
+    --bg-raised: #ffffff;
+    --bg-inset: #f0e9d8;
+    --ink: #1c1a14;
+    --ink-dim: #514c3e;
+    --ink-faint: #8b8574;
+    --coral: #e14f3e;
+    --coral-dim: #c23c2d;
+    --jade: #1f7d64;
+    --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+    --bubble-in: #efe9db;
+    --bubble-out: #1f7d64;
+    --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif;
+    line-height: 1.55;
+  }
+  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  .ka { font-family: "Noto Sans Georgian", "Work Sans", sans-serif; }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 76px 0 56px;
+    text-align: center;
+    background:
+      radial-gradient(circle at 18% -10%, color-mix(in srgb, var(--coral) 22%, transparent), transparent 55%),
+      radial-gradient(circle at 85% 0%, color-mix(in srgb, var(--jade) 18%, transparent), transparent 50%);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .eyebrow::before { content: "●"; font-size: 8px; color: var(--jade); }
+
+  h1.kr {
+    font-size: clamp(22px, 3.6vw, 30px);
+    margin: 0 0 6px;
+    text-wrap: balance;
+    line-height: 1.15;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    color: var(--ink-dim);
+  }
+  h1 .accent { color: var(--coral); font-weight: 700; }
+  .hero-sub {
+    font-size: clamp(17px, 2.4vw, 20px);
+    color: var(--ink-dim);
+    max-width: 46ch;
+    margin: 18px auto 0;
+    text-wrap: balance;
+  }
+
+  /* ---------- Hangul syllable breakdown (hero centerpiece) ---------- */
+  .syllables {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 8px 0 22px;
+  }
+  .syl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .syl .glyph {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: clamp(46px, 11vw, 78px);
+    line-height: 1;
+    width: 1.15em;
+    height: 1.15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    color: #fff;
+  }
+  .syl .roman {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    text-transform: lowercase;
+  }
+  /* obangsaek — traditional Korean five-direction colors */
+  .syl:nth-child(1) .glyph { background: #1a3b6e; } /* blue — east */
+  .syl:nth-child(2) .glyph { background: #c62b2b; } /* red — south */
+  .syl:nth-child(3) .glyph { background: #d9b64e; color: #2a2110; } /* yellow — center */
+  .syl:nth-child(4) .glyph { background: #e7e2d3; color: #1c1a14; } /* white — west */
+  .syl:nth-child(5) .glyph { background: #1a1a1a; } /* black — north */
+
+  .meaning-tag {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-bottom: 34px;
+  }
+  .meaning-tag strong { color: var(--gold); font-weight: 600; }
+
+  /* ---------- Phone / chat mock ---------- */
+  .phone {
+    margin: 48px auto 0;
+    max-width: 340px;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    text-align: left;
+  }
+  .phone-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: var(--bg-inset);
+    border-bottom: 1px solid var(--line);
+  }
+  .phone-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--coral), var(--gold));
+    flex-shrink: 0;
+  }
+  .phone-head strong { font-size: 14.5px; }
+  .phone-head span { display: block; font-size: 12px; color: var(--ink-faint); }
+  .phone-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 300px;
+  }
+  .bubble {
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14.5px;
+    max-width: 84%;
+  }
+  .bubble.in {
+    background: var(--bubble-in);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+  }
+  .bubble.out {
+    background: var(--bubble-out);
+    color: #f3ede1;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+  }
+  .bubble .kr-word { color: var(--gold); font-weight: 600; }
+  .speak-btn {
+    all: unset; display: inline-flex; align-items: center; justify-content: center;
+    width: 20px; height: 20px; margin-left: 3px; border-radius: 50%; cursor: pointer;
+    font-size: 12px; vertical-align: -3px; background: color-mix(in srgb, var(--gold) 20%, transparent);
+    transition: transform 0.15s ease;
+  }
+  .speak-btn:hover { background: color-mix(in srgb, var(--gold) 35%, transparent); }
+  .speak-btn.speaking { animation: speak-pulse 0.5s ease infinite; }
+  @keyframes speak-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+  .bubble small { display: block; margin-top: 4px; opacity: 0.7; font-size: 12px; }
+
+  /* ---------- Streak strip ---------- */
+  .streak {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px 0 0;
+  }
+  .streak .day {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--bg-inset);
+    border: 1px solid var(--line);
+    color: var(--ink-faint);
+  }
+  .streak .day.done {
+    color: #fff;
+    border-color: transparent;
+  }
+  .streak .day:nth-child(1).done { background: #1a3b6e; }
+  .streak .day:nth-child(2).done { background: #c62b2b; }
+  .streak .day:nth-child(3).done { background: #d9b64e; color: #2a2110; }
+  .streak .day:nth-child(4).done { background: #1a1a1a; }
+  .streak .day:nth-child(5).done { background: var(--jade); }
+  .streak-label {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-row {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 4px;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--coral);
+    color: #fff9f4;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 16px 30px;
+    border-radius: 14px;
+    text-decoration: none;
+    box-shadow: 0 16px 34px -16px color-mix(in srgb, var(--coral) 70%, transparent);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cta:hover { transform: translateY(-2px); box-shadow: 0 20px 38px -16px color-mix(in srgb, var(--coral) 75%, transparent); }
+  .cta:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .cta-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin-top: 14px;
+  }
+
+  /* ---------- Sticky follow CTA ---------- */
+  .sticky-cta {
+    position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%) translateY(120%);
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--coral); color: #fff9f4; font-weight: 600; font-size: 15px;
+    padding: 14px 26px; border-radius: 999px; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 16px 34px -12px color-mix(in srgb, var(--coral) 75%, transparent);
+    z-index: 30; transition: transform 0.25s ease;
+  }
+  .sticky-cta.visible { transform: translateX(-50%) translateY(0); }
+  @media (max-width: 480px) {
+    .sticky-cta { left: 16px; right: 16px; bottom: 16px; transform: translateY(120%); justify-content: center; }
+    .sticky-cta.visible { transform: translateY(0); }
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .section-head { max-width: 56ch; margin: 0 0 36px; }
+  .section-head .kr { font-size: clamp(24px, 4vw, 30px); margin: 0 0 10px; text-wrap: balance; }
+  .section-head p { color: var(--ink-dim); margin: 0; font-size: 16px; }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 22px;
+  }
+  .card {
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .card .mark { font-family: "Black Han Sans"; color: var(--jade); font-size: 22px; display: block; margin-bottom: 10px; }
+  .card h3 { font-size: 16px; margin: 0 0 6px; }
+  .card p { margin: 0; font-size: 14px; color: var(--ink-dim); }
+  .feat-icon { font-size: 26px; display: block; margin-bottom: 10px; }
+  .feat-card h3 { font-size: 16px; margin: 0 0 6px; }
+
+  /* ---------- Progress preview ---------- */
+  .prog-preview {
+    position: relative; max-width: 480px; margin: 0 auto; background: var(--bg-raised);
+    border: 1px solid var(--line); border-radius: 18px; padding: 28px 26px; box-shadow: var(--shadow);
+  }
+  .prog-preview-tag {
+    position: absolute; top: -12px; right: 22px; background: var(--gold); color: #2a2110;
+    font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+  }
+  .prog-preview-stats { display: flex; gap: 36px; margin-bottom: 22px; }
+  .prog-preview-stats > div { display: flex; flex-direction: column; }
+  .prog-preview-num { font-family: "Black Han Sans", sans-serif; font-size: 32px; color: var(--coral); line-height: 1; }
+  .prog-preview-label { font-size: 12.5px; color: var(--ink-faint); margin-top: 4px; }
+  .prog-preview-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .prog-day {
+    aspect-ratio: 1; border-radius: 7px; background: var(--bg-inset); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--ink-faint);
+  }
+  .prog-day.done { background: var(--jade); color: #fff9f4; border-color: var(--jade); font-weight: 600; }
+  .prog-day.today { background: var(--coral); color: #fff9f4; border-color: var(--coral); font-weight: 700; }
+
+  /* ---------- Pain points / roadmap / comparison ---------- */
+  .price-line { text-align: center; margin: 10px auto 0; max-width: 46ch; font-size: 14.5px; color: var(--ink-dim); }
+  .price-line strong { color: var(--coral); }
+  .pain-card p::before { content: "→ "; color: var(--jade); font-weight: 700; }
+  .road-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 800px) { .road-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px) { .road-grid { grid-template-columns: 1fr; } }
+  .road-step { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; }
+  .road-week { font-family: "Black Han Sans", sans-serif; font-size: 20px; color: var(--coral); margin-bottom: 8px; }
+  .road-step p { margin: 0; font-size: 14px; color: var(--ink-dim); }
+  .road-note { margin: 18px 0 0; font-size: 13px; color: var(--ink-faint); max-width: 60ch; }
+  .cmp-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--bg-raised); }
+  table.cmp { width: 100%; min-width: 480px; border-collapse: collapse; font-size: 14px; }
+  table.cmp th, table.cmp td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  table.cmp tr:last-child th, table.cmp tr:last-child td { border-bottom: none; }
+  table.cmp thead th { font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); }
+  table.cmp tbody th { width: 20%; font-weight: 600; color: var(--ink-dim); }
+  table.cmp td.other { color: var(--ink-faint); }
+  table.cmp .us { background: color-mix(in srgb, var(--jade) 9%, var(--bg-raised)); font-weight: 600; color: var(--ink); }
+  table.cmp thead th.us { color: var(--jade); }
+
+  /* ---------- Plant / forest / pricing teaser ---------- */
+  .stage-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 26px; }
+  @media (max-width: 640px) { .stage-row { grid-template-columns: repeat(3, 1fr); } }
+  .stage-card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 14px; padding: 12px 8px; display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+  .stage-card img { width: 100%; max-width: 96px; height: auto; }
+  .stage-card b { font-size: 14px; }
+  .stage-card span { font-size: 12px; color: var(--ink-faint); }
+  .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 560px) { .price-grid { grid-template-columns: 1fr; } }
+  .price-mini { position: relative; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; padding: 22px 18px; text-align: center; }
+  .price-mini .pm-name { font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+  .price-mini .pm-amount { font-family: "Black Han Sans", sans-serif; font-size: 28px; color: var(--coral); line-height: 1.1; }
+  .price-mini .pm-per { font-size: 13px; color: var(--ink-faint); }
+  .price-mini .pm-tag { display: inline-block; margin-top: 10px; background: var(--gold); color: #2a2110; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+  .price-more { text-align: center; margin: 20px 0 0; font-size: 14px; }
+  .price-more a { color: var(--coral); text-decoration: underline; }
+
+  /* ---------- Differentiator strip ---------- */
+  .diff-strip { background: var(--bg-inset); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0; margin-top: 48px; }
+  .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; text-align: center; }
+  @media (max-width: 640px) { .diff-grid { grid-template-columns: repeat(2, 1fr); } }
+  .diff-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .diff-num { font-family: "Black Han Sans", sans-serif; font-size: 28px; color: var(--coral); }
+  .diff-label { font-size: 13px; color: var(--ink-dim); max-width: 16ch; }
+
+  /* ---------- Curriculum preview ---------- */
+  .curric-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  @media (max-width: 700px) { .curric-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 420px) { .curric-grid { grid-template-columns: repeat(2, 1fr); } }
+  .curric-card {
+    display: block; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px 12px; text-decoration: none; color: inherit; text-align: center;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  .curric-card:hover { transform: translateY(-2px); border-color: var(--coral); }
+  .curric-num {
+    display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px;
+    border-radius: 50%; background: #1a3b6e; color: #fff; font-family: "Black Han Sans", sans-serif;
+    font-size: 13px; margin-bottom: 10px;
+  }
+  .curric-card:nth-child(2) .curric-num { background: #c62b2b; }
+  .curric-card:nth-child(3) .curric-num { background: #d9b64e; color: #2a2110; }
+  .curric-card:nth-child(4) .curric-num { background: #1a1a1a; }
+  .curric-card:nth-child(5) .curric-num { background: var(--jade); }
+  .curric-card h4 { margin: 0; font-size: 13.5px; }
+  .curric-more { text-align: center; margin: 20px 0 0; font-size: 14px; }
+  .curric-more a { color: var(--coral); text-decoration: underline; }
+
+  .who-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+  .who-list li {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: 15.5px; color: var(--ink-dim);
+    padding-bottom: 14px; border-bottom: 1px solid var(--line);
+  }
+  .who-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .who-list .tick { color: var(--jade); font-weight: 700; flex-shrink: 0; }
+
+  .ka-block {
+    margin-top: 40px;
+    padding: 22px 24px;
+    background: var(--bg-inset);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+  }
+  .ka-block .label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--gold); margin-bottom: 10px; display: block;
+  }
+  .ka-block p { margin: 0; color: var(--ink-dim); font-size: 15px; }
+
+  footer {
+    padding: 40px 0 60px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 13px;
+  }
+  footer .kr { font-size: 15px; color: var(--ink-dim); margin-bottom: 6px; }
+
+  @media (max-width: 480px) {
+    .hero { padding: 56px 0 40px; }
+    section { padding: 48px 0; }
+  }
+
+  .obang-strip {
+    height: 6px;
+    background: repeating-linear-gradient(
+      90deg,
+      #1a3b6e 0 40px,
+      #c62b2b 40px 80px,
+      #d9b64e 80px 120px,
+      #e7e2d3 120px 160px,
+      #1a1a1a 160px 200px
+    );
+  }
+
+  /* ---------- Top nav ---------- */
+  nav.topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 18px 24px;
+  }
+  nav.topnav .brand {
+    font-family: "Black Han Sans", sans-serif;
+    font-size: 16px;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  nav.topnav .brand::before {
+    content: "안";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    background: #1a3b6e;
+    color: #fff;
+    font-size: 14px;
+  }
+  nav.topnav .links {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+  }
+  nav.topnav .links a {
+    text-decoration: none;
+    color: var(--ink-dim);
+  }
+  nav.topnav .links a:hover,
+  nav.topnav .links a[aria-current="page"] {
+    color: var(--coral);
+  }
+  @media (max-width: 480px) {
+    nav.topnav .links { gap: 14px; font-size: 13px; }
+  }
+
+  /* ---------- Language switcher ---------- */
+  .lang-switch { position: relative; margin-left: 18px; }
+  .lang-switch button {
+    display: flex; align-items: center; gap: 6px; background: var(--bg-inset);
+    border: 1px solid var(--line); color: var(--ink-dim); font: inherit; font-size: 13px;
+    padding: 7px 11px; border-radius: 999px; cursor: pointer;
+  }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch .menu {
+    display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 20;
+    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: var(--shadow); min-width: 160px; overflow: hidden; padding: 6px;
+  }
+  .lang-switch.open .menu { display: block; }
+  .lang-switch .menu button {
+    all: unset; box-sizing: border-box; display: flex; width: 100%; align-items: center; gap: 8px;
+    padding: 9px 10px; border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); cursor: pointer;
+  }
+  .lang-switch .menu button:hover { background: var(--bg-inset); color: var(--ink); }
+  .lang-switch .menu button[aria-current="true"] { color: var(--coral); font-weight: 600; }
+  @media (max-width: 480px) {
+    .lang-switch { margin-left: 10px; }
+    .lang-switch button span.label { display: none; }
+  }
+</style>
+
+<main>
+  <div class="obang-strip" aria-hidden="true"></div>
+  <nav class="topnav">
+    <a class="brand" href="index.html">Hangul Habit</a>
+    <div class="links">
+      <a href="about.html" id="navAbout">About</a>
+      <a href="how-it-works.html" id="navHow">How it works</a>
+      <a href="pricing.html" id="navPricing">Pricing</a>
+      <a href="login.html" id="navSignin">Sign in / Sign up</a>
+      <div id="langSwitchMount"></div>
+    </div>
+  </nav>
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow" id="i18nEyebrow">Free 5-day pilot</span>
+
+      <div class="syllables" aria-hidden="true">
+        <div class="syl"><span class="glyph">안</span><span class="roman">an</span></div>
+        <div class="syl"><span class="glyph">녕</span><span class="roman">nyeong</span></div>
+        <div class="syl"><span class="glyph">하</span><span class="roman">ha</span></div>
+        <div class="syl"><span class="glyph">세</span><span class="roman">se</span></div>
+        <div class="syl"><span class="glyph">요</span><span class="roman">yo</span></div>
+      </div>
+      <span class="meaning-tag" id="i18nMeaning"><strong>안녕하세요</strong> — "Hello." Your first word, day one.</span>
+
+      <h1 class="kr" id="i18nH1">Learn Korean one sentence a day, right inside <span class="accent">WhatsApp</span></h1>
+      <p class="hero-sub" id="i18nHeroSub">A short lesson every morning. Reply with a voice message and get real feedback
+        on your pronunciation — completely free for your first 5 days.</p>
+
+      <div class="phone" role="img" aria-label="Sample WhatsApp conversation showing a Hangul Habit lesson and a voice-message reply">
+        <div class="phone-head">
+          <div class="phone-avatar"></div>
+          <div>
+            <strong>Hangul Habit</strong>
+            <span id="i18nPhoneDay">Day 1 · Greetings</span>
+          </div>
+        </div>
+        <div class="phone-body">
+          <div class="bubble in" id="i18nBubble1">
+            Welcome to Hangul Habit! Today's 3 phrases:<br>
+            <span class="kr-word">안녕하세요</span><button class="speak-btn" type="button" data-speak="안녕하세요">🔊</button> — Hello<br>
+            <span class="kr-word">감사합니다</span><button class="speak-btn" type="button" data-speak="감사합니다">🔊</button> — Thank you<br>
+            <span class="kr-word">죄송합니다</span><button class="speak-btn" type="button" data-speak="죄송합니다">🔊</button> — Sorry
+            <small>9:00 AM</small>
+          </div>
+          <div class="bubble in" id="i18nBubble2">
+            Now record yourself saying: <strong>"안녕하세요, 저는 [your name]입니다"</strong>
+            <small>9:00 AM</small>
+          </div>
+          <div class="bubble out" id="i18nBubble3">
+            🎤 0:07 voice message
+            <small>9:14 AM ✓✓</small>
+          </div>
+          <div class="bubble in" id="i18nBubble4">
+            발음 좋아요! Great pronunciation — just soften the "ㅎ" a little. 화이팅! 💪
+            <small>9:41 AM</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="streak">
+        <div class="day done">1</div>
+        <div class="day done">2</div>
+        <div class="day done">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
+      </div>
+      <p class="streak-label" id="i18nStreak">5 days, 5–10 minutes a day — that's the whole habit.</p>
+      <p class="price-line" id="i18nPriceLine">After the free pilot: <strong>₩3,000 a month</strong> — less than a cup of coffee. Cancel anytime.</p>
+
+      <div class="cta-row">
+        <a class="cta" href="https://wa.me/821047848412?text=Hi!%20I%27d%20like%20to%20join%20the%20Hangul%20Habit%205-day%20pilot." target="_blank" rel="noopener" id="i18nCta1Btn">
+          Start on WhatsApp →
+        </a>
+      </div>
+      <p class="cta-note" id="i18nCta1Note">Just send your number and you're added to this week's pilot · No card, no signup form — just WhatsApp</p>
+
+      <div class="cta-row" style="margin-top:14px;">
+        <a class="cta" href="pricing.html" style="background:var(--jade);" id="i18nCta2Btn">
+          Start full subscription · from ₩3,000/month →
+        </a>
+      </div>
+      <p class="cta-note" id="i18nCta2Note">If the pilot has ended or you'd like to subscribe right away, check the plans and pay by card</p>
+      <p class="cta-note" style="margin-top:4px;">
+        <a href="billing.html" style="text-decoration:underline;" id="i18nBillingLink">View payment history &amp; receipts</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="diff-strip">
+    <div class="wrap diff-grid">
+      <div class="diff-item"><span class="diff-num">5</span><span class="diff-label" id="i18nDiff1">days, completely free</span></div>
+      <div class="diff-item"><span class="diff-num">1:1</span><span class="diff-label" id="i18nDiff2">real human feedback, not AI</span></div>
+      <div class="diff-item"><span class="diff-num">0</span><span class="diff-label" id="i18nDiff3">card required to start</span></div>
+      <div class="diff-item"><span class="diff-num">∞</span><span class="diff-label" id="i18nDiff4">cancel anytime, no contract</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nPainH2">Sound familiar?</h2>
+        <p id="i18nPainSub">Most people who want to speak Korean get stuck in the same three places.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card pain-card">
+          <h3 id="i18nPain1H3">I can read Hangul, but I freeze when I try to speak.</h3>
+          <p id="i18nPain1P">You speak out loud from day one — one short sentence, sent as a voice message.</p>
+        </div>
+        <div class="card pain-card">
+          <h3 id="i18nPain2H3">I download apps and textbooks, then never open them.</h3>
+          <p id="i18nPain2P">The lesson arrives in WhatsApp, an app you already open every day.</p>
+        </div>
+        <div class="card pain-card">
+          <h3 id="i18nPain3H3">I'm afraid of saying it wrong.</h3>
+          <p id="i18nPain3P">Mistakes are the point. You get a short, kind note on what to adjust — never a score.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nCurricH2">Your first 5 days</h2>
+        <p id="i18nCurricSub">A real look at the curriculum — no surprises after you join.</p>
+      </div>
+      <div class="curric-grid">
+        <a class="curric-card" href="how-it-works.html">
+          <span class="curric-num">1</span><h4 id="i18nCurricDay1">Greetings</h4>
+        </a>
+        <a class="curric-card" href="how-it-works.html">
+          <span class="curric-num">2</span><h4 id="i18nCurricDay2">Numbers &amp; counting</h4>
+        </a>
+        <a class="curric-card" href="how-it-works.html">
+          <span class="curric-num">3</span><h4 id="i18nCurricDay3">Family</h4>
+        </a>
+        <a class="curric-card" href="how-it-works.html">
+          <span class="curric-num">4</span><h4 id="i18nCurricDay4">Food &amp; drink</h4>
+        </a>
+        <a class="curric-card" href="how-it-works.html">
+          <span class="curric-num">5</span><h4 id="i18nCurricDay5">Week 1 review</h4>
+        </a>
+      </div>
+      <p class="curric-more"><a href="how-it-works.html" id="i18nCurricMore">See the full day-by-day walkthrough →</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nFeatH2">Built to actually help you stick with it</h2>
+        <p id="i18nFeatSub">A few small tools that make the daily habit easier — all included, no extra charge.</p>
+      </div>
+      <div class="grid-3 feat-grid">
+        <div class="card feat-card">
+          <span class="feat-icon">🔊</span>
+          <h3 id="i18nFeat1H3">Hear it, not just read it</h3>
+          <p id="i18nFeat1P">Tap the speaker next to any Korean phrase on this site and hear it spoken aloud — free, built in, no app required.</p>
+        </div>
+        <div class="card feat-card">
+          <span class="feat-icon">📊</span>
+          <h3 id="i18nFeat2H3">See your progress</h3>
+          <p id="i18nFeat2P">Sign in to your account to see your current day, your completed-lesson count, and a day-by-day view of your streak.</p>
+        </div>
+        <div class="card feat-card">
+          <span class="feat-icon">🌐</span>
+          <h3 id="i18nFeat3H3">Browse in your language</h3>
+          <p id="i18nFeat3P">The whole site — not just the lessons — works in English, Japanese, Georgian, and Chinese. Switch anytime from the menu.</p>
+        </div>
+        <div class="card feat-card">
+          <span class="feat-icon">👤</span>
+          <h3 id="i18nFeat4H3">One account, everything in one place</h3>
+          <p id="i18nFeat4P">Sign in with Google or Facebook to see your payment history, download receipts, and manage your subscription anytime.</p>
+        </div>
+        <div class="card feat-card">
+          <span class="feat-icon">🎯</span>
+          <h3 id="i18nFeat5H3">Pick your difficulty</h3>
+          <p id="i18nFeat5P">Beginner, intermediate, or advanced — choose the level your daily lessons are pitched at from your account, and switch anytime.</p>
+        </div>
+        <div class="card feat-card">
+          <span class="feat-icon">🌱</span>
+          <h3 id="i18nFeat6H3">Grow your own plant</h3>
+          <p id="i18nFeat6P">Send a voice message to earn XP, streaks and badges — and watch a small plant grow from a seed into a blooming mugunghwa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nProgH2">Your progress, tracked automatically</h2>
+        <p id="i18nProgSub">This is a preview of the feature, not real usage data — Hangul Habit is a brand-new pilot, so your streak would be the first one on record.</p>
+      </div>
+      <div class="prog-preview">
+        <span class="prog-preview-tag" id="i18nProgTag">Example</span>
+        <div class="prog-preview-stats">
+          <div><span class="prog-preview-num">9</span><span class="prog-preview-label" id="i18nProgDay">Current day</span></div>
+          <div><span class="prog-preview-num">8</span><span class="prog-preview-label" id="i18nProgCount">Lessons completed</span></div>
+        </div>
+        <div class="prog-preview-grid" aria-hidden="true">
+          <div class="prog-day done">1</div><div class="prog-day done">2</div><div class="prog-day done">3</div>
+          <div class="prog-day done">4</div><div class="prog-day done">5</div><div class="prog-day done">6</div>
+          <div class="prog-day done">7</div><div class="prog-day done">8</div><div class="prog-day today">9</div>
+          <div class="prog-day">10</div><div class="prog-day">11</div><div class="prog-day">12</div>
+          <div class="prog-day">13</div><div class="prog-day">14</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nPlantH2">Send a voice message, grow a plant</h2>
+        <p id="i18nPlantSub">Every day you practice out loud earns XP. Watch your plant grow from a seed into a blooming mugunghwa, Korea's national flower.</p>
+      </div>
+      <div class="stage-row">
+        <div class="stage-card"><img src="assets/character/seed.png" alt="" width="96" height="96" loading="lazy"><b id="i18nStage1">Seed</b><span>0 XP</span></div>
+        <div class="stage-card"><img src="assets/character/sprout.png" alt="" width="96" height="96" loading="lazy"><b id="i18nStage2">Sprout</b><span>30 XP</span></div>
+        <div class="stage-card"><img src="assets/character/sapling.png" alt="" width="96" height="96" loading="lazy"><b id="i18nStage3">Sapling</b><span>100 XP</span></div>
+        <div class="stage-card"><img src="assets/character/tree.png" alt="" width="96" height="96" loading="lazy"><b id="i18nStage4">Tree</b><span>200 XP</span></div>
+        <div class="stage-card"><img src="assets/character/mugunghwa.png" alt="" width="96" height="96" loading="lazy"><b id="i18nStage5">Mugunghwa</b><span>350 XP</span></div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3 id="i18nEarn1H3">Daily XP</h3>
+          <p id="i18nEarn1P">+10 XP each day you send a voice message, plus +10 the very first time. One reward per day, so it can't be farmed.</p>
+        </div>
+        <div class="card">
+          <h3 id="i18nEarn2H3">Streaks</h3>
+          <p id="i18nEarn2P">Practice 3 days in a row for +5 XP, and 7 days in a row for +15 XP.</p>
+        </div>
+        <div class="card">
+          <h3 id="i18nEarn3H3">Badges</h3>
+          <p id="i18nEarn3P">Collect badges like First Voice, 7-Day Streak, 5-Day Pilot and Mugunghwa Bloom. Your account page shows them all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nRoadH2">Where a daily habit can take you</h2>
+        <p id="i18nRoadSub">The pace we design the lessons around, week by week.</p>
+      </div>
+      <div class="road-grid">
+        <div class="road-step">
+          <div class="road-week" id="i18nRoad1Wk">Week 1</div>
+          <p id="i18nRoad1P">Say greetings and numbers out loud, in short sentences.</p>
+        </div>
+        <div class="road-step">
+          <div class="road-week" id="i18nRoad2Wk">Week 4</div>
+          <p id="i18nRoad2P">Introduce yourself and talk about family and food.</p>
+        </div>
+        <div class="road-step">
+          <div class="road-week" id="i18nRoad3Wk">Week 8</div>
+          <p id="i18nRoad3P">Make requests and share simple opinions.</p>
+        </div>
+        <div class="road-step">
+          <div class="road-week" id="i18nRoad4Wk">Week 12</div>
+          <p id="i18nRoad4P">Ask questions first and keep a slow, everyday conversation going.</p>
+        </div>
+      </div>
+      <p class="road-note" id="i18nRoadNote">This is a target pace, not a guarantee. Everyone moves at their own speed, and Hangul Habit is a new pilot with no results data yet.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nForestH2">Learn with a friend, grow a forest</h2>
+        <p id="i18nForestSub">Invite a friend and you both get a boost. Every friend you bring becomes a tree in your forest.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="mark">1</span>
+          <h3 id="i18nFor1H3">Get your invite link</h3>
+          <p id="i18nFor1P">You get a personal invite code when you join. Reply “invite” on WhatsApp anytime to get your link again.</p>
+        </div>
+        <div class="card">
+          <span class="mark">2</span>
+          <h3 id="i18nFor2H3">Your friend joins</h3>
+          <p id="i18nFor2P">They start with your link and send their first voice message. You both earn bonus XP, and you get the First Friend badge.</p>
+        </div>
+        <div class="card">
+          <span class="mark">3</span>
+          <h3 id="i18nFor3H3">Your forest grows</h3>
+          <p id="i18nFor3P">Friends become big trees and their friends small ones. Ranks: Seedling, Grove (3 friends), Forest (10), Guardian (30).</p>
+        </div>
+        <div class="card">
+          <span class="mark">4</span>
+          <h3 id="i18nFor4H3">Weekly team goal</h3>
+          <p id="i18nFor4P">Practice together each week. Reach the goal as a forest and everyone earns bonus XP.</p>
+        </div>
+      </div>
+      <p class="road-note" id="i18nForestNote">Rewards are XP, badges and ranks only — no cash, no commissions. Bonus XP is capped each month.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nSec1H2">How it works</h2>
+        <p id="i18nSec1Sub">Four small steps, once a day.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="mark">1</span>
+          <h3 id="i18nCard1H3">Today's sentence arrives</h3>
+          <p id="i18nCard1P">A short WhatsApp message with 3–4 new Korean phrases and a sentence to practice.</p>
+        </div>
+        <div class="card">
+          <span class="mark">2</span>
+          <h3 id="i18nCard2H3">Practice it out loud</h3>
+          <p id="i18nCard2P">Record yourself saying the sentence and send it back as a voice message.</p>
+        </div>
+        <div class="card">
+          <span class="mark">3</span>
+          <h3 id="i18nCard3H3">Get pronunciation feedback</h3>
+          <p id="i18nCard3P">A short, honest note on what you got right and what to adjust — every single day.</p>
+        </div>
+        <div class="card">
+          <span class="mark">4</span>
+          <h3 id="i18nCard4H3">Review yesterday's phrase</h3>
+          <p id="i18nCard4P">After you send your voice message, the reply brings back yesterday's key phrase so it sticks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nCmpH2">A different way to study</h2>
+        <p id="i18nCmpSub">How a daily WhatsApp habit compares with how most people study Korean.</p>
+      </div>
+      <div class="cmp-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th scope="col"></th><th scope="col" id="i18nCmpColOther">Typical study apps</th><th scope="col" class="us" id="i18nCmpColUs">Hangul Habit</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" id="i18nCmpR1">Practice</th><td class="other" id="i18nCmpR1Other">Mostly reading and tapping</td><td class="us" id="i18nCmpR1Us">Speaking out loud, every day</td></tr>
+            <tr><th scope="row" id="i18nCmpR2">Feedback</th><td class="other" id="i18nCmpR2Other">An automatic score, or none</td><td class="us" id="i18nCmpR2Us">A real person's short note on your pronunciation</td></tr>
+            <tr><th scope="row" id="i18nCmpR3">Where</th><td class="other" id="i18nCmpR3Other">One more app to remember to open</td><td class="us" id="i18nCmpR3Us">Inside WhatsApp, which you already use</td></tr>
+            <tr><th scope="row" id="i18nCmpR4">Time</th><td class="other" id="i18nCmpR4Other">Long sessions that are easy to skip</td><td class="us" id="i18nCmpR4Us">5–10 minutes a day</td></tr>
+            <tr><th scope="row" id="i18nCmpR5">Commitment</th><td class="other" id="i18nCmpR5Other">Often a plan paid up front</td><td class="us" id="i18nCmpR5Us">5 days free, cancel anytime</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nPriceH2">Simple pricing</h2>
+        <p id="i18nPriceSub">Start free for 5 days on WhatsApp. If you'd like to continue, pick a plan — every plan starts with a 14-day free trial.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-mini">
+          <div class="pm-name" id="i18nPr1Name">Monthly</div>
+          <div class="pm-amount">₩3,000</div>
+          <div class="pm-per" id="i18nPr1Per">/ month</div>
+        </div>
+        <div class="price-mini">
+          <div class="pm-name" id="i18nPr2Name">6 months</div>
+          <div class="pm-amount">₩16,200</div>
+          <div class="pm-per" id="i18nPr2Per">/ 6 months</div>
+          <span class="pm-tag" id="i18nPr2Tag">10% off</span>
+        </div>
+        <div class="price-mini">
+          <div class="pm-name" id="i18nPr3Name">Yearly</div>
+          <div class="pm-amount">₩28,800</div>
+          <div class="pm-per" id="i18nPr3Per">/ year</div>
+          <span class="pm-tag" id="i18nPr3Tag">20% off</span>
+        </div>
+      </div>
+      <p class="price-more"><a href="pricing.html" id="i18nPriceLink">See plans and start your trial →</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nSec2H2">Good for you if...</h2>
+        <p id="i18nSec2Sub">Good for you if you're —</p>
+      </div>
+      <ul class="who-list">
+        <li><span class="tick">✓</span> <span id="i18nWho1">A K-drama or K-pop fan who wants to actually understand more than the subtitles</span></li>
+        <li><span class="tick">✓</span> <span id="i18nWho2">Planning to study or work in Korea and want a daily habit, not another app you forget to open</span></li>
+        <li><span class="tick">✓</span> <span id="i18nWho3">Just curious about Korean — five minutes a day, no textbook required</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nSec3H2">Good to know</h2>
+      </div>
+      <ul class="who-list">
+        <li><span class="tick">·</span> <span id="i18nKnow1">This is an early pilot, not the finished product — I'm building this and want honest feedback before launching properly.</span></li>
+        <li><span class="tick">·</span> <span id="i18nKnow2">Completely free for the 5-day pilot. No payment, no card, no catch.</span></li>
+        <li><span class="tick">·</span> <span id="i18nKnow3">Takes 5–10 minutes a day. You can start any day this week.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <p class="kr">화이팅! 🇰🇷</p>
+    <p id="i18nFooterLine1">Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.</p>
+    <p style="margin-top:14px;">
+      <a href="about.html" id="navAbout2">About</a> · <a href="how-it-works.html" id="navHow2">How it works &amp; FAQ</a> · <a href="pricing.html" id="navPricing2">Pricing</a> · <a href="mailto:dhtmddbs2@gmail.com" id="navContact2">Contact</a>
+    </p>
+  </footer>
+</main>
+
+<a class="sticky-cta" id="stickyCta" href="https://wa.me/821047848412?text=Hi!%20I%27d%20like%20to%20join%20the%20Hangul%20Habit%205-day%20pilot." target="_blank" rel="noopener">
+  <span id="i18nStickyCta">Start free on WhatsApp →</span>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-nav.js"></script>
+<script src="speak.js"></script>
+<script>
+  window.PAGE_TRANSLATIONS = {
+    en: {
+      metaDescription: "Free 5-day Korean lesson pilot delivered daily over WhatsApp, with voice feedback on your pronunciation.",
+      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navSignin: "Sign in / Sign up",
+      navAbout2: "About", navHow2: "How it works &amp; FAQ", navPricing2: "Pricing", navContact2: "Contact",
+      i18nEyebrow: "Free 5-day pilot",
+      i18nMeaning: '<strong>안녕하세요</strong> — "Hello." Your first word, day one.',
+      i18nH1: 'Learn Korean one sentence a day, right inside <span class="accent">WhatsApp</span>',
+      i18nHeroSub: "A short lesson every morning. Reply with a voice message and get real feedback on your pronunciation — completely free for your first 5 days.",
+      i18nPhoneDay: "Day 1 · Greetings",
+      i18nBubble1: 'Welcome to Hangul Habit! Today\'s 3 phrases:<br><span class="kr-word">안녕하세요</span><button class="speak-btn" type="button" data-speak="안녕하세요">🔊</button> — Hello<br><span class="kr-word">감사합니다</span><button class="speak-btn" type="button" data-speak="감사합니다">🔊</button> — Thank you<br><span class="kr-word">죄송합니다</span><button class="speak-btn" type="button" data-speak="죄송합니다">🔊</button> — Sorry<small>9:00 AM</small>',
+      i18nBubble2: 'Now record yourself saying: <strong>"안녕하세요, 저는 [your name]입니다"</strong><small>9:00 AM</small>',
+      i18nBubble3: '🎤 0:07 voice message<small>9:14 AM ✓✓</small>',
+      i18nBubble4: '발음 좋아요! Great pronunciation — just soften the "ㅎ" a little. 화이팅! 💪<small>9:41 AM</small>',
+      i18nStreak: "5 days, 5–10 minutes a day — that's the whole habit.",
+      i18nDiff1: "days, completely free", i18nDiff2: "real human feedback, not AI", i18nDiff3: "card required to start", i18nDiff4: "cancel anytime, no contract",
+      i18nCurricH2: "Your first 5 days", i18nCurricSub: "A real look at the curriculum — no surprises after you join.",
+      i18nCurricDay1: "Greetings", i18nCurricDay2: "Numbers &amp; counting", i18nCurricDay3: "Family", i18nCurricDay4: "Food &amp; drink", i18nCurricDay5: "Week 1 review",
+      i18nCurricMore: "See the full day-by-day walkthrough →",
+      i18nStickyCta: "Start free on WhatsApp →",
+      i18nProgH2: "Your progress, tracked automatically", i18nProgSub: "This is a preview of the feature, not real usage data — Hangul Habit is a brand-new pilot, so your streak would be the first one on record.",
+      i18nProgTag: "Example", i18nProgDay: "Current day", i18nProgCount: "Lessons completed",
+      i18nFeatH2: "Built to actually help you stick with it", i18nFeatSub: "A few small tools that make the daily habit easier — all included, no extra charge.",
+      i18nFeat1H3: "Hear it, not just read it", i18nFeat1P: "Tap the speaker next to any Korean phrase on this site and hear it spoken aloud — free, built in, no app required.",
+      i18nFeat2H3: "See your progress", i18nFeat2P: "Sign in to your account to see your current day, your completed-lesson count, and a day-by-day view of your streak.",
+      i18nFeat3H3: "Browse in your language", i18nFeat3P: "The whole site — not just the lessons — works in English, Japanese, Georgian, and Chinese. Switch anytime from the menu.",
+      i18nFeat4H3: "One account, everything in one place", i18nFeat4P: "Sign in with Google or Facebook to see your payment history, download receipts, and manage your subscription anytime.",
+      i18nFeat5H3: "Pick your difficulty", i18nFeat5P: "Beginner, intermediate, or advanced — choose the level your daily lessons are pitched at from your account, and switch anytime.",
+      i18nFeat6H3: "Grow your own plant", i18nFeat6P: "Send a voice message to earn XP, streaks and badges — and watch a small plant grow from a seed into a blooming mugunghwa.",
+      i18nPainH2: "Sound familiar?", i18nPainSub: "Most people who want to speak Korean get stuck in the same three places.",
+      i18nPain1H3: "I can read Hangul, but I freeze when I try to speak.", i18nPain1P: "You speak out loud from day one — one short sentence, sent as a voice message.",
+      i18nPain2H3: "I download apps and textbooks, then never open them.", i18nPain2P: "The lesson arrives in WhatsApp, an app you already open every day.",
+      i18nPain3H3: "I'm afraid of saying it wrong.", i18nPain3P: "Mistakes are the point. You get a short, kind note on what to adjust — never a score.",
+      i18nRoadH2: "Where a daily habit can take you", i18nRoadSub: "The pace we design the lessons around, week by week.",
+      i18nRoad1Wk: "Week 1", i18nRoad1P: "Say greetings and numbers out loud, in short sentences.",
+      i18nRoad2Wk: "Week 4", i18nRoad2P: "Introduce yourself and talk about family and food.",
+      i18nRoad3Wk: "Week 8", i18nRoad3P: "Make requests and share simple opinions.",
+      i18nRoad4Wk: "Week 12", i18nRoad4P: "Ask questions first and keep a slow, everyday conversation going.",
+      i18nRoadNote: "This is a target pace, not a guarantee. Everyone moves at their own speed, and Hangul Habit is a new pilot with no results data yet.",
+      i18nCmpH2: "A different way to study", i18nCmpSub: "How a daily WhatsApp habit compares with how most people study Korean.",
+      i18nCmpColOther: "Typical study apps", i18nCmpColUs: "Hangul Habit",
+      i18nCmpR1: "Practice", i18nCmpR1Other: "Mostly reading and tapping", i18nCmpR1Us: "Speaking out loud, every day",
+      i18nCmpR2: "Feedback", i18nCmpR2Other: "An automatic score, or none", i18nCmpR2Us: "A real person's short note on your pronunciation",
+      i18nCmpR3: "Where", i18nCmpR3Other: "One more app to remember to open", i18nCmpR3Us: "Inside WhatsApp, which you already use",
+      i18nCmpR4: "Time", i18nCmpR4Other: "Long sessions that are easy to skip", i18nCmpR4Us: "5–10 minutes a day",
+      i18nCmpR5: "Commitment", i18nCmpR5Other: "Often a plan paid up front", i18nCmpR5Us: "5 days free, cancel anytime",
+      i18nCta1Btn: "Start on WhatsApp →",
+      i18nCta1Note: "Just send your number and you're added to this week's pilot · No card, no signup form — just WhatsApp",
+      i18nCta2Btn: "Start full subscription · from ₩3,000/month →",
+      i18nCta2Note: "If the pilot has ended or you'd like to subscribe right away, check the plans and pay by card",
+      i18nBillingLink: "View payment history &amp; receipts",
+      i18nPriceLine: 'After the free pilot: <strong>₩3,000 a month</strong> — less than a cup of coffee. Cancel anytime.',
+      i18nCard4H3: "Review yesterday's phrase", i18nCard4P: "After you send your voice message, the reply brings back yesterday's key phrase so it sticks.",
+      i18nPlantH2: "Send a voice message, grow a plant", i18nPlantSub: "Every day you practice out loud earns XP. Watch your plant grow from a seed into a blooming mugunghwa, Korea's national flower.",
+      i18nStage1: "Seed", i18nStage2: "Sprout", i18nStage3: "Sapling", i18nStage4: "Tree", i18nStage5: "Mugunghwa",
+      i18nEarn1H3: "Daily XP", i18nEarn1P: "+10 XP each day you send a voice message, plus +10 the very first time. One reward per day, so it can't be farmed.",
+      i18nEarn2H3: "Streaks", i18nEarn2P: "Practice 3 days in a row for +5 XP, and 7 days in a row for +15 XP.",
+      i18nEarn3H3: "Badges", i18nEarn3P: "Collect badges like First Voice, 7-Day Streak, 5-Day Pilot and Mugunghwa Bloom. Your account page shows them all.",
+      i18nForestH2: "Learn with a friend, grow a forest", i18nForestSub: "Invite a friend and you both get a boost. Every friend you bring becomes a tree in your forest.",
+      i18nFor1H3: "Get your invite link", i18nFor1P: "You get a personal invite code when you join. Reply “invite” on WhatsApp anytime to get your link again.",
+      i18nFor2H3: "Your friend joins", i18nFor2P: "They start with your link and send their first voice message. You both earn bonus XP, and you get the First Friend badge.",
+      i18nFor3H3: "Your forest grows", i18nFor3P: "Friends become big trees and their friends small ones. Ranks: Seedling, Grove (3 friends), Forest (10), Guardian (30).",
+      i18nFor4H3: "Weekly team goal", i18nFor4P: "Practice together each week. Reach the goal as a forest and everyone earns bonus XP.",
+      i18nForestNote: "Rewards are XP, badges and ranks only — no cash, no commissions. Bonus XP is capped each month.",
+      i18nPriceH2: "Simple pricing", i18nPriceSub: "Start free for 5 days on WhatsApp. If you'd like to continue, pick a plan — every plan starts with a 14-day free trial.",
+      i18nPr1Name: "Monthly", i18nPr1Per: "/ month", i18nPr2Name: "6 months", i18nPr2Per: "/ 6 months", i18nPr2Tag: "10% off",
+      i18nPr3Name: "Yearly", i18nPr3Per: "/ year", i18nPr3Tag: "20% off", i18nPriceLink: "See plans and start your trial →",
+      i18nSec1H2: "How it works", i18nSec1Sub: "Four small steps, once a day.",
+      i18nCard1H3: "Today's sentence arrives", i18nCard1P: "A short WhatsApp message with 3–4 new Korean phrases and a sentence to practice.",
+      i18nCard2H3: "Practice it out loud", i18nCard2P: "Record yourself saying the sentence and send it back as a voice message.",
+      i18nCard3H3: "Get pronunciation feedback", i18nCard3P: "A short, honest note on what you got right and what to adjust — every single day.",
+      i18nSec2H2: "Good for you if...", i18nSec2Sub: "Good for you if you're —",
+      i18nWho1: "A K-drama or K-pop fan who wants to actually understand more than the subtitles",
+      i18nWho2: "Planning to study or work in Korea and want a daily habit, not another app you forget to open",
+      i18nWho3: "Just curious about Korean — five minutes a day, no textbook required",
+      i18nSec3H2: "Good to know",
+      i18nKnow1: "This is an early pilot, not the finished product — I'm building this and want honest feedback before launching properly.",
+      i18nKnow2: "Completely free for the 5-day pilot. No payment, no card, no catch.",
+      i18nKnow3: "Takes 5–10 minutes a day. You can start any day this week.",
+      i18nFooterLine1: "Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.",
+    },
+    ja: {
+      metaDescription: "WhatsAppで毎日届く、5日間無料の韓国語レッスン体験。あなたの発音に対する音声フィードバック付き。",
+      navAbout: "概要", navHow: "使い方", navPricing: "料金", navSignin: "ログイン / 新規登録",
+      navAbout2: "概要", navHow2: "使い方とFAQ", navPricing2: "料金", navContact2: "お問い合わせ",
+      i18nEyebrow: "5日間無料パイロット",
+      i18nMeaning: '<strong>안녕하세요</strong> — 「こんにちは」という意味。1日目の最初の一言。',
+      i18nH1: '1日1文、<span class="accent">WhatsApp</span>だけで韓国語を学ぶ',
+      i18nHeroSub: "毎朝届く短いレッスン。音声メッセージで返信すると、発音について本物のフィードバックがもらえます — 最初の5日間は完全無料。",
+      i18nPhoneDay: "1日目・あいさつ",
+      i18nBubble1: 'ハングルハビットへようこそ!今日の3フレーズ:<br><span class="kr-word">안녕하세요</span><button class="speak-btn" type="button" data-speak="안녕하세요">🔊</button> — こんにちは<br><span class="kr-word">감사합니다</span><button class="speak-btn" type="button" data-speak="감사합니다">🔊</button> — ありがとうございます<br><span class="kr-word">죄송합니다</span><button class="speak-btn" type="button" data-speak="죄송합니다">🔊</button> — すみません<small>9:00 AM</small>',
+      i18nBubble2: '次に、こう言って録音してみましょう:<strong>「안녕하세요, 저는 [あなたの名前]입니다」</strong><small>9:00 AM</small>',
+      i18nBubble3: '🎤 0:07 ボイスメッセージ<small>9:14 AM ✓✓</small>',
+      i18nBubble4: '발음 좋아요!(発音いいですね!)— 「ㅎ」の音をもう少し柔らかく。화이팅(ファイティン)! 💪<small>9:41 AM</small>',
+      i18nStreak: "5日間、1日5〜10分 — それだけの習慣です。",
+      i18nDiff1: "日間、完全無料", i18nDiff2: "AIではなく本物の人によるフィードバック", i18nDiff3: "開始にカード不要", i18nDiff4: "いつでもキャンセル、契約なし",
+      i18nCurricH2: "最初の5日間", i18nCurricSub: "カリキュラムの実際の中身 — 参加後に驚くことはありません。",
+      i18nCurricDay1: "あいさつ", i18nCurricDay2: "数字と数え方", i18nCurricDay3: "家族", i18nCurricDay4: "食べ物と飲み物", i18nCurricDay5: "1週目の復習",
+      i18nCurricMore: "1日ごとの詳しい流れを見る →",
+      i18nStickyCta: "WhatsAppで無料で始める →",
+      i18nProgH2: "進み具合が自動で記録される", i18nProgSub: "これは機能のプレビューで、実際の利用データではありません — Hangul Habitはまだ始まったばかりのパイロットなので、あなたの記録が最初の1件になります。",
+      i18nProgTag: "サンプル", i18nProgDay: "現在の日数", i18nProgCount: "完了したレッスン数",
+      i18nFeatH2: "続けやすくするための工夫", i18nFeatSub: "毎日の習慣を続けやすくする、いくつかの小さな機能 — すべて追加料金なしで含まれています。",
+      i18nFeat1H3: "読むだけでなく、聞く", i18nFeat1P: "サイト上のどの韓国語フレーズでもスピーカーアイコンをタップすると発音が聞けます — 無料、標準搭載、アプリ不要。",
+      i18nFeat2H3: "進み具合を見る", i18nFeat2P: "アカウントにログインすると、現在の日数、完了したレッスン数、日ごとの継続状況が確認できます。",
+      i18nFeat3H3: "あなたの言語で見る", i18nFeat3P: "レッスンだけでなくサイト全体が英語・日本語・ジョージア語・中国語に対応しています。メニューからいつでも切り替え可能。",
+      i18nFeat4H3: "1つのアカウントで全部管理", i18nFeat4P: "Google・Facebookでログインすれば、支払い履歴の確認、領収書のダウンロード、サブスクリプション管理がいつでもできます。",
+      i18nFeat5H3: "難易度を選べる", i18nFeat5P: "初級・中級・上級 — アカウントから毎日のレッスンの難易度を選べて、いつでも変更できます。",
+      i18nFeat6H3: "自分の木を育てよう", i18nFeat6P: "ボイスメッセージを送るとXP・連続記録・バッジがもらえ、小さな種がムクゲの花を咲かせるまで育ちます。",
+      i18nPainH2: "こんな経験ありませんか?", i18nPainSub: "韓国語を話したい人の多くは、同じ3つの壁でつまずきます。",
+      i18nPain1H3: "ハングルは読めるのに、話そうとすると固まってしまう。", i18nPain1P: "初日から声に出して話します。短い1文を、ボイスメッセージで送るだけ。",
+      i18nPain2H3: "アプリや教材を入れても、結局開かなくなる。", i18nPain2P: "レッスンは毎日開いているWhatsAppに届きます。",
+      i18nPain3H3: "間違えるのが怖い。", i18nPain3P: "間違いは学びの一部。直すポイントを短くやさしく伝えます。点数はつけません。",
+      i18nRoadH2: "毎日の習慣で、ここまで進めます", i18nRoadSub: "レッスンは、次のようなペースを目安に設計しています。",
+      i18nRoad1Wk: "1週目", i18nRoad1P: "あいさつや数字を、短い文で声に出して言えるようになる。",
+      i18nRoad2Wk: "4週目", i18nRoad2P: "自己紹介をして、家族や食べ物の話ができる。",
+      i18nRoad3Wk: "8週目", i18nRoad3P: "お願いをしたり、簡単な意見を伝えたりできる。",
+      i18nRoad4Wk: "12週目", i18nRoad4P: "自分から質問して、ゆっくりした日常会話を続けられる。",
+      i18nRoadNote: "これは目安のペースで、結果を保証するものではありません。進み方は人それぞれです。Hangul Habitは新しいパイロットで、まだ成果データはありません。",
+      i18nCmpH2: "ちょっと違う学び方", i18nCmpSub: "毎日のWhatsApp習慣を、一般的な韓国語の学び方と比べてみましょう。",
+      i18nCmpColOther: "一般的な学習アプリ", i18nCmpColUs: "Hangul Habit",
+      i18nCmpR1: "練習", i18nCmpR1Other: "読む・タップするのが中心", i18nCmpR1Us: "毎日、声に出して話す",
+      i18nCmpR2: "フィードバック", i18nCmpR2Other: "自動採点、またはなし", i18nCmpR2Us: "本物の人からの、発音への短いコメント",
+      i18nCmpR3: "場所", i18nCmpR3Other: "開くのを忘れる、もう1つのアプリ", i18nCmpR3Us: "いつも使っているWhatsApp内",
+      i18nCmpR4: "時間", i18nCmpR4Other: "長くて、つい飛ばしてしまう", i18nCmpR4Us: "1日5〜10分",
+      i18nCmpR5: "契約", i18nCmpR5Other: "先払いのプランが多い", i18nCmpR5Us: "5日間無料、いつでもキャンセル",
+      i18nCta1Btn: "WhatsAppで始める →",
+      i18nCta1Note: "番号を送るだけで、今週のパイロットにすぐ参加できます・カード登録も申込フォームも不要 — WhatsAppだけ",
+      i18nCta2Btn: "本登録を始める・月額₩3,000から →",
+      i18nCta2Note: "パイロットが終了した方、またはすぐに本登録したい方は、料金プランを確認してカードでお支払いください",
+      i18nBillingLink: "支払い履歴と領収書を見る",
+      i18nPriceLine: '無料パイロットのあとは<strong>月額₩3,000</strong> — コーヒー1杯より安く。いつでもキャンセルできます。',
+      i18nCard4H3: "昨日のフレーズを復習", i18nCard4P: "ボイスメッセージを送ると、返信に昨日のキーフレーズが戻ってきて、しっかり定着します。",
+      i18nPlantH2: "ボイスメッセージを送って、植物を育てよう", i18nPlantSub: "声に出して練習した日はXPがたまります。種から、韓国の国花ムクゲが咲くまで育ててみましょう。",
+      i18nStage1: "たね", i18nStage2: "新芽", i18nStage3: "若木", i18nStage4: "大きな木", i18nStage5: "ムクゲ",
+      i18nEarn1H3: "毎日のXP", i18nEarn1P: "ボイスメッセージを送った日は+10 XP、初回はさらに+10 XP。報酬は1日1回なので、稼ぎ放題にはなりません。",
+      i18nEarn2H3: "連続記録", i18nEarn2P: "3日連続で+5 XP、7日連続で+15 XP。",
+      i18nEarn3H3: "バッジ", i18nEarn3P: "はじめての声、7日連続、5日パイロット、ムクゲ開花などのバッジを集められます。アカウントページで全部見られます。",
+      i18nForestH2: "友だちと学んで、森を育てよう", i18nForestSub: "友だちを招待すると、2人ともボーナスがもらえます。招待した友だちは、あなたの森の1本の木になります。",
+      i18nFor1H3: "招待リンクを受け取る", i18nFor1P: "参加すると専用の招待コードがもらえます。WhatsAppで「invite」と送れば、いつでもリンクをもう一度受け取れます。",
+      i18nFor2H3: "友だちが参加", i18nFor2P: "友だちがリンクから始めて最初のボイスメッセージを送ると、2人ともボーナスXPがもらえ、あなたには「はじめての友だち」バッジが贈られます。",
+      i18nFor3H3: "森が育つ", i18nFor3P: "友だちは大きな木、その友だちは小さな木になります。ランクは、シードリング、小さな林(友だち3人)、森(10人)、森の守り人(30人)です。",
+      i18nFor4H3: "週間チーム目標", i18nFor4P: "毎週みんなで練習しましょう。森として目標を達成すると、全員がボーナスXPをもらえます。",
+      i18nForestNote: "報酬はXP、バッジ、ランクだけです。現金や紹介手数料はありません。ボーナスXPには月ごとの上限があります。",
+      i18nPriceH2: "シンプルな料金", i18nPriceSub: "最初の5日間はWhatsAppで無料。続けたい場合はプランを選んでください。どのプランも14日間の無料トライアルから始まります。",
+      i18nPr1Name: "月額", i18nPr1Per: "/ 月", i18nPr2Name: "6ヶ月", i18nPr2Per: "/ 6ヶ月", i18nPr2Tag: "10%オフ",
+      i18nPr3Name: "年額", i18nPr3Per: "/ 年", i18nPr3Tag: "20%オフ", i18nPriceLink: "プランを見て無料トライアルを始める →",
+      i18nSec1H2: "使い方", i18nSec1Sub: "1日1回、4つの小さなステップ。",
+      i18nCard1H3: "今日の文章が届く", i18nCard1P: "3〜4個の新しい韓国語フレーズと練習用の一文が入った、短いWhatsAppメッセージ。",
+      i18nCard2H3: "声に出して練習する", i18nCard2P: "その文章を声に出して録音し、ボイスメッセージとして送り返します。",
+      i18nCard3H3: "発音フィードバックをもらう", i18nCard3P: "できていた点と直すべき点についての、短くて正直なコメントが毎日届きます。",
+      i18nSec2H2: "こんな方に向いています", i18nSec2Sub: "こんな方にぴったりです —",
+      i18nWho1: "K-ドラマやK-POPが好きで、字幕以上に内容を理解したい方",
+      i18nWho2: "韓国での留学や就労を考えていて、開くのを忘れてしまうアプリではなく、毎日の習慣が欲しい方",
+      i18nWho3: "ただ韓国語に興味がある方 — 1日5分、教科書は不要です",
+      i18nSec3H2: "知っておいてほしいこと",
+      i18nKnow1: "これは初期段階のパイロットで、完成品ではありません — 正式にローンチする前に、率直なフィードバックをいただきながら作っています。",
+      i18nKnow2: "5日間のパイロットは完全無料です。支払いもカード登録も一切不要です。",
+      i18nKnow3: "1日5〜10分ほどです。今週中ならいつでも始められます。",
+      i18nFooterLine1: "Hangul Habit — 小さな毎日の習慣づくりパイロット。現在ジョージア・トビリシでテスト中です。",
+    },
+    ka: {
+      metaDescription: "უფასო 5-დღიანი კორეული ენის საცდელი გაკვეთილები, რომლებიც ყოველდღიურად მოდის WhatsApp-ში, ხმოვანი გამოხმაურებით თქვენს გამოთქმაზე.",
+      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navSignin: "შესვლა / რეგისტრაცია",
+      navAbout2: "შესახებ", navHow2: "როგორ მუშაობს და კითხვები", navPricing2: "ფასები", navContact2: "კონტაქტი",
+      i18nEyebrow: "5-დღიანი უფასო საცდელი",
+      i18nMeaning: '<strong>안녕하세요</strong> — „გამარჯობა". თქვენი პირველი სიტყვა, პირველი დღე.',
+      i18nH1: 'ისწავლეთ კორეული დღეში ერთი წინადადებით, პირდაპირ <span class="accent">WhatsApp</span>-ში',
+      i18nHeroSub: "მოკლე გაკვეთილი ყოველ დილით. უპასუხეთ ხმოვანი შეტყობინებით და მიიღეთ რეალური გამოხმაურება თქვენს გამოთქმაზე — სრულიად უფასოდ პირველი 5 დღის განმავლობაში.",
+      i18nPhoneDay: "1-ლი დღე · მისალმებები",
+      i18nBubble1: 'მოგესალმებით Hangul Habit-ში! დღევანდელი 3 ფრაზა:<br><span class="kr-word">안녕하세요</span><button class="speak-btn" type="button" data-speak="안녕하세요">🔊</button> — გამარჯობა<br><span class="kr-word">감사합니다</span><button class="speak-btn" type="button" data-speak="감사합니다">🔊</button> — მადლობა<br><span class="kr-word">죄송합니다</span><button class="speak-btn" type="button" data-speak="죄송합니다">🔊</button> — ბოდიში<small>9:00 AM</small>',
+      i18nBubble2: 'ახლა ჩაიწერეთ საკუთარი ხმით, როცა იტყვით: <strong>„안녕하세요, 저는 [თქვენი სახელი]입니다"</strong><small>9:00 AM</small>',
+      i18nBubble3: '🎤 0:07 ხმოვანი შეტყობინება<small>9:14 AM ✓✓</small>',
+      i18nBubble4: '발음 좋아요! (გამოთქმა კარგია!) — მხოლოდ „ㅎ" ბგერა გაარბილეთ ცოტა. 화이팅(ფაითინგ)! 💪<small>9:41 AM</small>',
+      i18nStreak: "5 დღე, დღეში 5-10 წუთი — მთელი ეს ჩვევა სწორედ ეს არის.",
+      i18nDiff1: "დღე, სრულიად უფასო", i18nDiff2: "რეალური ადამიანის გამოხმაურება, არა AI", i18nDiff3: "ბარათი საჭირო დასაწყებად", i18nDiff4: "ნებისმიერ დროს გასაუქმებელი, არანაირი კონტრაქტი",
+      i18nCurricH2: "თქვენი პირველი 5 დღე", i18nCurricSub: "სასწავლო გეგმის რეალური სურათი — გაწევრიანების შემდეგ სიურპრიზები არ იქნება.",
+      i18nCurricDay1: "მისალმებები", i18nCurricDay2: "რიცხვები და თვლა", i18nCurricDay3: "ოჯახი", i18nCurricDay4: "საკვები და სასმელი", i18nCurricDay5: "1-ლი კვირის მიმოხილვა",
+      i18nCurricMore: "იხილეთ სრული დღიური სახელმძღვანელო →",
+      i18nStickyCta: "დაიწყეთ უფასოდ WhatsApp-ში →",
+      i18nProgH2: "თქვენი პროგრესი ავტომატურად ფიქსირდება", i18nProgSub: "ეს არის ფუნქციის გადახედვა, არა რეალური მონაცემები — Hangul Habit სულ ახალი საცდელი პროექტია, ასე რომ თქვენი ჩანაწერი იქნება პირველი.",
+      i18nProgTag: "მაგალითი", i18nProgDay: "მიმდინარე დღე", i18nProgCount: "დასრულებული გაკვეთილები",
+      i18nFeatH2: "შექმნილია იმისთვის, რომ ნამდვილად დაგეხმაროთ ჩვევის შენარჩუნებაში", i18nFeatSub: "რამდენიმე პატარა ხელსაწყო, რომელიც ყოველდღიურ ჩვევას აადვილებს — ყველაფერი შედის, დამატებითი გადასახადის გარეშე.",
+      i18nFeat1H3: "მოისმინეთ, არა მხოლოდ წაიკითხეთ", i18nFeat1P: "დააჭირეთ დინამიკის ხატულას ამ საიტზე ნებისმიერ კორეულ ფრაზასთან და მოისმინეთ მისი წარმოთქმა — უფასო, ჩაშენებული, აპლიკაციის გარეშე.",
+      i18nFeat2H3: "იხილეთ თქვენი პროგრესი", i18nFeat2P: "შედით თქვენს ანგარიშში, რომ ნახოთ მიმდინარე დღე, დასრულებული გაკვეთილების რაოდენობა და დღიური ხედი თქვენს თანმიმდევრობაზე.",
+      i18nFeat3H3: "დაათვალიერეთ თქვენს ენაზე", i18nFeat3P: "მთელი საიტი — არა მხოლოდ გაკვეთილები — მუშაობს ინგლისურად, იაპონურად, ქართულად და ჩინურად. გადართეთ ნებისმიერ დროს მენიუდან.",
+      i18nFeat4H3: "ერთი ანგარიში, ყველაფერი ერთ ადგილას", i18nFeat4P: "შედით Google-ით ან Facebook-ით, რომ ნახოთ გადახდების ისტორია, გადმოწეროთ ქვითრები და მართოთ გამოწერა ნებისმიერ დროს.",
+      i18nFeat5H3: "აირჩიეთ სირთულის დონე", i18nFeat5P: "დამწყები, საშუალო ან მაღალი დონე — აირჩიეთ თქვენი ანგარიშიდან, რა დონეზეა მორგებული თქვენი ყოველდღიური გაკვეთილები, და შეცვალეთ ნებისმიერ დროს.",
+      i18nFeat6H3: "გაზარდეთ საკუთარი მცენარე", i18nFeat6P: "გამოგზავნეთ ხმოვანი შეტყობინება, მიიღეთ XP, უწყვეტი დღეები და ბეჯები — და უყურეთ, როგორ იზრდება პატარა თესლი აყვავებულ მუგუნღვად.",
+      i18nPainH2: "ნაცნობია?", i18nPainSub: "კორეულად ლაპარაკის მსურველთა უმეტესობა ერთსა და იმავე სამ ადგილას ჩერდება.",
+      i18nPain1H3: "ჰანგულის კითხვა შემიძლია, მაგრამ ლაპარაკისას ვიბლოკები.", i18nPain1P: "ხმამაღლა საუბარს პირველივე დღიდან იწყებთ — ერთი მოკლე წინადადება, ხმოვანი შეტყობინებით.",
+      i18nPain2H3: "აპებსა და სახელმძღვანელოებს ვიწერ, მერე კი აღარ ვხსნი.", i18nPain2P: "გაკვეთილი მოდის WhatsApp-ში — აპში, რომელსაც ისედაც ყოველდღე ხსნით.",
+      i18nPain3H3: "მეშინია, რომ არასწორად ვთქვა.", i18nPain3P: "შეცდომები პროცესის ნაწილია. მიიღებთ მოკლე, კეთილგანწყობილ შენიშვნას, რა გაასწოროთ — ქულების გარეშე.",
+      i18nRoadH2: "სად შეიძლება მიგიყვანოთ ყოველდღიურმა ჩვევამ", i18nRoadSub: "ტემპი, რომელზეც გაკვეთილებს ვგეგმავთ, კვირა-კვირა.",
+      i18nRoad1Wk: "კვირა 1", i18nRoad1P: "მისალმებებისა და რიცხვების ხმამაღლა თქმა მოკლე წინადადებებით.",
+      i18nRoad2Wk: "კვირა 4", i18nRoad2P: "საკუთარი თავის წარდგენა და საუბარი ოჯახსა და საჭმელზე.",
+      i18nRoad3Wk: "კვირა 8", i18nRoad3P: "თხოვნების გამოთქმა და მარტივი აზრის გაზიარება.",
+      i18nRoad4Wk: "კვირა 12", i18nRoad4P: "კითხვის პირველად დასმა და ნელი, ყოველდღიური საუბრის გაგრძელება.",
+      i18nRoadNote: "ეს სასურველი ტემპია და არა გარანტია. ყველა თავისი ტემპით მიდის, ხოლო Hangul Habit ახალი პილოტია და შედეგების მონაცემები ჯერ არ გვაქვს.",
+      i18nCmpH2: "სწავლის განსხვავებული გზა", i18nCmpSub: "როგორ შეედრება ყოველდღიური WhatsApp ჩვევა კორეულის სწავლის ჩვეულებრივ გზებს.",
+      i18nCmpColOther: "ტიპური სასწავლო აპები", i18nCmpColUs: "Hangul Habit",
+      i18nCmpR1: "პრაქტიკა", i18nCmpR1Other: "ძირითადად კითხვა და დაკლიკება", i18nCmpR1Us: "ხმამაღლა საუბარი, ყოველდღე",
+      i18nCmpR2: "უკუკავშირი", i18nCmpR2Other: "ავტომატური ქულა ან არაფერი", i18nCmpR2Us: "რეალური ადამიანის მოკლე შენიშვნა თქვენს გამოთქმაზე",
+      i18nCmpR3: "სად", i18nCmpR3Other: "კიდევ ერთი აპი, რომლის გახსნაც უნდა გახსოვდეთ", i18nCmpR3Us: "WhatsApp-ში, რომელსაც უკვე იყენებთ",
+      i18nCmpR4: "დრო", i18nCmpR4Other: "გრძელი სესიები, რომლებსაც ადვილად აკლებთ", i18nCmpR4Us: "დღეში 5-10 წუთი",
+      i18nCmpR5: "ვალდებულება", i18nCmpR5Other: "ხშირად წინასწარ გადახდილი გეგმა", i18nCmpR5Us: "5 დღე უფასოდ, გაუქმება ნებისმიერ დროს",
+      i18nCta1Btn: "დაიწყეთ WhatsApp-ში →",
+      i18nCta1Note: "უბრალოდ გამოგზავნეთ თქვენი ნომერი და დაუყოვნებლივ დაემატებით ამ კვირის საცდელ პროგრამას · არანაირი ბარათი, არანაირი ფორმა — მხოლოდ WhatsApp",
+      i18nCta2Btn: "დაიწყეთ სრული გამოწერა · თვეში ₩3,000-დან →",
+      i18nCta2Note: "თუ საცდელი პერიოდი დასრულდა ან გსურთ სრული გამოწერის დაუყოვნებლივ დაწყება, იხილეთ გეგმები და გადაიხადეთ ბარათით",
+      i18nBillingLink: "ნახეთ გადახდების ისტორია და ქვითრები",
+      i18nPriceLine: 'უფასო პილოტის შემდეგ: <strong>₩3,000 თვეში</strong> — ერთ ჭიქა ყავაზე იაფი. გაუქმება ნებისმიერ დროს შეგიძლიათ.',
+      i18nCard4H3: "გუშინდელი ფრაზის გამეორება", i18nCard4P: "ხმოვანი შეტყობინების გაგზავნის შემდეგ პასუხში გუშინდელი მთავარი ფრაზა გიბრუნდებათ, რომ კარგად დაგამახსოვრდეთ.",
+      i18nPlantH2: "გააგზავნეთ ხმოვანი შეტყობინება და გაზარდეთ მცენარე", i18nPlantSub: "ყოველი დღე, როცა ხმამაღლა ვარჯიშობთ, XP-ს გაძლევთ. უყურეთ, როგორ იზრდება თესლი აყვავებულ მუგუნღვად, კორეის ეროვნულ ყვავილად.",
+      i18nStage1: "თესლი", i18nStage2: "ღივი", i18nStage3: "ნერგი", i18nStage4: "ხე", i18nStage5: "მუგუნღვა",
+      i18nEarn1H3: "ყოველდღიური XP", i18nEarn1P: "+10 XP ყოველ დღეს, როცა ხმოვან შეტყობინებას აგზავნით, და კიდევ +10 პირველად. ჯილდო დღეში ერთხელ ინიშნება, ამიტომ მას ვერ „დააგროვებთ“ ხელოვნურად.",
+      i18nEarn2H3: "უწყვეტი დღეები", i18nEarn2P: "ივარჯიშეთ 3 დღე ზედიზედ +5 XP-სთვის და 7 დღე ზედიზედ +15 XP-სთვის.",
+      i18nEarn3H3: "ბეჯები", i18nEarn3P: "შეაგროვეთ ბეჯები, როგორიცაა „პირველი ხმა“, „7 დღე ზედიზედ“, „5-დღიანი პილოტი“ და „მუგუნღვას ყვავილობა“. ყველა ჩანს თქვენს ანგარიშზე.",
+      i18nForestH2: "ისწავლეთ მეგობართან ერთად და გაზარდეთ ტყე", i18nForestSub: "მოიწვიეთ მეგობარი და ორივე მიიღებთ ბონუსს. თითოეული მოყვანილი მეგობარი თქვენს ტყეში ხე ხდება.",
+      i18nFor1H3: "მიიღეთ მოწვევის ბმული", i18nFor1P: "გაწევრიანებისას მიიღებთ პირად მოწვევის კოდს. WhatsApp-ში დაწერეთ „invite“ და ბმულს ნებისმიერ დროს ისევ მიიღებთ.",
+      i18nFor2H3: "მეგობარი უერთდება", i18nFor2P: "ის იწყებს თქვენი ბმულით და აგზავნის პირველ ხმოვან შეტყობინებას. ორივე იღებთ ბონუს XP-ს, თქვენ კი — „პირველი მეგობრის“ ბეჯს.",
+      i18nFor3H3: "თქვენი ტყე იზრდება", i18nFor3P: "მეგობრები დიდი ხეები ხდებიან, მათი მეგობრები — პატარა. რანგები: ნერგი, კორომი (3 მეგობარი), ტყე (10), ტყის მცველი (30).",
+      i18nFor4H3: "გუნდის ყოველკვირეული მიზანი", i18nFor4P: "ივარჯიშეთ ერთად ყოველ კვირას. როცა ტყე მიზანს აღწევს, ყველა იღებს ბონუს XP-ს.",
+      i18nForestNote: "ჯილდო მხოლოდ XP, ბეჯები და რანგებია — ფული და საკომისიო არ არის. ბონუს XP-ს თვეში ლიმიტი აქვს.",
+      i18nPriceH2: "მარტივი ფასები", i18nPriceSub: "პირველი 5 დღე WhatsApp-ში უფასოა. გაგრძელება თუ გსურთ, აირჩიეთ გეგმა — ყველა გეგმა 14-დღიანი უფასო საცდელით იწყება.",
+      i18nPr1Name: "ყოველთვიური", i18nPr1Per: "/ თვე", i18nPr2Name: "6 თვე", i18nPr2Per: "/ 6 თვე", i18nPr2Tag: "10% ფასდაკლება",
+      i18nPr3Name: "წლიური", i18nPr3Per: "/ წელი", i18nPr3Tag: "20% ფასდაკლება", i18nPriceLink: "გეგმების ნახვა და საცდელის დაწყება →",
+      i18nSec1H2: "როგორ მუშაობს", i18nSec1Sub: "ოთხი პატარა ნაბიჯი, დღეში ერთხელ.",
+      i18nCard1H3: "დღევანდელი წინადადება მოდის", i18nCard1P: "მოკლე WhatsApp შეტყობინება 3-4 ახალი კორეული ფრაზით და სავარჯიშო წინადადებით.",
+      i18nCard2H3: "ხმამაღლა ივარჯიშეთ", i18nCard2P: "ჩაწერეთ საკუთარი ხმით წინადადების წარმოთქმა და გამოაგზავნეთ ხმოვან შეტყობინებად.",
+      i18nCard3H3: "მიიღეთ გამოთქმის გამოხმაურება", i18nCard3P: "მოკლე, გულწრფელი შენიშვნა იმის შესახებ, რა გამოგივიდათ და რა საჭიროებს გასწორებას — ყოველდღე.",
+      i18nSec2H2: "შენთვის შესაფერისია, თუ...", i18nSec2Sub: "შენთვის კარგია, თუ ხარ —",
+      i18nWho1: "K-დრამის ან K-პოპის გულშემატკივარი, რომელსაც სურს სუბტიტრებზე მეტის გაგება",
+      i18nWho2: "გეგმავ სწავლას ან მუშაობას კორეაში და გინდა ყოველდღიური ჩვევა — არა კიდევ ერთი აპლიკაცია, რომლის გახსნასაც დაივიწყებ",
+      i18nWho3: "უბრალოდ გაინტერესებს კორეული — დღეში ხუთი წუთი, სახელმძღვანელო არ გჭირდება",
+      i18nSec3H2: "კარგია იცოდე",
+      i18nKnow1: "ეს ადრეული საცდელი ვერსიაა, არა დასრულებული პროდუქტი — ვაშენებ ამას და მინდა გულწრფელი გამოხმაურება, სანამ სათანადოდ გავუშვებ.",
+      i18nKnow2: "5-დღიანი საცდელი პერიოდი სრულიად უფასოა. არანაირი გადახდა, არანაირი ბარათი, არანაირი ხაფანგი.",
+      i18nKnow3: "სჭირდება დღეში 5-10 წუთი. შეგიძლიათ დაიწყოთ ამ კვირის ნებისმიერ დღეს.",
+      i18nFooterLine1: "Hangul Habit — პატარა ყოველდღიური ჩვევის საცდელი პროექტი, ამჟამად ტესტირება მიმდინარეობს თბილისში, საქართველოში.",
+    },
+    zh: {
+      metaDescription: "通过 WhatsApp 每天发送的5天免费韩语课程试用,并提供针对你发音的语音反馈。",
+      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navSignin: "登录 / 注册",
+      navAbout2: "关于", navHow2: "使用方法与常见问题", navPricing2: "价格", navContact2: "联系方式",
+      i18nEyebrow: "5天免费试用",
+      i18nMeaning: '<strong>안녕하세요</strong> — "你好"。你第一天要学的第一句话。',
+      i18nH1: '每天一句,直接在<span class="accent">WhatsApp</span>里学韩语',
+      i18nHeroSub: "每天早上一节简短课程。用语音消息回复,就能获得关于发音的真实反馈——前5天完全免费。",
+      i18nPhoneDay: "第1天 · 问候语",
+      i18nBubble1: '欢迎来到 Hangul Habit!今天的3个短语:<br><span class="kr-word">안녕하세요</span><button class="speak-btn" type="button" data-speak="안녕하세요">🔊</button> — 你好<br><span class="kr-word">감사합니다</span><button class="speak-btn" type="button" data-speak="감사합니다">🔊</button> — 谢谢<br><span class="kr-word">죄송합니다</span><button class="speak-btn" type="button" data-speak="죄송합니다">🔊</button> — 对不起<small>9:00 AM</small>',
+      i18nBubble2: '现在录下你说的这句话:<strong>"안녕하세요, 저는 [你的名字]입니다"</strong><small>9:00 AM</small>',
+      i18nBubble3: '🎤 0:07 语音消息<small>9:14 AM ✓✓</small>',
+      i18nBubble4: '발음 좋아요!(发音很好!)——把"ㅎ"的音发得再软一点。화이팅(加油)! 💪<small>9:41 AM</small>',
+      i18nStreak: "5天,每天5-10分钟——这就是整个习惯。",
+      i18nDiff1: "天,完全免费", i18nDiff2: "真人反馈,而不是AI", i18nDiff3: "开始无需信用卡", i18nDiff4: "随时取消,无合同",
+      i18nCurricH2: "你的前5天", i18nCurricSub: "真实展示课程内容——加入后不会有任何意外。",
+      i18nCurricDay1: "问候语", i18nCurricDay2: "数字与数数", i18nCurricDay3: "家人", i18nCurricDay4: "饮食", i18nCurricDay5: "第一周复习",
+      i18nCurricMore: "查看完整的每日流程 →",
+      i18nStickyCta: "在 WhatsApp 上免费开始 →",
+      i18nProgH2: "你的进度会被自动记录", i18nProgSub: "这只是功能预览,不是真实使用数据——Hangul Habit 是全新的试点项目,你的记录将是第一份。",
+      i18nProgTag: "示例", i18nProgDay: "当前天数", i18nProgCount: "已完成课程数",
+      i18nFeatH2: "专为帮你坚持下去而设计", i18nFeatSub: "几个让每日习惯更容易坚持的小工具——全部包含在内,不额外收费。",
+      i18nFeat1H3: "不只是读,还能听", i18nFeat1P: "点击本站任意韩语短语旁边的喇叭图标即可听到真实发音——免费,内置,无需下载App。",
+      i18nFeat2H3: "查看学习进度", i18nFeat2P: "登录账户即可查看当前学习天数、已完成课程数,以及逐日的坚持情况。",
+      i18nFeat3H3: "用你的语言浏览", i18nFeat3P: "不只是课程内容,整个网站都支持英语、日语、格鲁吉亚语和中文。随时可从菜单切换。",
+      i18nFeat4H3: "一个账户,一站管理", i18nFeat4P: "用 Google 或 Facebook 登录,随时查看付款记录、下载收据、管理你的订阅。",
+      i18nFeat5H3: "选择你的难度", i18nFeat5P: "初级、中级或高级——在账户中选择每日课程的难度,随时可以切换。",
+      i18nFeat6H3: "养一株自己的小植物", i18nFeat6P: "发送语音消息即可获得 XP、连续打卡和徽章,看着一颗种子长成盛开的木槿花。",
+      i18nPainH2: "是不是很熟悉?", i18nPainSub: "想开口说韩语的人,大多卡在同样的三个地方。",
+      i18nPain1H3: "我认得韩文字母,可一开口就卡住。", i18nPain1P: "从第一天就开口说——一句短句,用语音消息发出来。",
+      i18nPain2H3: "下载了App和教材,最后却再也没打开。", i18nPain2P: "课程直接发到WhatsApp——你每天本来就会打开的App。",
+      i18nPain3H3: "我怕说错。", i18nPain3P: "犯错本来就是学习的一部分。你会收到一条简短友好的提醒,告诉你哪里可以调整——从不打分。",
+      i18nRoadH2: "每天一点,可以走到哪里", i18nRoadSub: "我们按下面的节奏,逐周设计课程。",
+      i18nRoad1Wk: "第1周", i18nRoad1P: "用短句大声说出问候语和数字。",
+      i18nRoad2Wk: "第4周", i18nRoad2P: "做自我介绍,聊聊家人和食物。",
+      i18nRoad3Wk: "第8周", i18nRoad3P: "提出请求,表达简单的看法。",
+      i18nRoad4Wk: "第12周", i18nRoad4P: "主动提问,把缓慢的日常对话继续下去。",
+      i18nRoadNote: "这是目标节奏,不是效果保证。每个人的进度都不同,而且Hangul Habit是一个全新的试点,目前还没有成果数据。",
+      i18nCmpH2: "一种不一样的学法", i18nCmpSub: "每天一次的WhatsApp习惯,和大多数人学韩语的方式有什么不同。",
+      i18nCmpColOther: "常见的学习App", i18nCmpColUs: "Hangul Habit",
+      i18nCmpR1: "练习", i18nCmpR1Other: "以阅读和点选为主", i18nCmpR1Us: "每天大声开口说",
+      i18nCmpR2: "反馈", i18nCmpR2Other: "自动打分,或没有反馈", i18nCmpR2Us: "真人针对你的发音写的简短点评",
+      i18nCmpR3: "在哪学", i18nCmpR3Other: "又一个要记得打开的App", i18nCmpR3Us: "就在你已经在用的WhatsApp里",
+      i18nCmpR4: "时间", i18nCmpR4Other: "很长,容易被跳过", i18nCmpR4Us: "每天5–10分钟",
+      i18nCmpR5: "费用承诺", i18nCmpR5Other: "常常要先付整期费用", i18nCmpR5Us: "免费5天,随时取消",
+      i18nCta1Btn: "在 WhatsApp 上开始 →",
+      i18nCta1Note: "只需发送你的号码,马上加入本周试点·无需信用卡,无需注册表格——只需 WhatsApp",
+      i18nCta2Btn: "开始正式订阅·每月₩3,000起 →",
+      i18nCta2Note: "如果试用已结束,或想立即正式订阅,请查看套餐并用银行卡支付",
+      i18nBillingLink: "查看付款记录和收据",
+      i18nPriceLine: '免费试点之后:<strong>每月₩3,000</strong>——比一杯咖啡还便宜。随时可以取消。',
+      i18nCard4H3: "复习昨天的短句", i18nCard4P: "你发送语音消息后,回复里会带回昨天的重点短句,帮你记得更牢。",
+      i18nPlantH2: "发送语音消息,养大一株植物", i18nPlantSub: "每天开口练习都能获得 XP。看着植物从种子长成盛开的木槿花——韩国的国花。",
+      i18nStage1: "种子", i18nStage2: "嫩芽", i18nStage3: "幼苗", i18nStage4: "大树", i18nStage5: "木槿花",
+      i18nEarn1H3: "每日 XP", i18nEarn1P: "每天发送语音消息可得 +10 XP,第一次再额外 +10。每天只奖励一次,无法刷分。",
+      i18nEarn2H3: "连续打卡", i18nEarn2P: "连续练习3天得 +5 XP,连续7天得 +15 XP。",
+      i18nEarn3H3: "徽章", i18nEarn3P: "收集「第一声」「连续7天」「5天试点」「木槿花开」等徽章。在账户页面可以看到全部。",
+      i18nForestH2: "和朋友一起学,养一片森林", i18nForestSub: "邀请朋友,你们都能获得加成。你带来的每位朋友,都会成为你森林里的一棵树。",
+      i18nFor1H3: "获取邀请链接", i18nFor1P: "加入后你会得到专属邀请码。在 WhatsApp 回复“invite”,随时都能再次获取链接。",
+      i18nFor2H3: "朋友加入", i18nFor2P: "朋友通过你的链接开始,并发送第一条语音消息。你们都能获得额外 XP,你还会获得“第一位朋友”徽章。",
+      i18nFor3H3: "森林成长", i18nFor3P: "朋友是大树,朋友的朋友是小树。等级:幼苗、小树林(3位朋友)、森林(10位)、森林守护者(30位)。",
+      i18nFor4H3: "每周团队目标", i18nFor4P: "每周一起练习。整片森林达成目标,所有人都能获得额外 XP。",
+      i18nForestNote: "奖励只有 XP、徽章和等级——没有现金,也没有佣金。额外 XP 每月有上限。",
+      i18nPriceH2: "简单的价格", i18nPriceSub: "前5天在 WhatsApp 免费体验。想继续的话选择一个方案——所有方案都从14天免费试用开始。",
+      i18nPr1Name: "月付", i18nPr1Per: "/ 月", i18nPr2Name: "6个月", i18nPr2Per: "/ 6个月", i18nPr2Tag: "9折优惠",
+      i18nPr3Name: "年付", i18nPr3Per: "/ 年", i18nPr3Tag: "8折优惠", i18nPriceLink: "查看方案并开始试用 →",
+      i18nSec1H2: "使用方法", i18nSec1Sub: "每天四个小步骤。",
+      i18nCard1H3: "今天的句子送达", i18nCard1P: "一条简短的 WhatsApp 消息,包含3-4个新的韩语短语和一句练习句。",
+      i18nCard2H3: "大声练习", i18nCard2P: "录下自己说这句话的语音,再发回去。",
+      i18nCard3H3: "获得发音反馈", i18nCard3P: "每天都会收到一条简短、诚实的点评,告诉你哪里说对了、哪里需要调整。",
+      i18nSec2H2: "适合这样的你", i18nSec2Sub: "如果你是这样的人,很适合 ——",
+      i18nWho1: "喜欢韩剧或K-pop、想真正听懂而不只是看字幕的人",
+      i18nWho2: "打算去韩国留学或工作、想养成每天的习惯,而不是又下载一个会忘记打开的App",
+      i18nWho3: "只是单纯对韩语好奇——每天五分钟,不需要课本",
+      i18nSec3H2: "温馨提示",
+      i18nKnow1: "这是一个早期试点,还不是最终成品——我正在开发它,希望在正式上线前收到真实的反馈。",
+      i18nKnow2: "5天试用完全免费。无需付款,无需信用卡,没有任何隐藏条件。",
+      i18nKnow3: "每天只需5-10分钟。这周任何一天都可以开始。",
+      i18nFooterLine1: "Hangul Habit——一个小型的每日习惯养成试点项目,目前正在格鲁吉亚第比利斯进行测试。",
+    },
+  };
+</script>
+<script src="lang-switch.js"></script>
+<script>
+  (function () {
+    var btn = document.getElementById("stickyCta");
+    var hero = document.querySelector(".hero");
+    if (!btn || !hero) return;
+    var threshold = hero.offsetTop + hero.offsetHeight;
+    function onScroll() {
+      btn.classList.toggle("visible", window.scrollY > threshold);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  })();
+</script>

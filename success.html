@@ -1,0 +1,127 @@
+<!doctype html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://dhtmddbs2-coder.github.io/success.html">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="Hangul Habit — Payment Complete">
+<meta property="og:description" content="Payment complete — activate your Hangul Habit subscription on WhatsApp.">
+<meta property="og:url" content="https://dhtmddbs2-coder.github.io/success.html">
+<meta property="og:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hangul Habit — Payment Complete">
+<meta name="twitter:description" content="Payment complete — activate your Hangul Habit subscription on WhatsApp.">
+<meta name="twitter:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<title>Hangul Habit — Payment Complete</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --ink: #f3ede1; --ink-dim: #b9c0d6;
+    --ink-faint: #7c85a3; --coral: #ff6b5b; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243,237,225,0.12);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="light"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --ink: #1c1a14; --ink-dim: #514c3e;
+      --ink-faint: #8b8574; --coral: #e14f3e; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28,26,20,0.12);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12172a; --bg-raised: #1a2140; --ink: #f3ede1; --ink-dim: #b9c0d6;
+    --ink-faint: #7c85a3; --coral: #ff6b5b; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243,237,225,0.12);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
+    font-family: "Work Sans", system-ui, sans-serif; line-height: 1.55;
+    display: flex; align-items: center; justify-content: center; padding: 24px;
+  }
+  .card {
+    max-width: 440px; width: 100%; text-align: center;
+    background: var(--bg-raised); border: 1px solid var(--line);
+    border-radius: 20px; padding: 40px 32px;
+  }
+  .kr { font-family: "Black Han Sans", sans-serif; }
+  .eyebrow-kr {
+    display: inline-block; font-family: "Black Han Sans", sans-serif;
+    font-size: 13px; letter-spacing: 0.04em; color: var(--gold);
+    border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    padding: 5px 14px; border-radius: 999px; margin-bottom: 20px;
+  }
+  .obang-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; }
+  .obang-dots span { width: 10px; height: 10px; border-radius: 50%; }
+  .obang-dots span:nth-child(1) { background: #1a3b6e; }
+  .obang-dots span:nth-child(2) { background: #c62b2b; }
+  .obang-dots span:nth-child(3) { background: #d9b64e; }
+  .obang-dots span:nth-child(4) { background: #e7e2d3; border: 1px solid var(--line); }
+  .obang-dots span:nth-child(5) { background: #1a1a1a; }
+  h1 { font-size: 22px; margin: 0 0 10px; }
+  p.lede { color: var(--ink-dim); font-size: 15px; margin: 0 0 28px; }
+  .wa-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--jade); color: #fff; font-weight: 600; font-size: 16px;
+    padding: 15px 26px; border-radius: 12px; text-decoration: none;
+    box-shadow: 0 14px 28px -14px color-mix(in srgb, var(--jade) 70%, transparent);
+  }
+  .wa-btn:hover { filter: brightness(1.05); }
+  .fine { margin-top: 18px; font-size: 13px; color: var(--ink-faint); }
+  .fallback {
+    margin-top: 20px; padding: 14px 16px; border-radius: 10px;
+    background: color-mix(in srgb, var(--coral) 12%, transparent);
+    color: var(--ink-dim); font-size: 13px; display: none;
+  }
+  .fallback.show { display: block; }
+</style>
+
+<div class="card">
+  <div class="obang-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <span class="eyebrow-kr">가입완료 · Payment complete</span>
+  <h1>One more step 🎉</h1>
+  <p class="lede">Tap the button below to send a message on WhatsApp — the moment it arrives,
+    your subscription activates and your first lesson lands tomorrow morning.</p>
+
+  <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener">
+    💬 Open WhatsApp & send it
+  </a>
+
+  <p class="fine">No need to type your number anywhere — the number you message from is the one we register.</p>
+  <p id="fallback" class="fallback">
+    We couldn't find your payment details on this page. Please use the link from your
+    payment confirmation email, or message this number directly:
+    <strong id="fallbackNumber"></strong>
+  </p>
+  <p class="fine"><a href="billing.html" style="color:inherit;">결제 내역 및 영수증은 여기서 확인하세요 →</a></p>
+</div>
+
+<script>
+  // TODO: 실제 왓츠앱 비즈니스 번호로 교체 (지금은 랜딩페이지와 동일한 번호를 임시로 사용)
+  const BUSINESS_NUMBER = "821047848412";
+
+  const params = new URLSearchParams(location.search);
+  // Paddle의 successUrl 리다이렉트는 _ptxn, Gumroad는 sale_id로 거래 ID를 붙여줌
+  const orderId = params.get("_ptxn") || params.get("sale_id") || params.get("order_id") || params.get("order") || "";
+  const email = params.get("email") || "";
+
+  const fallback = document.getElementById("fallback");
+  const fallbackNumber = document.getElementById("fallbackNumber");
+  fallbackNumber.textContent = "+" + BUSINESS_NUMBER.replace(/(\d{2})(\d{2})(\d{4})(\d{4})/, "$1 $2-$3-$4");
+
+  if (!orderId && !email) {
+    fallback.classList.add("show");
+  }
+
+  // order_id를 메시지 본문에 넣어야 웹훅에서 결제 기록과 매칭 가능 — 없으면 이메일로 대체
+  const refText = orderId
+    ? `Hi! I just subscribed to Hangul Habit. Order: ${orderId}`
+    : email
+      ? `Hi! I just subscribed to Hangul Habit. Email: ${email}`
+      : "Hi! I just subscribed to Hangul Habit.";
+
+  document.getElementById("waBtn").href =
+    `https://wa.me/${BUSINESS_NUMBER}?text=${encodeURIComponent(refText)}`;
+</script>

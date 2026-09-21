@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://dhtmddbs2-coder.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="Start your free 5-day Korean pilot">
+<meta property="og:description" content="One Korean sentence a day on WhatsApp, with feedback on your pronunciation. Free for 5 days, no card.">
+<meta property="og:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Start Free Pilot</title>
+<meta name="description" id="metaDescription" content="One Korean sentence a day on WhatsApp, with feedback on your pronunciation. Free for 5 days, no card.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+      --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+      --coral: #e14f3e; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+      --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+    --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+    --coral: #e14f3e; --jade: #1f7d64; --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+    --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.55; }
+  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 0 20px; }
+  .obang-strip { height: 6px; background: repeating-linear-gradient(90deg, #1a3b6e 0 40px, #c62b2b 40px 80px, #d9b64e 80px 120px, #e7e2d3 120px 160px, #1a1a1a 160px 200px); }
+
+  .bar { display: flex; align-items: center; justify-content: space-between; max-width: 520px; margin: 0 auto; padding: 14px 20px; }
+  .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
+  .lang-switch { position: relative; }
+  .lang-switch button { display: flex; align-items: center; gap: 6px; background: var(--bg-inset); border: 1px solid var(--line); color: var(--ink-dim); font: inherit; font-size: 13px; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+  .lang-switch .menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); min-width: 160px; overflow: hidden; padding: 6px; }
+  .lang-switch.open .menu { display: block; }
+  .lang-switch .menu button { all: unset; box-sizing: border-box; display: flex; width: 100%; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); cursor: pointer; }
+  .lang-switch .menu button:hover { background: var(--bg-inset); color: var(--ink); }
+
+  .hero { padding: 28px 0 8px; text-align: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+  .eyebrow::before { content: "●"; font-size: 8px; color: var(--jade); }
+  h1 { font-family: "Black Han Sans", "Work Sans", sans-serif; font-weight: 400; font-size: clamp(26px, 7vw, 34px); line-height: 1.15; margin: 12px 0 12px; text-wrap: balance; }
+  h1 .accent { color: var(--coral); }
+  .sub { color: var(--ink-dim); font-size: 16px; margin: 0 auto; max-width: 40ch; }
+
+  .invite-note { margin: 22px 0 0; padding: 12px 16px; border-radius: 12px; background: color-mix(in srgb, var(--gold) 14%, var(--bg-raised)); border: 1px solid var(--gold); font-size: 14px; text-align: center; }
+  .invite-note:not([hidden]) + .picker { margin-top: 14px; }
+  .picker { margin-top: 26px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 18px; padding: 22px 20px; box-shadow: var(--shadow); }
+  .picker fieldset { border: none; margin: 0 0 20px; padding: 0; }
+  .picker legend { font-weight: 600; font-size: 15px; margin-bottom: 10px; padding: 0; }
+  .picker .opt-tag { font-weight: 400; color: var(--ink-faint); font-size: 13px; }
+  .chips { display: flex; flex-direction: column; gap: 8px; }
+  .chip { position: relative; display: flex; align-items: baseline; gap: 10px; padding: 12px 14px; border-radius: 11px; border: 1px solid var(--line); background: var(--bg-inset); cursor: pointer; }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip .name { font-weight: 600; font-size: 14.5px; flex-shrink: 0; }
+  .chip .desc { font-size: 13px; color: var(--ink-faint); }
+  .chip:has(input:checked) { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 11%, var(--bg-inset)); }
+  .chip:has(input:checked)::after { content: "✓"; margin-left: auto; color: var(--jade); font-weight: 700; }
+  .chip:has(input:focus-visible) { outline: 2px solid var(--coral); outline-offset: 2px; }
+
+  .cta { display: flex; align-items: center; justify-content: center; width: 100%; background: var(--coral); color: #fff9f4; font-weight: 700; font-size: 17px; text-decoration: none; padding: 16px 20px; border-radius: 13px; }
+  .cta:hover { filter: brightness(1.06); }
+  .cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .trust { list-style: none; padding: 0; margin: 16px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 14px; font-size: 13px; color: var(--ink-dim); }
+  .trust li { display: flex; gap: 7px; align-items: baseline; }
+  .trust .tick { color: var(--jade); font-weight: 700; }
+  @media (max-width: 380px) { .trust { grid-template-columns: 1fr; } }
+
+  .what { margin-top: 34px; }
+  .what h2 { font-family: "Black Han Sans", sans-serif; font-weight: 400; font-size: 20px; margin: 0 0 12px; }
+  .what ol { list-style: none; counter-reset: s; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .what li { counter-increment: s; display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--ink-dim); }
+  .what li::before { content: counter(s); flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #1a3b6e; color: #fff; font-family: "Black Han Sans", sans-serif; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+  .more { margin: 22px 0 0; font-size: 14px; text-align: center; }
+  .more a { color: var(--coral); text-decoration: underline; }
+  footer { padding: 30px 0 48px; text-align: center; color: var(--ink-faint); font-size: 12.5px; }
+</style>
+</head>
+<body>
+<div class="obang-strip" aria-hidden="true"></div>
+<div class="bar">
+  <a class="brand" href="index.html">Hangul Habit</a>
+  <div id="langSwitchMount"></div>
+</div>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="eyebrow" id="i18nEyebrow">Free 5-day pilot</span>
+    <h1 id="i18nH1">Speak Korean, one sentence a day — on <span class="accent">WhatsApp</span></h1>
+    <p class="sub" id="i18nSub">Two quick taps and we'll set up your lessons. No card, no signup form.</p>
+  </div>
+
+  <p class="invite-note" id="inviteNote" hidden><span id="i18nInvite">A friend invited you! You'll both get bonus XP after your first voice message.</span></p>
+
+  <form class="picker" id="picker" onsubmit="return false;">
+    <fieldset>
+      <legend id="i18nQ1">Your Korean level</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="level" value="beginner" checked><span class="name" id="i18nLvl1">Beginner</span><span class="desc" id="i18nLvl1D">I'm just starting</span></label>
+        <label class="chip"><input type="radio" name="level" value="intermediate"><span class="name" id="i18nLvl2">Intermediate</span><span class="desc" id="i18nLvl2D">I know the basics</span></label>
+        <label class="chip"><input type="radio" name="level" value="advanced"><span class="name" id="i18nLvl3">Advanced</span><span class="desc" id="i18nLvl3D">I want nuance and idioms</span></label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend><span id="i18nQ2">Why Korean?</span> <span class="opt-tag" id="i18nOpt">(optional)</span></legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="goal" value="kdrama"><span class="name" id="i18nGoal1">K-drama &amp; K-pop</span></label>
+        <label class="chip"><input type="radio" name="goal" value="korea"><span class="name" id="i18nGoal2">Study or work in Korea</span></label>
+        <label class="chip"><input type="radio" name="goal" value="curious"><span class="name" id="i18nGoal3">Just curious</span></label>
+      </div>
+    </fieldset>
+    <a class="cta" id="waCta" href="#" target="_blank" rel="noopener"><span id="i18nCta">Start free on WhatsApp →</span></a>
+    <ul class="trust">
+      <li><span class="tick">✓</span><span id="i18nTrust1">No card needed</span></li>
+      <li><span class="tick">✓</span><span id="i18nTrust2">Cancel anytime</span></li>
+      <li><span class="tick">✓</span><span id="i18nTrust3">Only your WhatsApp number is used</span></li>
+      <li><span class="tick">✓</span><span id="i18nTrust4">Then ₩3,000/month, if you continue</span></li>
+    </ul>
+  </form>
+
+  <section class="what">
+    <h2 id="i18nWhatH2">What happens next</h2>
+    <ol>
+      <li id="i18nWhat1">WhatsApp opens with your choices already typed. Just press send.</li>
+      <li id="i18nWhat2">You get a short welcome, then your first lesson at 9:00 AM KST.</li>
+      <li id="i18nWhat3">Reply with a voice message each day and get feedback on your pronunciation.</li>
+    </ol>
+  </section>
+  <p class="more"><a href="index.html" id="i18nMore">See the full walkthrough →</a></p>
+</main>
+
+<footer>
+  <p id="i18nFooter">Hangul Habit — an early daily-habit pilot, currently testing in Tbilisi, Georgia.</p>
+</footer>
+
+<script>
+  (function () {
+    var NUMBER = "821047848412";
+    var REF_PATTERN = /^[A-Za-z0-9_-]{1,40}$/;
+
+    function cleanRef(value) {
+      if (!value) return null;
+      var cleaned = String(value).replace(/[^A-Za-z0-9_-]/g, "_").slice(0, 40);
+      return REF_PATTERN.test(cleaned) ? cleaned : null;
+    }
+    function readRef() {
+      var q = new URLSearchParams(window.location.search);
+      var fromParams = cleanRef(q.get("ref")) || cleanRef(q.get("code")) ||
+        cleanRef([q.get("utm_source"), q.get("utm_campaign")].filter(Boolean).join("_"));
+      return fromParams || "start";
+    }
+    var ref = readRef();
+    if (/^HH-[A-Za-z0-9]{5}$/i.test(ref)) document.getElementById("inviteNote").hidden = false;
+
+    function buildMessage() {
+      var level = document.querySelector('input[name="level"]:checked').value;
+      var goalEl = document.querySelector('input[name="goal"]:checked');
+      var text = "Hi! I'd like to join the Hangul Habit 5-day pilot. Level: " + level + ".";
+      if (goalEl) text += " Goal: " + goalEl.value + ".";
+      return text + " Ref: " + ref;
+    }
+    function refresh() {
+      document.getElementById("waCta").href = "https://wa.me/" + NUMBER + "?text=" + encodeURIComponent(buildMessage());
+    }
+    document.getElementById("picker").addEventListener("change", refresh);
+    refresh();
+  })();
+</script>
+<script>
+  window.PAGE_TRANSLATIONS = {
+    en: {
+      metaDescription: "One Korean sentence a day on WhatsApp, with feedback on your pronunciation. Free for 5 days, no card.",
+      i18nEyebrow: "Free 5-day pilot",
+      i18nH1: 'Speak Korean, one sentence a day — on <span class="accent">WhatsApp</span>',
+      i18nSub: "Two quick taps and we'll set up your lessons. No card, no signup form.",
+      i18nQ1: "Your Korean level", i18nLvl1: "Beginner", i18nLvl1D: "I'm just starting", i18nLvl2: "Intermediate", i18nLvl2D: "I know the basics", i18nLvl3: "Advanced", i18nLvl3D: "I want nuance and idioms",
+      i18nQ2: "Why Korean?", i18nOpt: "(optional)", i18nGoal1: "K-drama &amp; K-pop", i18nGoal2: "Study or work in Korea", i18nGoal3: "Just curious",
+      i18nCta: "Start free on WhatsApp →",
+      i18nTrust1: "No card needed", i18nTrust2: "Cancel anytime", i18nTrust3: "Only your WhatsApp number is used", i18nTrust4: "Then ₩3,000/month, if you continue",
+      i18nWhatH2: "What happens next",
+      i18nWhat1: "WhatsApp opens with your choices already typed. Just press send.",
+      i18nWhat2: "You get a short welcome, then your first lesson at 9:00 AM KST.",
+      i18nWhat3: "Reply with a voice message each day and get feedback on your pronunciation.",
+      i18nMore: "See the full walkthrough →",
+      i18nInvite: "A friend invited you! You'll both get bonus XP after your first voice message.",
+      i18nFooter: "Hangul Habit — an early daily-habit pilot, currently testing in Tbilisi, Georgia.",
+    },
+    ja: {
+      metaDescription: "WhatsAppで毎日1文の韓国語。発音へのフィードバック付き。5日間無料、カード不要。",
+      i18nEyebrow: "5日間無料パイロット",
+      i18nH1: '1日1文、<span class="accent">WhatsApp</span>で韓国語を話そう',
+      i18nSub: "2回タップするだけで、レッスンを設定します。カードも登録フォームも不要です。",
+      i18nQ1: "韓国語のレベル", i18nLvl1: "初級", i18nLvl1D: "これから始めます", i18nLvl2: "中級", i18nLvl2D: "基本は分かります", i18nLvl3: "上級", i18nLvl3D: "ニュアンスや慣用句を学びたい",
+      i18nQ2: "韓国語を学ぶ理由は?", i18nOpt: "(任意)", i18nGoal1: "K-ドラマ・K-POP", i18nGoal2: "韓国での留学・仕事", i18nGoal3: "なんとなく興味がある",
+      i18nCta: "WhatsAppで無料で始める →",
+      i18nTrust1: "カード不要", i18nTrust2: "いつでもキャンセル", i18nTrust3: "使うのはWhatsAppの番号だけ", i18nTrust4: "続ける場合は月額₩3,000",
+      i18nWhatH2: "このあとの流れ",
+      i18nWhat1: "選んだ内容が入力された状態でWhatsAppが開きます。送信を押すだけです。",
+      i18nWhat2: "短いウェルカムメッセージのあと、韓国時間の午前9:00に最初のレッスンが届きます。",
+      i18nWhat3: "毎日ボイスメッセージで返信すると、発音へのフィードバックがもらえます。",
+      i18nMore: "詳しい流れを見る →",
+      i18nInvite: "友だちから招待されました!最初のボイスメッセージを送ると、2人ともボーナスXPがもらえます。",
+      i18nFooter: "Hangul Habit — ジョージア・トビリシで試験中の、小さな毎日習慣パイロットです。",
+    },
+    ka: {
+      metaDescription: "დღეში ერთი კორეული წინადადება WhatsApp-ში, გამოთქმის შეფასებით. 5 დღე უფასოდ, ბარათის გარეშე.",
+      i18nEyebrow: "უფასო 5-დღიანი პილოტი",
+      i18nH1: 'ისაუბრეთ კორეულად, დღეში ერთი წინადადება — <span class="accent">WhatsApp</span>-ში',
+      i18nSub: "ორი შეხება და გაკვეთილებს მოგიწყობთ. ბარათი და რეგისტრაციის ფორმა საჭირო არ არის.",
+      i18nQ1: "თქვენი კორეულის დონე", i18nLvl1: "დამწყები", i18nLvl1D: "ახლა ვიწყებ", i18nLvl2: "საშუალო", i18nLvl2D: "საფუძვლები ვიცი", i18nLvl3: "მაღალი", i18nLvl3D: "ნიუანსები და იდიომები მინდა",
+      i18nQ2: "რატომ კორეული?", i18nOpt: "(არასავალდებულო)", i18nGoal1: "K-დრამა და K-pop", i18nGoal2: "სწავლა ან მუშაობა კორეაში", i18nGoal3: "უბრალოდ მაინტერესებს",
+      i18nCta: "დაიწყეთ უფასოდ WhatsApp-ში →",
+      i18nTrust1: "ბარათი საჭირო არ არის", i18nTrust2: "გაუქმება ნებისმიერ დროს", i18nTrust3: "გამოიყენება მხოლოდ თქვენი WhatsApp ნომერი", i18nTrust4: "გაგრძელების შემთხვევაში ₩3,000 თვეში",
+      i18nWhatH2: "რა მოხდება შემდეგ",
+      i18nWhat1: "WhatsApp გაიხსნება უკვე შევსებული არჩევანით. უბრალოდ გააგზავნეთ.",
+      i18nWhat2: "მიიღებთ მოკლე მისალმებას, შემდეგ კი პირველ გაკვეთილს კორეის დროით 9:00 საათზე.",
+      i18nWhat3: "ყოველდღე უპასუხეთ ხმოვანი შეტყობინებით და მიიღეთ შეფასება გამოთქმაზე.",
+      i18nMore: "იხილეთ სრული აღწერა →",
+      i18nInvite: "მეგობარმა მოგიწვიათ! პირველი ხმოვანი შეტყობინების შემდეგ ორივე მიიღებთ ბონუს XP-ს.",
+      i18nFooter: "Hangul Habit — ყოველდღიური ჩვევის ადრეული პილოტი, ამჟამად თბილისში ტესტირდება.",
+    },
+    zh: {
+      metaDescription: "每天在WhatsApp学一句韩语,并获得发音反馈。免费5天,无需信用卡。",
+      i18nEyebrow: "免费5天试点",
+      i18nH1: '每天一句,在<span class="accent">WhatsApp</span>里开口说韩语',
+      i18nSub: "点两下,我们就为你安排好课程。无需信用卡,也无需填写注册表。",
+      i18nQ1: "你的韩语水平", i18nLvl1: "初级", i18nLvl1D: "刚刚开始", i18nLvl2: "中级", i18nLvl2D: "掌握基础", i18nLvl3: "高级", i18nLvl3D: "想学语感和惯用语",
+      i18nQ2: "为什么学韩语?", i18nOpt: "(可选)", i18nGoal1: "韩剧和K-pop", i18nGoal2: "去韩国学习或工作", i18nGoal3: "只是好奇",
+      i18nCta: "在WhatsApp免费开始 →",
+      i18nTrust1: "无需信用卡", i18nTrust2: "随时取消", i18nTrust3: "只使用你的WhatsApp号码", i18nTrust4: "继续使用每月₩3,000",
+      i18nWhatH2: "接下来会发生什么",
+      i18nWhat1: "WhatsApp会打开,并已填好你的选择。直接点发送即可。",
+      i18nWhat2: "你会先收到一条简短的欢迎消息,然后在韩国时间上午9:00收到第一课。",
+      i18nWhat3: "每天用语音消息回复,即可获得发音反馈。",
+      i18nMore: "查看完整流程 →",
+      i18nInvite: "朋友邀请了你!你发送第一条语音消息后,你们双方都能获得额外 XP。",
+      i18nFooter: "Hangul Habit — 一个早期的每日习惯试点,目前正在格鲁吉亚第比利斯测试。",
+    },
+  };
+</script>
+<script src="lang-switch.js"></script>
+</body>
+</html>

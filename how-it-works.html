@@ -1,0 +1,408 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://dhtmddbs2-coder.github.io/how-it-works.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="How it works — Hangul Habit">
+<meta property="og:description" content="What the 5-day Hangul Habit pilot actually looks like, day by day, plus answers to the questions people ask before joining.">
+<meta property="og:url" content="https://dhtmddbs2-coder.github.io/how-it-works.html">
+<meta property="og:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How it works — Hangul Habit">
+<meta name="twitter:description" content="What the 5-day Hangul Habit pilot actually looks like, day by day, plus answers to the questions people ask before joining.">
+<meta name="twitter:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<title>How it works — Hangul Habit</title>
+<meta name="description" id="metaDescription" content="What the 5-day Hangul Habit pilot actually looks like, day by day, plus answers to the questions people ask before joining.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --coral-dim: #c94c3f; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --bubble-in: #232a4d; --bubble-out: #1f6f5c;
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="light"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+      --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+      --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+      --bubble-in: #efe9db; --bubble-out: #1f7d64;
+      --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+    --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+    --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+    --bubble-in: #efe9db; --bubble-out: #1f7d64;
+    --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+  .obang-strip { height: 6px; background: repeating-linear-gradient(90deg, #1a3b6e 0 40px, #c62b2b 40px 80px, #d9b64e 80px 120px, #e7e2d3 120px 160px, #1a1a1a 160px 200px); }
+
+  nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 680px; margin: 0 auto; padding: 18px 24px; }
+  nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; }
+  nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
+  nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
+  .lang-switch { position: relative; }
+  .lang-switch button { display: flex; align-items: center; gap: 6px; background: var(--bg-inset); border: 1px solid var(--line); color: var(--ink-dim); font: inherit; font-size: 13px; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch .menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); min-width: 160px; overflow: hidden; padding: 6px; }
+  .lang-switch.open .menu { display: block; }
+  .lang-switch .menu button { all: unset; box-sizing: border-box; display: flex; width: 100%; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); cursor: pointer; }
+  .lang-switch .menu button:hover { background: var(--bg-inset); color: var(--ink); }
+
+  .pagehero { padding: 48px 0 12px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+  .eyebrow::before { content: "●"; font-size: 8px; color: var(--jade); }
+  h1.kr { font-size: clamp(26px, 4.4vw, 36px); margin: 10px 0 12px; text-wrap: balance; line-height: 1.15; }
+  .lede { font-size: 18px; color: var(--ink-dim); max-width: 52ch; text-wrap: balance; }
+
+  section.block { padding: 40px 0; border-top: 1px solid var(--line); }
+  section.block h2 { font-size: clamp(20px, 3vw, 24px); margin: 0 0 6px; text-wrap: balance; }
+  section.block > p.sub { color: var(--ink-dim); margin: 0 0 24px; font-size: 15px; }
+
+  /* ---------- Day timeline (animated pipeline) ---------- */
+  .day-list { display: flex; flex-direction: column; gap: 12px; position: relative; }
+  .day-list::before {
+    content: ""; position: absolute; left: 21px; top: 22px; bottom: 22px; width: 2px;
+    background: var(--line); z-index: 0;
+  }
+  .day {
+    display: grid; grid-template-columns: 44px 1fr; gap: 14px;
+    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px 18px; box-shadow: var(--shadow); position: relative; z-index: 1;
+    opacity: 0; transform: translateX(-18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .day.visible { opacity: 1; transform: translateX(0); }
+  .day .num {
+    width: 44px; height: 44px; border-radius: 50%; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Black Han Sans", sans-serif; font-size: 16px;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(0.6);
+  }
+  .day.visible .num { transform: scale(1); }
+  .day:nth-child(1) .num { background: #1a3b6e; }
+  .day:nth-child(2) .num { background: #c62b2b; }
+  .day:nth-child(3) .num { background: #d9b64e; color: #2a2110; }
+  .day:nth-child(4) .num { background: #1a1a1a; }
+  .day:nth-child(5) .num { background: var(--jade); }
+  .day h3 { margin: 0 0 4px; font-size: 15.5px; }
+  .day p { margin: 0; font-size: 14px; color: var(--ink-dim); }
+  @media (prefers-reduced-motion: reduce) {
+    .day, .day .num { opacity: 1; transform: none; transition: none; }
+    .day-list::before { display: none; }
+  }
+
+  /* ---------- Sample message ---------- */
+  .phone { margin: 8px auto 0; max-width: 320px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); overflow: hidden; text-align: left; }
+  .phone-body { padding: 16px; display: flex; flex-direction: column; gap: 9px; }
+  .bubble { padding: 9px 13px; border-radius: 15px; font-size: 13.5px; max-width: 86%; }
+  .bubble.in { background: var(--bubble-in); border-bottom-left-radius: 4px; align-self: flex-start; }
+  .bubble.out { background: var(--bubble-out); color: #f3ede1; border-bottom-right-radius: 4px; align-self: flex-end; }
+  .bubble .kr-word { color: var(--gold); font-weight: 600; }
+  .speak-btn {
+    all: unset; display: inline-flex; align-items: center; justify-content: center;
+    width: 20px; height: 20px; margin-left: 3px; border-radius: 50%; cursor: pointer;
+    font-size: 12px; vertical-align: -3px; background: color-mix(in srgb, var(--gold) 20%, transparent);
+    transition: transform 0.15s ease;
+  }
+  .speak-btn:hover { background: color-mix(in srgb, var(--gold) 35%, transparent); }
+  .speak-btn.speaking { animation: speak-pulse 0.5s ease infinite; }
+  @keyframes speak-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+
+  /* ---------- FAQ ---------- */
+  .faq-item { padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 { margin: 0 0 6px; font-size: 15.5px; }
+  .faq-item p { margin: 0; font-size: 14.5px; color: var(--ink-dim); }
+
+  .cta-row { text-align: center; margin: 8px 0 4px; }
+  .cta { display: inline-flex; align-items: center; gap: 10px; background: var(--coral); color: #fff9f4; font-weight: 600; font-size: 16px; padding: 14px 26px; border-radius: 12px; text-decoration: none; box-shadow: 0 14px 28px -14px color-mix(in srgb, var(--coral) 70%, transparent); }
+
+  footer { padding: 40px 0 60px; text-align: center; color: var(--ink-faint); font-size: 13px; }
+  footer .kr { font-size: 15px; color: var(--ink-dim); margin-bottom: 6px; }
+  footer a { text-decoration: underline; }
+</style>
+
+<div class="obang-strip" aria-hidden="true"></div>
+<nav class="topnav">
+  <a class="brand" href="index.html">Hangul Habit</a>
+  <div class="links">
+    <a href="about.html" id="navAbout">About</a>
+    <a href="how-it-works.html" aria-current="page" id="navHow">How it works</a>
+    <a href="pricing.html" id="navPricing">Pricing</a>
+    <a href="login.html" id="navSignin">Sign in / Sign up</a>
+    <div id="langSwitchMount"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="pagehero">
+      <span class="eyebrow" id="i18nEyebrow">How it works</span>
+      <h1 class="kr" id="i18nH1">Five days, five real conversations</h1>
+      <p class="lede" id="i18nLede">No app to install, no vocabulary lists to memorize on your own. Here's exactly what
+        the 5-day pilot looks like, day by day.</p>
+    </div>
+
+    <section class="block">
+      <h2 id="i18nRhythmH2">The daily rhythm</h2>
+      <p class="sub" id="i18nRhythmSub">Every day follows the same three steps — so there's nothing new to figure out after day one.</p>
+      <div class="phone">
+        <div class="phone-body">
+          <div class="bubble in" id="i18nBubble1">Today's 3 phrases:<br>
+            <span class="kr-word">이거 주세요</span><button class="speak-btn" type="button" data-speak="이거 주세요">🔊</button> — This one, please<br>
+            <span class="kr-word">맛있어요</span><button class="speak-btn" type="button" data-speak="맛있어요">🔊</button> — It's delicious
+          </div>
+          <div class="bubble in" id="i18nBubble2">Record yourself ordering: <strong>"이거 주세요, 그리고 물 주세요"</strong></div>
+          <div class="bubble out" id="i18nBubble3">🎤 0:08 voice message</div>
+          <div class="bubble in" id="i18nBubble4">발음 좋아요! Just soften the "geo" sound a little. 화이팅! 💪</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 id="i18nCurricH2">What the 5 days cover</h2>
+      <p class="sub" id="i18nCurricSub">A real walkthrough of the pilot's actual content — this is the same curriculum every participant gets.</p>
+      <div class="day-list">
+        <div class="day">
+          <div class="num">1</div>
+          <div><h3 id="i18nDay1H3">Greetings</h3><p id="i18nDay1P">Say hello, introduce yourself, and thank someone — the three phrases you'll actually use in every conversation that follows.</p></div>
+        </div>
+        <div class="day">
+          <div class="num">2</div>
+          <div><h3 id="i18nDay2H3">Numbers &amp; counting</h3><p id="i18nDay2P">Enough to order, ask a price, or tell someone your age without freezing up.</p></div>
+        </div>
+        <div class="day">
+          <div class="num">3</div>
+          <div><h3 id="i18nDay3H3">Family</h3><p id="i18nDay3P">Talk about who you live with and who's important to you — a natural next topic once you can say hello.</p></div>
+        </div>
+        <div class="day">
+          <div class="num">4</div>
+          <div><h3 id="i18nDay4H3">Food &amp; drink</h3><p id="i18nDay4P">Order at a restaurant, say something's delicious, ask for water — the phrases from the sample above.</p></div>
+        </div>
+        <div class="day">
+          <div class="num">5</div>
+          <div><h3 id="i18nDay5H3">Week 1 review</h3><p id="i18nDay5P">Combine everything into one voice message — greet, order, and react — plus a short check-in on how the week felt.</p></div>
+        </div>
+      </div>
+      <p class="sub" style="margin: 20px 0 0;" id="i18nCurricAfter">Stick around after day 5 and the curriculum keeps going — directions, making plans, small talk, and more.</p>
+    </section>
+
+    <section class="block">
+      <h2 id="i18nFaqH2">Frequently asked</h2>
+      <div class="faq-item">
+        <h3 id="i18nFaq1Q">Is the 5-day trial really free?</h3>
+        <p id="i18nFaq1A">Yes. No card, no signup form — you just message on WhatsApp to start, and the first 5 days cost nothing.</p>
+      </div>
+      <div class="faq-item">
+        <h3 id="i18nFaq2Q">I don't know any Korean at all. Is that okay?</h3>
+        <p id="i18nFaq2A">That's who this is built for. Day 1 starts from zero — your first word is literally "hello."</p>
+      </div>
+      <div class="faq-item">
+        <h3 id="i18nFaq3Q">Do I need to download an app?</h3>
+        <p id="i18nFaq3A">No. Everything happens inside WhatsApp, which you almost certainly already have open every day.</p>
+      </div>
+      <div class="faq-item">
+        <h3 id="i18nFaq4Q">Who gives the feedback — a person or an AI?</h3>
+        <p id="i18nFaq4A">A real person listens to your voice messages and replies. See the <a href="about.html">About page</a> for who that is.</p>
+      </div>
+      <div class="faq-item">
+        <h3 id="i18nFaq5Q">What happens after day 5?</h3>
+        <p id="i18nFaq5A">You can simply stop — no charge, no follow-up pressure. If you want to keep going, there's a paid
+          monthly plan that continues the same daily format, cancel anytime.</p>
+      </div>
+      <div class="faq-item">
+        <h3 id="i18nFaq6Q">What languages is feedback given in?</h3>
+        <p id="i18nFaq6A">English, with Georgian support for the current Tbilisi pilot group. If you'd prefer another language, just ask — happy to figure something out.</p>
+      </div>
+      <div class="faq-item">
+        <h3 id="i18nFaq7Q">Still not sure?</h3>
+        <p id="i18nFaq7A">Email <a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a> before joining — a real reply, not a bot.</p>
+      </div>
+    </section>
+
+    <div class="cta-row" style="padding: 20px 0 40px;">
+      <a class="cta" href="index.html#top" id="i18nBackCta">← Back to start the pilot</a>
+    </div>
+  </div>
+
+  <footer>
+    <p class="kr">화이팅! 🇰🇷</p>
+    <p id="i18nFooterLine1">Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.</p>
+    <p style="margin-top:14px;">
+      <a href="index.html" id="navHome2">Home</a> · <a href="about.html" id="navAbout2">About</a> · <a href="mailto:dhtmddbs2@gmail.com" id="navContact2">Contact</a>
+    </p>
+  </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-nav.js"></script>
+<script src="speak.js"></script>
+<script>
+  window.PAGE_TRANSLATIONS = {
+    en: {
+      metaDescription: "What the 5-day Hangul Habit pilot actually looks like, day by day, plus answers to the questions people ask before joining.",
+      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navSignin: "Sign in / Sign up",
+      navHome2: "Home", navAbout2: "About", navContact2: "Contact",
+      i18nEyebrow: "How it works",
+      i18nH1: "Five days, five real conversations",
+      i18nLede: "No app to install, no vocabulary lists to memorize on your own. Here's exactly what the 5-day pilot looks like, day by day.",
+      i18nRhythmH2: "The daily rhythm",
+      i18nRhythmSub: "Every day follows the same three steps — so there's nothing new to figure out after day one.",
+      i18nBubble1: 'Today\'s 3 phrases:<br><span class="kr-word">이거 주세요</span><button class="speak-btn" type="button" data-speak="이거 주세요">🔊</button> — This one, please<br><span class="kr-word">맛있어요</span><button class="speak-btn" type="button" data-speak="맛있어요">🔊</button> — It\'s delicious',
+      i18nBubble2: 'Record yourself ordering: <strong>"이거 주세요, 그리고 물 주세요"</strong>',
+      i18nBubble3: "🎤 0:08 voice message",
+      i18nBubble4: '발음 좋아요! Just soften the "geo" sound a little. 화이팅! 💪',
+      i18nCurricH2: "What the 5 days cover",
+      i18nCurricSub: "A real walkthrough of the pilot's actual content — this is the same curriculum every participant gets.",
+      i18nDay1H3: "Greetings", i18nDay1P: "Say hello, introduce yourself, and thank someone — the three phrases you'll actually use in every conversation that follows.",
+      i18nDay2H3: "Numbers &amp; counting", i18nDay2P: "Enough to order, ask a price, or tell someone your age without freezing up.",
+      i18nDay3H3: "Family", i18nDay3P: "Talk about who you live with and who's important to you — a natural next topic once you can say hello.",
+      i18nDay4H3: "Food &amp; drink", i18nDay4P: "Order at a restaurant, say something's delicious, ask for water — the phrases from the sample above.",
+      i18nDay5H3: "Week 1 review", i18nDay5P: "Combine everything into one voice message — greet, order, and react — plus a short check-in on how the week felt.",
+      i18nCurricAfter: "Stick around after day 5 and the curriculum keeps going — directions, making plans, small talk, and more.",
+      i18nFaqH2: "Frequently asked",
+      i18nFaq1Q: "Is the 5-day trial really free?", i18nFaq1A: "Yes. No card, no signup form — you just message on WhatsApp to start, and the first 5 days cost nothing.",
+      i18nFaq2Q: "I don't know any Korean at all. Is that okay?", i18nFaq2A: "That's who this is built for. Day 1 starts from zero — your first word is literally \"hello.\"",
+      i18nFaq3Q: "Do I need to download an app?", i18nFaq3A: "No. Everything happens inside WhatsApp, which you almost certainly already have open every day.",
+      i18nFaq4Q: "Who gives the feedback — a person or an AI?", i18nFaq4A: 'A real person listens to your voice messages and replies. See the <a href="about.html">About page</a> for who that is.',
+      i18nFaq5Q: "What happens after day 5?", i18nFaq5A: "You can simply stop — no charge, no follow-up pressure. If you want to keep going, there's a paid monthly plan that continues the same daily format, cancel anytime.",
+      i18nFaq6Q: "What languages is feedback given in?", i18nFaq6A: "English, with Georgian support for the current Tbilisi pilot group. If you'd prefer another language, just ask — happy to figure something out.",
+      i18nFaq7Q: "Still not sure?", i18nFaq7A: 'Email <a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a> before joining — a real reply, not a bot.',
+      i18nBackCta: "← Back to start the pilot",
+      i18nFooterLine1: "Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.",
+    },
+    ja: {
+      metaDescription: "5日間のHangul Habitパイロットが実際にどんなものか、1日ごとの流れと、参加前によく聞かれる質問への答え。",
+      navAbout: "概要", navHow: "使い方", navPricing: "料金", navSignin: "ログイン / 新規登録",
+      navHome2: "ホーム", navAbout2: "概要", navContact2: "お問い合わせ",
+      i18nEyebrow: "使い方",
+      i18nH1: "5日間、5つの本物の会話",
+      i18nLede: "インストールするアプリも、自分で覚える単語リストもありません。5日間のパイロットが1日ごとにどんな内容か、正確にご紹介します。",
+      i18nRhythmH2: "毎日のリズム",
+      i18nRhythmSub: "毎日同じ3ステップを繰り返すだけ — なので1日目以降、新しく戸惑うことはありません。",
+      i18nBubble1: '今日の3フレーズ:<br><span class="kr-word">이거 주세요</span><button class="speak-btn" type="button" data-speak="이거 주세요">🔊</button> — これください<br><span class="kr-word">맛있어요</span><button class="speak-btn" type="button" data-speak="맛있어요">🔊</button> — おいしいです',
+      i18nBubble2: '注文する練習を録音してみましょう:<strong>「이거 주세요, 그리고 물 주세요」</strong>',
+      i18nBubble3: "🎤 0:08 ボイスメッセージ",
+      i18nBubble4: '발음 좋아요!(発音いいですね!)「geo」の音をもう少し柔らかく。화이팅(ファイティン)! 💪',
+      i18nCurricH2: "5日間の内容",
+      i18nCurricSub: "パイロットの実際の内容をそのままご紹介 — 参加者全員が同じカリキュラムを受けます。",
+      i18nDay1H3: "あいさつ", i18nDay1P: "挨拶する、自己紹介する、お礼を言う — この後のすべての会話で実際に使う3フレーズです。",
+      i18nDay2H3: "数字と数え方", i18nDay2P: "注文したり、値段を聞いたり、年齢を伝えたりするのに十分な内容です。",
+      i18nDay3H3: "家族", i18nDay3P: "誰と住んでいるか、誰が大切かについて話します — 挨拶ができるようになった後の自然な次のトピックです。",
+      i18nDay4H3: "食べ物と飲み物", i18nDay4P: "レストランで注文する、おいしいと言う、水をお願いする — 上のサンプルにあったフレーズです。",
+      i18nDay5H3: "1週目の復習", i18nDay5P: "挨拶・注文・反応をすべて1つのボイスメッセージにまとめます — 加えて、その週がどうだったかの短い振り返りも。",
+      i18nCurricAfter: "5日目を過ぎても続けると、カリキュラムはさらに続きます — 道案内、予定を立てる、雑談など。",
+      i18nFaqH2: "よくある質問",
+      i18nFaq1Q: "5日間のトライアルは本当に無料ですか?", i18nFaq1A: "はい。カードも申込フォームも不要 — WhatsAppでメッセージを送るだけで始まり、最初の5日間は無料です。",
+      i18nFaq2Q: "韓国語が全く分かりません。大丈夫ですか?", i18nFaq2A: "まさにそのための設計です。1日目はゼロから始まります — 最初の言葉は文字通り「こんにちは」です。",
+      i18nFaq3Q: "アプリをダウンロードする必要がありますか?", i18nFaq3A: "いいえ。すべてWhatsAppの中で完結します。あなたも毎日ほぼ確実に開いているはずです。",
+      i18nFaq4Q: "フィードバックをくれるのは人ですか、AIですか?", i18nFaq4A: '実在の人間があなたのボイスメッセージを聞いて返信します。それが誰かは<a href="about.html">概要ページ</a>をご覧ください。',
+      i18nFaq5Q: "5日目の後はどうなりますか?", i18nFaq5A: "そのまま何もせずやめることもできます — 料金も催促もありません。続けたい場合は、同じ毎日の形式が続く月額有料プランがあり、いつでもキャンセルできます。",
+      i18nFaq6Q: "フィードバックは何語で行われますか?", i18nFaq6A: "英語で、現在のトビリシのパイロットグループにはジョージア語サポートもあります。他の言語がよければ聞いてください — 喜んで対応方法を考えます。",
+      i18nFaq7Q: "まだ迷っていますか?", i18nFaq7A: '参加前に<a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a>までメールしてください — 本物の返信が届きます、ボットではありません。',
+      i18nBackCta: "← パイロットを始める画面に戻る",
+      i18nFooterLine1: "Hangul Habit — 小さな毎日の習慣づくりパイロット。現在ジョージア・トビリシでテスト中です。",
+    },
+    ka: {
+      metaDescription: "როგორ გამოიყურება Hangul Habit-ის 5-დღიანი საცდელი პროექტი დღეების მიხედვით, პლუს პასუხები კითხვებზე, რომლებსაც ადამიანები სვამენ შეერთებამდე.",
+      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navSignin: "შესვლა / რეგისტრაცია",
+      navHome2: "მთავარი", navAbout2: "შესახებ", navContact2: "კონტაქტი",
+      i18nEyebrow: "როგორ მუშაობს",
+      i18nH1: "ხუთი დღე, ხუთი რეალური საუბარი",
+      i18nLede: "არანაირი აპლიკაცია დასაყენებლად, არანაირი სიტყვების სია დასამახსოვრებლად მარტო. აი, ზუსტად როგორ გამოიყურება 5-დღიანი საცდელი პროექტი, დღეების მიხედვით.",
+      i18nRhythmH2: "ყოველდღიური რიტმი",
+      i18nRhythmSub: "ყოველი დღე იმეორებს იმავე სამ ნაბიჯს — ასე რომ პირველი დღის შემდეგ ახალი არაფერია გასარკვევი.",
+      i18nBubble1: 'დღევანდელი 3 ფრაზა:<br><span class="kr-word">이거 주세요</span><button class="speak-btn" type="button" data-speak="이거 주세요">🔊</button> — ეს მომეცით<br><span class="kr-word">맛있어요</span><button class="speak-btn" type="button" data-speak="맛있어요">🔊</button> — გემრიელია',
+      i18nBubble2: 'ჩაწერეთ საკუთარი ხმით შეკვეთა: <strong>„이거 주세요, 그리고 물 주세요"</strong>',
+      i18nBubble3: "🎤 0:08 ხმოვანი შეტყობინება",
+      i18nBubble4: '발음 좋아요! უბრალოდ „geo" ბგერა გაარბილეთ ცოტა. 화이팅(ფაითინგ)! 💪',
+      i18nCurricH2: "რას მოიცავს 5 დღე",
+      i18nCurricSub: "საცდელი პროექტის რეალური შინაარსის ჩვენება — ეს იგივე სასწავლო გეგმაა, რომელსაც ყველა მონაწილე იღებს.",
+      i18nDay1H3: "მისალმებები", i18nDay1P: "მიესალმეთ, გააცანით საკუთარი თავი და მადლობა გადაუხადეთ ვინმეს — სამი ფრაზა, რომელსაც რეალურად გამოიყენებთ ყოველ შემდგომ საუბარში.",
+      i18nDay2H3: "რიცხვები და თვლა", i18nDay2P: "საკმარისი, რომ შეუკვეთოთ, ფასი იკითხოთ ან ვინმეს თქვენი ასაკი უთხრათ დაბნეულობის გარეშე.",
+      i18nDay3H3: "ოჯახი", i18nDay3P: "ისაუბრეთ იმაზე, ვისთანაც ცხოვრობთ და ვინ არის თქვენთვის მნიშვნელოვანი — ბუნებრივი შემდეგი თემა მას შემდეგ, რაც მისალმება იცით.",
+      i18nDay4H3: "საკვები და სასმელი", i18nDay4P: "შეუკვეთეთ რესტორანში, თქვით, რომ რამე გემრიელია, წყალი ითხოვეთ — ფრაზები ზემოთ მოცემული მაგალითიდან.",
+      i18nDay5H3: "1-ლი კვირის მიმოხილვა", i18nDay5P: "გააერთიანეთ ყველაფერი ერთ ხმოვან შეტყობინებაში — მისალმება, შეკვეთა და რეაქცია — პლუს მოკლე შემოწმება იმაზე, როგორი იყო კვირა.",
+      i18nCurricAfter: "დარჩით 5-ე დღის შემდეგაც და სასწავლო გეგმა გრძელდება — მიმართულებები, გეგმების დაგეგმვა, პატარა საუბრები და მეტი.",
+      i18nFaqH2: "ხშირად დასმული კითხვები",
+      i18nFaq1Q: "5-დღიანი საცდელი პერიოდი ნამდვილად უფასოა?", i18nFaq1A: "დიახ. არანაირი ბარათი, არანაირი სარეგისტრაციო ფორმა — უბრალოდ წერთ WhatsApp-ში დასაწყებად, და პირველი 5 დღე არაფერი ღირს.",
+      i18nFaq2Q: "საერთოდ არ ვიცი კორეული. კარგია ეს?", i18nFaq2A: "სწორედ ამისთვისაა შექმნილი. 1-ლი დღე ნულიდან იწყება — თქვენი პირველი სიტყვა სიტყვასიტყვით „გამარჯობა\".",
+      i18nFaq3Q: "საჭიროა თუ არა აპლიკაციის ჩამოტვირთვა?", i18nFaq3A: "არა. ყველაფერი ხდება WhatsApp-ში, რომელიც თითქმის ნამდვილად ყოველდღე გახსნილი გაქვთ.",
+      i18nFaq4Q: "ვინ იძლევა გამოხმაურებას — ადამიანი თუ AI?", i18nFaq4A: 'რეალური ადამიანი უსმენს თქვენს ხმოვან შეტყობინებებს და პასუხობს. ნახეთ <a href="about.html">გვერდი „შესახებ"</a>, ვინ არის ეს.',
+      i18nFaq5Q: "რა ხდება მე-5 დღის შემდეგ?", i18nFaq5A: "შეგიძლიათ უბრალოდ შეწყვიტოთ — არანაირი გადასახადი, არანაირი დაწოლა. თუ გსურთ გაგრძელება, არსებობს ფასიანი ყოველთვიური გეგმა, რომელიც აგრძელებს იმავე ყოველდღიურ ფორმატს, ნებისმიერ დროს გასაუქმებელი.",
+      i18nFaq6Q: "რა ენებზეა გამოხმაურება?", i18nFaq6A: "ინგლისურად, ქართული მხარდაჭერით ამჟამინდელი თბილისის საცდელი ჯგუფისთვის. თუ სხვა ენას ამჯობინებთ, უბრალოდ მკითხეთ — სიამოვნებით მოვძებნით გამოსავალს.",
+      i18nFaq7Q: "ჯერ კიდევ არ ხართ დარწმუნებული?", i18nFaq7A: 'მომწერეთ <a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a>-ზე შეერთებამდე — რეალური პასუხი მოგივათ, არა ბოტი.',
+      i18nBackCta: "← უკან, საცდელი პროექტის დასაწყებად",
+      i18nFooterLine1: "Hangul Habit — პატარა ყოველდღიური ჩვევის საცდელი პროექტი, ამჟამად ტესტირება მიმდინარეობს თბილისში, საქართველოში.",
+    },
+    zh: {
+      metaDescription: "Hangul Habit 5天试点每天到底是什么样子,以及大家加入前常问的问题解答。",
+      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navSignin: "登录 / 注册",
+      navHome2: "首页", navAbout2: "关于", navContact2: "联系方式",
+      i18nEyebrow: "使用方法",
+      i18nH1: "五天,五次真实的对话",
+      i18nLede: "不用安装App,也不用自己背单词表。下面准确展示5天试点每一天的样子。",
+      i18nRhythmH2: "每日节奏",
+      i18nRhythmSub: "每天都遵循相同的三个步骤——所以第一天之后就没有新东西需要摸索了。",
+      i18nBubble1: '今天的3个短语:<br><span class="kr-word">이거 주세요</span><button class="speak-btn" type="button" data-speak="이거 주세요">🔊</button> — 请给我这个<br><span class="kr-word">맛있어요</span><button class="speak-btn" type="button" data-speak="맛있어요">🔊</button> — 很好吃',
+      i18nBubble2: '录下你点餐的语音:<strong>"이거 주세요, 그리고 물 주세요"</strong>',
+      i18nBubble3: "🎤 0:08 语音消息",
+      i18nBubble4: '발음 좋아요!把"geo"这个音发得再软一点。화이팅(加油)! 💪',
+      i18nCurricH2: "5天都学些什么",
+      i18nCurricSub: "真实展示试点的实际内容——这是每位参与者都会拿到的同一套课程。",
+      i18nDay1H3: "问候语", i18nDay1P: "打招呼、自我介绍、道谢——这三句话你在之后的每次对话中都会真正用到。",
+      i18nDay2H3: "数字与数数", i18nDay2P: "足够你点餐、问价格,或者不慌不忙地告诉别人你的年龄。",
+      i18nDay3H3: "家人", i18nDay3P: "聊聊你和谁住在一起、谁对你很重要——会打招呼之后很自然的下一个话题。",
+      i18nDay4H3: "饮食", i18nDay4P: "在餐厅点餐、说好吃、要水——就是上面示例里的那些短语。",
+      i18nDay5H3: "第一周复习", i18nDay5P: "把所有内容合并到一条语音消息里——打招呼、点餐、回应——再加一个简短的一周感受回顾。",
+      i18nCurricAfter: "第5天之后继续坚持,课程还会继续——问路、约定计划、闲聊等等。",
+      i18nFaqH2: "常见问题",
+      i18nFaq1Q: "5天试用真的免费吗?", i18nFaq1A: "是的。无需信用卡,无需注册表格——只要在 WhatsApp 上发消息就能开始,前5天完全不收费。",
+      i18nFaq2Q: "我完全不懂韩语,可以吗?", i18nFaq2A: "这正是为你设计的。第1天从零开始——你的第一个词就是字面意义上的\"你好\"。",
+      i18nFaq3Q: "需要下载App吗?", i18nFaq3A: "不需要。一切都在 WhatsApp 里进行,而你几乎肯定每天都开着它。",
+      i18nFaq4Q: "反馈是人给的还是AI给的?", i18nFaq4A: '一个真实的人会听你的语音消息并回复。想知道是谁,请看<a href="about.html">关于页面</a>。',
+      i18nFaq5Q: "第5天之后会怎样?", i18nFaq5A: "你可以直接停止——不收费,也不会有人追着你。如果想继续,有一个付费月度套餐会延续同样的每日形式,随时可以取消。",
+      i18nFaq6Q: "反馈用什么语言给出?", i18nFaq6A: "英语,目前第比利斯试点小组还提供格鲁吉亚语支持。如果你想用其他语言,尽管说——我们很乐意想办法。",
+      i18nFaq7Q: "还不确定?", i18nFaq7A: '加入前可以发邮件到<a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a>——会收到真人回复,不是机器人。',
+      i18nBackCta: "← 返回开始试点",
+      i18nFooterLine1: "Hangul Habit——一个小型的每日习惯养成试点项目,目前正在格鲁吉亚第比利斯进行测试。",
+    },
+  };
+</script>
+<script src="lang-switch.js"></script>
+<script>
+  (function () {
+    var days = document.querySelectorAll(".day-list .day");
+    if (!days.length || !("IntersectionObserver" in window)) {
+      days.forEach(function (d) { d.classList.add("visible"); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var index = Array.prototype.indexOf.call(days, el);
+        setTimeout(function () { el.classList.add("visible"); }, index * 180);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.3, rootMargin: "0px 0px -40px 0px" });
+    days.forEach(function (d) { observer.observe(d); });
+  })();
+</script>

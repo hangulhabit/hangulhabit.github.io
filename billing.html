@@ -1,0 +1,284 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://dhtmddbs2-coder.github.io/billing.html">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="Billing — Hangul Habit">
+<meta property="og:description" content="View your Hangul Habit payment history and download receipts.">
+<meta property="og:url" content="https://dhtmddbs2-coder.github.io/billing.html">
+<meta property="og:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Billing — Hangul Habit">
+<meta name="twitter:description" content="View your Hangul Habit payment history and download receipts.">
+<meta name="twitter:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<title>Billing — Hangul Habit</title>
+<meta name="description" id="metaDescription" content="View your Hangul Habit payment history and download receipts.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --coral-dim: #c94c3f; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="light"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+      --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+      --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+      --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+    --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+    --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+    --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  .obang-strip { height: 6px; background: repeating-linear-gradient(90deg, #1a3b6e 0 40px, #c62b2b 40px 80px, #d9b64e 80px 120px, #e7e2d3 120px 160px, #1a1a1a 160px 200px); }
+
+  nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 720px; margin: 0 auto; padding: 18px 24px; }
+  nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; }
+  nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
+  nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
+  .lang-switch { position: relative; }
+  .lang-switch button { display: flex; align-items: center; gap: 6px; background: var(--bg-inset); border: 1px solid var(--line); color: var(--ink-dim); font: inherit; font-size: 13px; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch .menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); min-width: 160px; overflow: hidden; padding: 6px; }
+  .lang-switch.open .menu { display: block; }
+  .lang-switch .menu button { all: unset; box-sizing: border-box; display: flex; width: 100%; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); cursor: pointer; }
+  .lang-switch .menu button:hover { background: var(--bg-inset); color: var(--ink); }
+
+  .pagehero { padding: 44px 0 8px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+  .eyebrow::before { content: "●"; font-size: 8px; color: var(--jade); }
+  h1.kr { font-size: clamp(24px, 4vw, 32px); margin: 10px 0 6px; text-wrap: balance; line-height: 1.15; }
+  .lede { font-size: 15.5px; color: var(--ink-dim); }
+  #whoami { color: var(--ink-faint); font-size: 13.5px; }
+
+  .state-card {
+    margin-top: 24px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 14px;
+    padding: 32px 24px; text-align: center; color: var(--ink-dim); font-size: 14.5px;
+  }
+  .state-card a { text-decoration: underline; color: var(--coral); }
+
+  table.txns { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
+  table.txns th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); padding: 0 10px 10px; font-weight: 600; }
+  table.txns td { padding: 14px 10px; border-top: 1px solid var(--line); vertical-align: middle; }
+  table.txns tr:first-child td { border-top: none; }
+  .status-pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .status-pill.paid, .status-pill.completed, .status-pill.billed { background: color-mix(in srgb, var(--jade) 20%, transparent); color: var(--jade); }
+  .receipt-link { text-decoration: none; color: var(--coral); font-weight: 600; font-size: 13.5px; white-space: nowrap; }
+  .receipt-link:hover { text-decoration: underline; }
+  .amount { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  footer { padding: 40px 0 60px; text-align: center; color: var(--ink-faint); font-size: 13px; }
+  footer .kr { font-size: 15px; color: var(--ink-dim); margin-bottom: 6px; }
+  footer a { text-decoration: underline; }
+</style>
+
+<div class="obang-strip" aria-hidden="true"></div>
+<nav class="topnav">
+  <a class="brand" href="index.html">Hangul Habit</a>
+  <div class="links">
+    <a href="about.html" id="navAbout">About</a>
+    <a href="pricing.html" id="navPricing">Pricing</a>
+    <a href="billing.html" aria-current="page" id="navBilling">Billing</a>
+    <a href="login.html" id="navSignin">Sign in / Sign up</a>
+    <div id="langSwitchMount"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="pagehero">
+      <span class="eyebrow" id="i18nEyebrow">Billing</span>
+      <h1 class="kr" id="i18nH1">Payment history &amp; receipts</h1>
+      <p class="lede" id="whoami">Checking your login...</p>
+    </div>
+
+    <div id="loggedOutState" class="state-card" hidden>
+      <span id="i18nLoggedOut">Sign in to see your payment history.</span><br><br>
+      <a href="login.html" id="i18nGoLogin">Go to sign in →</a>
+    </div>
+
+    <div id="loadingState" class="state-card"><span id="i18nLoading">Loading your transactions…</span></div>
+
+    <div id="emptyState" class="state-card" hidden>
+      <span id="i18nEmpty">No payments yet.</span> <a href="pricing.html" id="i18nEmptyLink">View plans</a>
+    </div>
+
+    <div id="errorState" class="state-card" hidden>
+      <span id="i18nError">Couldn't load your payment history. Please try again in a moment.</span>
+    </div>
+
+    <table class="txns" id="txnTable" hidden>
+      <thead>
+        <tr><th id="i18nColDate">Date</th><th id="i18nColAmount">Amount</th><th id="i18nColStatus">Status</th><th id="i18nColReceipt">Receipt</th></tr>
+      </thead>
+      <tbody id="txnBody"></tbody>
+    </table>
+  </div>
+
+  <footer>
+    <p class="kr">화이팅! 🇰🇷</p>
+    <p id="i18nFooterLine1">Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.</p>
+    <p style="margin-top:14px;">
+      <a href="index.html" id="navHome2">Home</a> · <a href="about.html" id="navAbout2">About</a> · <a href="mailto:dhtmddbs2@gmail.com" id="navContact2">Contact</a>
+    </p>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-nav.js"></script>
+<script>
+  const SUPABASE_URL = "https://czaydegitctvkskpvoaa.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6YXlkZWdpdGN0dmtza3B2b2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2NzI5OTEsImV4cCI6MjEwNDI0ODk5MX0.lssrDd1lBKnx71YuwrFa_Umci1H_U5u4V1Rni3YUD_w";
+  const BILLING_API = "https://panning-fountain-scuba.ngrok-free.dev/hangulhabit/billing";
+
+  const client = window.__hhSupabase || supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const whoamiEl = document.getElementById("whoami");
+  const loggedOutEl = document.getElementById("loggedOutState");
+  const loadingEl = document.getElementById("loadingState");
+  const emptyEl = document.getElementById("emptyState");
+  const errorEl = document.getElementById("errorState");
+  const tableEl = document.getElementById("txnTable");
+  const bodyEl = document.getElementById("txnBody");
+
+  function fmtDate(iso) {
+    if (!iso) return "-";
+    const d = new Date(iso);
+    return d.toLocaleDateString("en-CA");
+  }
+
+  function fmtAmount(total, currency) {
+    if (!total) return "-";
+    const n = Number(total);
+    return new Intl.NumberFormat("en-US", { style: "currency", currency: currency || "KRW", maximumFractionDigits: 0 }).format(currency === "KRW" ? n : n / 100);
+  }
+
+  async function loadBilling(email) {
+    try {
+      const res = await fetch(BILLING_API + "?email=" + encodeURIComponent(email), {
+        headers: { "ngrok-skip-browser-warning": "true" },
+      });
+      if (!res.ok) throw new Error("bad status " + res.status);
+      const data = await res.json();
+      loadingEl.hidden = true;
+
+      const txns = data.transactions || [];
+      if (txns.length === 0) {
+        emptyEl.hidden = false;
+        return;
+      }
+
+      for (const t of txns) {
+        const tr = document.createElement("tr");
+        const lang = document.documentElement.lang || "en";
+        const viewReceiptText = (window.PAGE_TRANSLATIONS && window.PAGE_TRANSLATIONS[lang] && window.PAGE_TRANSLATIONS[lang].i18nViewReceipt) || "View receipt ↗";
+        const receiptCell = t.receipt_url
+          ? `<a class="receipt-link" href="${t.receipt_url}" target="_blank" rel="noopener">${viewReceiptText}</a>`
+          : `<span style="color:var(--ink-faint); font-size:13px;">-</span>`;
+        tr.innerHTML = `
+          <td>${fmtDate(t.billed_at)}</td>
+          <td class="amount">${fmtAmount(t.total, t.currency)}</td>
+          <td><span class="status-pill ${t.status}">${t.status}</span></td>
+          <td>${receiptCell}</td>
+        `;
+        bodyEl.appendChild(tr);
+      }
+      tableEl.hidden = false;
+    } catch (err) {
+      loadingEl.hidden = true;
+      errorEl.hidden = false;
+    }
+  }
+
+  client.auth.getSession().then(({ data }) => {
+    const session = data.session;
+    if (!session || !session.user || !session.user.email) {
+      const lang = document.documentElement.lang || "en";
+      const notSignedIn = (window.PAGE_TRANSLATIONS && window.PAGE_TRANSLATIONS[lang] && window.PAGE_TRANSLATIONS[lang].i18nNotSignedIn) || "You're not signed in.";
+      whoamiEl.textContent = notSignedIn;
+      loadingEl.hidden = true;
+      loggedOutEl.hidden = false;
+      return;
+    }
+    const lang = document.documentElement.lang || "en";
+    const suffix = { en: "'s payment history", ja: "の支払い履歴", ka: "-ის გადახდების ისტორია", zh: "的付款记录" }[lang] || "'s payment history";
+    whoamiEl.textContent = session.user.email + suffix;
+    loadBilling(session.user.email);
+  });
+</script>
+<script>
+  window.PAGE_TRANSLATIONS = {
+    en: {
+      metaDescription: "View your Hangul Habit payment history and download receipts.",
+      navAbout: "About", navPricing: "Pricing", navBilling: "Billing", navSignin: "Sign in / Sign up",
+      navHome2: "Home", navAbout2: "About", navContact2: "Contact",
+      i18nEyebrow: "Billing", i18nH1: "Payment history &amp; receipts",
+      i18nLoggedOut: "Sign in to see your payment history.", i18nGoLogin: "Go to sign in →",
+      i18nLoading: "Loading your transactions…",
+      i18nEmpty: "No payments yet.", i18nEmptyLink: "View plans",
+      i18nError: "Couldn't load your payment history. Please try again in a moment.",
+      i18nColDate: "Date", i18nColAmount: "Amount", i18nColStatus: "Status", i18nColReceipt: "Receipt",
+      i18nViewReceipt: "View receipt ↗", i18nNotSignedIn: "You're not signed in.",
+      i18nFooterLine1: "Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.",
+    },
+    ja: {
+      metaDescription: "Hangul Habitの支払い履歴を確認し、領収書をダウンロードできます。",
+      navAbout: "概要", navPricing: "料金", navBilling: "支払い", navSignin: "ログイン / 新規登録",
+      navHome2: "ホーム", navAbout2: "概要", navContact2: "お問い合わせ",
+      i18nEyebrow: "支払い", i18nH1: "支払い履歴と領収書",
+      i18nLoggedOut: "支払い履歴を見るにはログインしてください。", i18nGoLogin: "ログイン画面へ →",
+      i18nLoading: "取引を読み込み中…",
+      i18nEmpty: "まだ支払いはありません。", i18nEmptyLink: "料金プランを見る",
+      i18nError: "支払い履歴を読み込めませんでした。しばらくしてからもう一度お試しください。",
+      i18nColDate: "日付", i18nColAmount: "金額", i18nColStatus: "状態", i18nColReceipt: "領収書",
+      i18nViewReceipt: "領収書を見る ↗", i18nNotSignedIn: "ログインしていません。",
+      i18nFooterLine1: "Hangul Habit — 小さな毎日の習慣づくりパイロット。現在ジョージア・トビリシでテスト中です。",
+    },
+    ka: {
+      metaDescription: "იხილეთ თქვენი Hangul Habit-ის გადახდების ისტორია და გადმოწერეთ ქვითრები.",
+      navAbout: "შესახებ", navPricing: "ფასები", navBilling: "გადახდები", navSignin: "შესვლა / რეგისტრაცია",
+      navHome2: "მთავარი", navAbout2: "შესახებ", navContact2: "კონტაქტი",
+      i18nEyebrow: "გადახდები", i18nH1: "გადახდების ისტორია და ქვითრები",
+      i18nLoggedOut: "შედით სისტემაში გადახდების ისტორიის სანახავად.", i18nGoLogin: "შესვლის გვერდზე გადასვლა →",
+      i18nLoading: "თქვენი ტრანზაქციები იტვირთება…",
+      i18nEmpty: "გადახდები ჯერ არ არის.", i18nEmptyLink: "იხილეთ გეგმები",
+      i18nError: "გადახდების ისტორიის ჩატვირთვა ვერ მოხერხდა. გთხოვთ სცადოთ მოგვიანებით.",
+      i18nColDate: "თარიღი", i18nColAmount: "თანხა", i18nColStatus: "სტატუსი", i18nColReceipt: "ქვითარი",
+      i18nViewReceipt: "ქვითრის ნახვა ↗", i18nNotSignedIn: "შესული არ ხართ.",
+      i18nFooterLine1: "Hangul Habit — პატარა ყოველდღიური ჩვევის საცდელი პროექტი, ამჟამად ტესტირება მიმდინარეობს თბილისში, საქართველოში.",
+    },
+    zh: {
+      metaDescription: "查看你的 Hangul Habit 付款记录并下载收据。",
+      navAbout: "关于", navPricing: "价格", navBilling: "账单", navSignin: "登录 / 注册",
+      navHome2: "首页", navAbout2: "关于", navContact2: "联系方式",
+      i18nEyebrow: "账单", i18nH1: "付款记录与收据",
+      i18nLoggedOut: "请登录查看付款记录。", i18nGoLogin: "前往登录 →",
+      i18nLoading: "正在加载交易记录…",
+      i18nEmpty: "暂无付款记录。", i18nEmptyLink: "查看套餐",
+      i18nError: "付款记录加载失败,请稍后再试。",
+      i18nColDate: "日期", i18nColAmount: "金额", i18nColStatus: "状态", i18nColReceipt: "收据",
+      i18nViewReceipt: "查看收据 ↗", i18nNotSignedIn: "你尚未登录。",
+      i18nFooterLine1: "Hangul Habit——一个小型的每日习惯养成试点项目,目前正在格鲁吉亚第比利斯进行测试。",
+    },
+  };
+</script>
+<script src="lang-switch.js"></script>

@@ -1,0 +1,818 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://dhtmddbs2-coder.github.io/account.html">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="My Account — Hangul Habit">
+<meta property="og:description" content="View and edit your Hangul Habit account details.">
+<meta property="og:url" content="https://dhtmddbs2-coder.github.io/account.html">
+<meta property="og:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="My Account — Hangul Habit">
+<meta name="twitter:description" content="View and edit your Hangul Habit account details.">
+<meta name="twitter:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<title>My Account — Hangul Habit</title>
+<meta name="description" id="metaDescription" content="View your Hangul Habit account details.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --coral-dim: #c94c3f; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="light"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+      --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+      --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+      --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+    --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+    --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+    --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 560px; margin: 0 auto; padding: 0 24px; }
+
+  .obang-strip { height: 6px; background: repeating-linear-gradient(90deg, #1a3b6e 0 40px, #c62b2b 40px 80px, #d9b64e 80px 120px, #e7e2d3 120px 160px, #1a1a1a 160px 200px); }
+
+  nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 560px; margin: 0 auto; padding: 18px 24px; }
+  nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; align-items: center; }
+  nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
+  nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
+  .lang-switch { position: relative; }
+  .lang-switch button { display: flex; align-items: center; gap: 6px; background: var(--bg-inset); border: 1px solid var(--line); color: var(--ink-dim); font: inherit; font-size: 13px; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch .menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); min-width: 160px; overflow: hidden; padding: 6px; }
+  .lang-switch.open .menu { display: block; }
+  .lang-switch .menu button { all: unset; box-sizing: border-box; display: flex; width: 100%; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); cursor: pointer; }
+  .lang-switch .menu button:hover { background: var(--bg-inset); color: var(--ink); }
+
+  .pagehero { padding: 44px 0 8px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+  .eyebrow::before { content: "●"; font-size: 8px; color: var(--jade); }
+  h1.kr { font-size: clamp(24px, 4vw, 32px); margin: 10px 0 24px; text-wrap: balance; line-height: 1.15; }
+
+  .profile-card {
+    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 24px; box-shadow: var(--shadow); display: flex; gap: 16px; align-items: center;
+  }
+  .avatar {
+    width: 52px; height: 52px; border-radius: 50%; background: #1a3b6e; color: #fff;
+    display: flex; align-items: center; justify-content: center; font-family: "Black Han Sans", sans-serif;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .profile-card .email { font-weight: 600; font-size: 16px; }
+  .profile-card .sub { color: var(--ink-faint); font-size: 13.5px; margin-top: 2px; }
+
+  .info-list { margin-top: 20px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .info-row { display: flex; justify-content: space-between; padding: 14px 20px; font-size: 14.5px; border-bottom: 1px solid var(--line); }
+  .info-row:last-child { border-bottom: none; }
+  .info-row .k { color: var(--ink-faint); }
+  .info-row .v { font-weight: 600; }
+
+  .action-row { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .btn { flex: 1; text-align: center; padding: 13px 16px; border-radius: 11px; font-weight: 600; font-size: 14.5px; cursor: pointer; border: none; font-family: inherit; text-decoration: none; }
+  .btn.primary { background: var(--coral); color: #fff9f4; }
+  .btn.ghost { background: var(--bg-inset); color: var(--ink-dim); border: 1px solid var(--line); }
+
+  .state-card { margin-top: 24px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 14px; padding: 32px 24px; text-align: center; color: var(--ink-dim); font-size: 14.5px; }
+  .state-card a { text-decoration: underline; color: var(--coral); }
+
+  .edit-card { margin-top: 20px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+  .edit-card h2 { margin: 0 0 4px; font-size: 15.5px; }
+  .edit-card .hint { color: var(--ink-faint); font-size: 13px; margin: 0 0 16px; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 13px; color: var(--ink-dim); margin-bottom: 6px; }
+  .field input {
+    width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--bg-inset); color: var(--ink); font: inherit; font-size: 14.5px;
+  }
+  .field input:focus { outline: 2px solid var(--coral); outline-offset: 1px; }
+  .save-btn {
+    background: var(--jade); color: #fff9f4; border: none; font: inherit; font-weight: 600;
+    font-size: 14.5px; padding: 11px 20px; border-radius: 10px; cursor: pointer;
+  }
+  .save-status { margin-left: 10px; font-size: 13px; color: var(--ink-faint); }
+  .save-status.ok { color: var(--jade); }
+
+  .level-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+  .level-option {
+    display: flex; align-items: baseline; gap: 10px; padding: 12px 14px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--bg-inset); cursor: pointer;
+  }
+  .level-option:has(input:checked) { border-color: var(--jade); background: color-mix(in srgb, var(--jade) 10%, var(--bg-inset)); }
+  .level-option input { accent-color: var(--jade); flex-shrink: 0; }
+  .level-name { font-weight: 600; font-size: 14.5px; flex-shrink: 0; }
+  .level-desc { font-size: 13px; color: var(--ink-faint); }
+
+  .progress-card { margin-top: 20px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+  .progress-card h2 { margin: 0 0 16px; font-size: 15.5px; }
+  .progress-stats { display: flex; gap: 28px; margin-bottom: 20px; flex-wrap: wrap; }
+  .progress-stat .num { font-family: "Black Han Sans", sans-serif; font-size: 30px; color: var(--coral); line-height: 1; }
+  .progress-stat .label { font-size: 12.5px; color: var(--ink-faint); margin-top: 4px; }
+  .progress-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(30px, 1fr)); gap: 6px; }
+  .progress-day {
+    aspect-ratio: 1; border-radius: 6px; background: var(--bg-inset); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; font-size: 10.5px; color: var(--ink-faint);
+    position: relative;
+  }
+  .progress-day.done { background: var(--jade); color: #fff9f4; border-color: var(--jade); font-weight: 600; }
+  .progress-day[title] { cursor: default; }
+  .progress-empty { text-align: center; padding: 20px 10px; color: var(--ink-dim); font-size: 14px; }
+  .progress-empty a { color: var(--coral); text-decoration: underline; }
+
+  .growth-card { margin-top: 20px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+  .growth-card h2 { margin: 0 0 4px; font-size: 15.5px; }
+  .growth-card .hint { color: var(--ink-faint); font-size: 13px; margin: 0 0 18px; }
+  .growth-top { display: flex; gap: 18px; align-items: center; }
+  .growth-plant { width: 112px; height: 112px; flex-shrink: 0; border-radius: 14px; background: var(--bg-inset); border: 1px solid var(--line); object-fit: contain; }
+  .growth-info { flex: 1; min-width: 0; }
+  .growth-stage { font-family: "Black Han Sans", sans-serif; font-size: 22px; line-height: 1.1; color: var(--jade); }
+  .growth-xp { font-size: 13px; color: var(--ink-dim); margin: 6px 0 8px; font-variant-numeric: tabular-nums; }
+  .xp-bar { height: 10px; border-radius: 999px; background: var(--bg-inset); border: 1px solid var(--line); overflow: hidden; }
+  .xp-fill { height: 100%; width: 0; background: var(--jade); border-radius: 999px; transition: width 0.6s ease; }
+  .growth-next { font-size: 12.5px; color: var(--ink-faint); margin-top: 7px; }
+  .growth-streak { display: flex; gap: 28px; margin: 18px 0 4px; flex-wrap: wrap; }
+  .badge-shelf { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 16px; }
+  .badge { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg-inset); }
+  .badge .medal { width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: "Black Han Sans", sans-serif; font-size: 14px; background: var(--gold); color: #fff9f4; }
+  .badge .b-title { font-size: 12.5px; font-weight: 600; line-height: 1.25; }
+  .badge .b-desc { font-size: 11.5px; color: var(--ink-faint); line-height: 1.3; margin-top: 2px; }
+  .badge.locked { border-style: dashed; }
+  .badge.locked .medal { background: var(--bg-raised); color: var(--ink-faint); border: 1px dashed var(--ink-faint); }
+  .badge.locked .b-title { color: var(--ink-faint); }
+  .invite-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .invite-code { font-family: "Black Han Sans", monospace; font-size: 20px; letter-spacing: 0.08em; padding: 8px 14px; border-radius: 10px; background: var(--bg-inset); border: 1px dashed var(--ink-faint); color: var(--gold); }
+  .forest-rank { font-size: 14px; color: var(--ink-dim); margin-bottom: 4px; }
+  .forest-rank strong { color: var(--jade); font-family: "Black Han Sans", sans-serif; font-weight: 400; font-size: 18px; margin-left: 4px; }
+  .forest-trees { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px; margin: 12px 0 6px; min-height: 40px; }
+  .forest-trees img.d1 { width: 52px; height: 52px; object-fit: contain; }
+  .forest-trees img.d2 { width: 32px; height: 32px; object-fit: contain; opacity: 0.8; }
+  .forest-trees img.pending { filter: grayscale(1); opacity: 0.45; }
+  .forest-empty { font-size: 13px; color: var(--ink-faint); }
+  .forest-legend { font-size: 12px; color: var(--ink-faint); margin: 0 0 4px; }
+  .forest-team { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .forest-team h3 { margin: 0 0 4px; font-size: 14.5px; }
+  @media (prefers-reduced-motion: reduce) { .xp-fill { transition: none; } }
+  @media (max-width: 420px) { .growth-plant { width: 88px; height: 88px; } }
+
+  footer { padding: 40px 0 60px; text-align: center; color: var(--ink-faint); font-size: 13px; }
+</style>
+
+<div class="obang-strip" aria-hidden="true"></div>
+<nav class="topnav">
+  <a class="brand" href="index.html">Hangul Habit</a>
+  <div class="links">
+    <a href="about.html" id="navAbout">About</a>
+    <a href="pricing.html" id="navPricing">Pricing</a>
+    <a href="billing.html" id="navBilling">Billing</a>
+    <a href="account.html" aria-current="page" id="navSignin">Sign in / Sign up</a>
+    <div id="langSwitchMount"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="pagehero">
+      <span class="eyebrow" id="i18nEyebrow">Account</span>
+      <h1 class="kr" id="i18nH1">My account</h1>
+    </div>
+
+    <div id="loggedOutState" class="state-card" hidden>
+      <span id="i18nLoggedOut">Sign in to view your account.</span><br><br>
+      <a href="login.html" id="i18nGoLogin">Go to sign in →</a>
+    </div>
+
+    <div id="profileArea" hidden>
+      <div class="profile-card">
+        <div class="avatar" id="avatarInitial">?</div>
+        <div>
+          <div class="email" id="profileEmail"></div>
+          <div class="sub" id="profileSub"></div>
+        </div>
+      </div>
+
+      <div class="info-list">
+        <div class="info-row"><span class="k" id="i18nInfoProvider">Signed in with</span><span class="v" id="infoProvider">-</span></div>
+        <div class="info-row"><span class="k" id="i18nInfoCreated">Member since</span><span class="v" id="infoCreated">-</span></div>
+        <div class="info-row"><span class="k" id="i18nInfoUserId">User ID</span><span class="v" id="infoUserId" style="font-size:11px; font-family:monospace;">-</span></div>
+      </div>
+
+      <div class="growth-card" id="linkCard" hidden>
+        <h2 id="i18nLinkH2">Connect your WhatsApp</h2>
+        <p class="hint" id="i18nLinkHint">Your account isn't linked to a WhatsApp learner yet. Join the pilot on WhatsApp first, then link it here to see your plant, forest and progress.</p>
+        <button class="save-btn" type="button" id="linkGetBtn"><span id="i18nLinkGet">Get link code</span></button>
+        <span class="save-status" id="linkStatus"></span>
+        <div id="linkResult" hidden style="margin-top:16px;">
+          <p class="hint" style="margin-bottom:8px;" id="i18nLinkSend">Send this exact message to us on WhatsApp:</p>
+          <div class="invite-code" id="linkMessage"></div>
+          <p class="hint" style="margin:10px 0 12px;" id="i18nLinkExpires">The code works once and expires in 15 minutes.</p>
+          <div class="invite-row">
+            <a class="btn primary" style="flex:0 0 auto;" id="linkWaBtn" target="_blank" rel="noopener" href="#"><span id="i18nLinkOpenWa">Open WhatsApp</span></a>
+            <button class="btn ghost" style="flex:0 0 auto;" type="button" id="linkRecheckBtn"><span id="i18nLinkRecheck">I've sent it — check again</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="growth-card" id="growthCard" hidden>
+        <h2 id="i18nGrowthH2">Your Hangul plant</h2>
+        <p class="hint" id="i18nGrowthHint">Send a voice message on WhatsApp after your lesson to earn XP and grow your plant. One XP reward per day.</p>
+        <div class="growth-top">
+          <img class="growth-plant" id="growthPlant" src="assets/character/seed.png" alt="" width="112" height="112">
+          <div class="growth-info">
+            <div class="growth-stage" id="growthStage"></div>
+            <div class="growth-xp" id="growthXp"></div>
+            <div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="xpBar"><div class="xp-fill" id="xpFill"></div></div>
+            <div class="growth-next" id="growthNext"></div>
+          </div>
+        </div>
+        <div class="growth-streak">
+          <div class="progress-stat"><div class="num" id="growthStreak">0</div><div class="label" id="i18nGrowthStreakLabel">Day streak</div></div>
+          <div class="progress-stat"><div class="num" id="growthVoices">0</div><div class="label" id="i18nGrowthVoicesLabel">Practice days</div></div>
+        </div>
+        <h2 style="margin-top:18px;" id="i18nGrowthBadgesH2">Badges</h2>
+        <div class="badge-shelf" id="badgeShelf"></div>
+      </div>
+
+      <div class="growth-card" id="forestCard" hidden>
+        <h2 id="i18nForestH2">Your forest</h2>
+        <p class="hint" id="i18nForestHint">Invite friends with your personal link. When a friend sends their first voice message, you both get bonus XP.</p>
+        <div class="invite-row">
+          <div class="invite-code" id="inviteCode"></div>
+          <button class="save-btn" type="button" id="copyInviteBtn"><span id="i18nForestCopy">Copy invite link</span></button>
+          <span class="save-status" id="copyStatus"></span>
+        </div>
+        <div class="forest-rank"><span id="forestRankLabel">Rank</span><strong id="forestRank"></strong></div>
+        <div class="growth-next" id="forestNext"></div>
+        <h3 style="margin:16px 0 0; font-size:14.5px;" id="i18nForestTreesH3">Friends in your forest</h3>
+        <div class="forest-trees" id="forestTrees"></div>
+        <p class="forest-legend" id="i18nForestLegend">Big trees are friends you invited. Small trees are their friends. Grey trees haven't sent a voice message yet.</p>
+        <div class="forest-team" id="forestTeam" hidden>
+          <h3 id="i18nForestTeamH3">Weekly team goal</h3>
+          <div class="growth-xp" id="forestTeamText"></div>
+          <div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="teamBar"><div class="xp-fill" id="teamFill"></div></div>
+          <div class="growth-next" id="i18nForestTeamHint">Your forest is you, your friends and their friends. Practice together to reach the goal and everyone earns bonus XP.</div>
+        </div>
+      </div>
+
+      <div class="progress-card">
+        <h2 id="i18nProgressH2">Learning progress</h2>
+        <div id="progressLoading" style="color:var(--ink-faint); font-size:13.5px;"><span id="i18nProgressLoading">Loading…</span></div>
+        <div id="progressEmpty" class="progress-empty" hidden>
+          <span id="i18nProgressEmpty">No lessons completed yet.</span>
+          <a href="index.html#top" id="i18nProgressEmptyLink">Start the free 5-day pilot →</a>
+        </div>
+        <div id="progressContent" hidden>
+          <div class="progress-stats">
+            <div class="progress-stat"><div class="num" id="progressDay">0</div><div class="label" id="i18nProgressDayLabel">Current day</div></div>
+            <div class="progress-stat"><div class="num" id="progressCount">0</div><div class="label" id="i18nProgressCountLabel">Lessons completed</div></div>
+          </div>
+          <div class="progress-grid" id="progressGrid"></div>
+        </div>
+      </div>
+
+      <div class="edit-card" id="levelCard">
+        <h2 id="i18nLevelH2">Difficulty level</h2>
+        <p class="hint" id="i18nLevelHint">Choose how challenging your daily lessons should be. Takes effect from your next lesson.</p>
+        <div class="level-options">
+          <label class="level-option">
+            <input type="radio" name="level" value="beginner" checked>
+            <span class="level-name" id="i18nLevelBeginner">Beginner</span>
+            <span class="level-desc" id="i18nLevelBeginnerDesc">Greetings, numbers, everyday basics</span>
+          </label>
+          <label class="level-option">
+            <input type="radio" name="level" value="intermediate">
+            <span class="level-name" id="i18nLevelIntermediate">Intermediate</span>
+            <span class="level-desc" id="i18nLevelIntermediateDesc">Past/future tense, opinions, requests</span>
+          </label>
+          <label class="level-option">
+            <input type="radio" name="level" value="advanced">
+            <span class="level-name" id="i18nLevelAdvanced">Advanced</span>
+            <span class="level-desc" id="i18nLevelAdvancedDesc">Idioms, nuance, formal register</span>
+          </label>
+        </div>
+        <button class="save-btn" type="button" id="saveLevelBtn"><span id="i18nLevelSave">Save level</span></button>
+        <span class="save-status" id="levelSaveStatus"></span>
+      </div>
+
+      <div class="edit-card">
+        <h2 id="i18nEditH2">Name &amp; birthday</h2>
+        <p class="hint" id="i18nEditHint">Google/Facebook sign-in only shares your email with us — not your name or birthday. Add them here if you'd like, and we'll remember them.</p>
+        <div class="field">
+          <label for="nameInput" id="i18nNameLabel">Name</label>
+          <input type="text" id="nameInput" placeholder="e.g. Jane Smith">
+        </div>
+        <div class="field">
+          <label for="birthdateInput" id="i18nBirthdateLabel">Birthday</label>
+          <input type="date" id="birthdateInput">
+        </div>
+        <button class="save-btn" type="button" id="saveProfileBtn">Save</button>
+        <span class="save-status" id="saveStatus"></span>
+      </div>
+
+      <div class="action-row">
+        <a class="btn primary" href="billing.html" id="i18nBillingBtn">View payment history</a>
+        <button class="btn ghost" type="button" id="logoutBtn2">Log out</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.</p>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-nav.js"></script>
+<script>
+  const SUPABASE_URL = "https://czaydegitctvkskpvoaa.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6YXlkZWdpdGN0dmtza3B2b2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2NzI5OTEsImV4cCI6MjEwNDI0ODk5MX0.lssrDd1lBKnx71YuwrFa_Umci1H_U5u4V1Rni3YUD_w";
+  const client = window.__hhSupabase || supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  function fmtDate(iso) {
+    if (!iso) return "-";
+    const lang = document.documentElement.lang || "en";
+    const locale = { en: "en-US", ja: "ja-JP", ka: "ka-GE", zh: "zh-CN" }[lang] || "en-US";
+    return new Date(iso).toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" });
+  }
+
+  const SIGNED_IN_WITH = { en: " — signed in", ja: "でログイン中", ka: "-ით შესული", zh: " — 已登录" };
+  const PROGRESS_API = "https://panning-fountain-scuba.ngrok-free.dev/hangulhabit/progress";
+
+  const STAGE_STARTS = [["seed", 0], ["sprout", 30], ["sapling", 100], ["tree", 200], ["mugunghwa", 350]];
+  const BADGES = [["first_voice", "말"], ["streak_3", "3"], ["streak_7", "7"], ["pilot_complete", "5"], ["two_weeks", "14"], ["mugunghwa", "꽃"], ["first_friend", "친"], ["team_goal", "팀"]];
+  let lastGrowth = null;
+
+  function tr(key) {
+    const lang = document.documentElement.lang || "en";
+    const dicts = window.PAGE_TRANSLATIONS || {};
+    return (dicts[lang] && dicts[lang][key]) || (dicts.en && dicts.en[key]) || key;
+  }
+
+  function renderGrowth(g) {
+    lastGrowth = g;
+    const xp = g.xp || 0;
+    let idx = 0;
+    STAGE_STARTS.forEach((s, i) => { if (xp >= s[1]) idx = i; });
+    const stage = STAGE_STARTS[idx][0];
+    const stageName = tr("growthStage_" + stage);
+
+    const plant = document.getElementById("growthPlant");
+    plant.src = "assets/character/" + stage + ".png";
+    plant.alt = stageName;
+    document.getElementById("growthStage").textContent = stageName;
+
+    const next = STAGE_STARTS[idx + 1];
+    const fill = document.getElementById("xpFill");
+    let pct = 100;
+    if (next) {
+      pct = Math.round(((xp - STAGE_STARTS[idx][1]) / (next[1] - STAGE_STARTS[idx][1])) * 100);
+      document.getElementById("growthXp").textContent = xp + " / " + next[1] + " XP";
+      document.getElementById("growthNext").textContent = tr("growthNextTpl")
+        .replace("{n}", next[1] - xp).replace("{stage}", tr("growthStage_" + next[0]));
+    } else {
+      document.getElementById("growthXp").textContent = xp + " XP";
+      document.getElementById("growthNext").textContent = tr("growthMaxed");
+    }
+    fill.style.width = pct + "%";
+    document.getElementById("xpBar").setAttribute("aria-valuenow", pct);
+
+    document.getElementById("growthStreak").textContent = g.streak || 0;
+    document.getElementById("growthVoices").textContent = g.voice_count || 0;
+
+    const owned = new Set(g.badges || []);
+    const shelf = document.getElementById("badgeShelf");
+    shelf.innerHTML = "";
+    BADGES.forEach(([id, glyph]) => {
+      const item = document.createElement("div");
+      item.className = "badge" + (owned.has(id) ? "" : " locked");
+      const medal = document.createElement("div");
+      medal.className = "medal";
+      medal.textContent = glyph;
+      const text = document.createElement("div");
+      const title = document.createElement("div");
+      title.className = "b-title";
+      title.textContent = tr("growthBadge_" + id);
+      const desc = document.createElement("div");
+      desc.className = "b-desc";
+      desc.textContent = tr("growthBadgeDesc_" + id);
+      text.append(title, desc);
+      item.append(medal, text);
+      shelf.appendChild(item);
+    });
+    document.getElementById("growthCard").hidden = false;
+  }
+
+  let lastForest = null;
+
+  function renderForest(fst) {
+    lastForest = fst;
+    document.getElementById("inviteCode").textContent = fst.invite_code || "";
+    document.getElementById("forestRankLabel").textContent = tr("forestRankLabel");
+    document.getElementById("forestRank").textContent = tr("forestTier_" + fst.tier);
+    document.getElementById("forestNext").textContent = fst.next_tier_at
+      ? tr("forestNextTpl").replace("{n}", fst.next_tier_at - fst.confirmed_invites).replace("{tier}", tr("forestTier_" + nextTierName(fst.tier)))
+      : tr("forestTopRank");
+
+    const trees = document.getElementById("forestTrees");
+    trees.innerHTML = "";
+    if (!fst.trees.length) {
+      const empty = document.createElement("span");
+      empty.className = "forest-empty";
+      empty.textContent = tr("forestEmpty");
+      trees.appendChild(empty);
+    }
+    fst.trees.forEach((t) => {
+      const img = document.createElement("img");
+      img.src = "assets/character/" + t.stage + ".png";
+      img.alt = tr("growthStage_" + t.stage);
+      img.className = (t.depth === 1 ? "d1" : "d2") + (t.confirmed ? "" : " pending");
+      trees.appendChild(img);
+    });
+
+    const team = document.getElementById("forestTeam");
+    if (fst.team) {
+      const pct = Math.min(100, Math.round((fst.team.practiced_days / fst.team.goal) * 100));
+      document.getElementById("forestTeamText").textContent = fst.team.done
+        ? tr("forestTeamDone")
+        : tr("forestTeamTpl").replace("{done}", fst.team.practiced_days).replace("{goal}", fst.team.goal);
+      document.getElementById("teamFill").style.width = pct + "%";
+      document.getElementById("teamBar").setAttribute("aria-valuenow", pct);
+      team.hidden = false;
+    } else {
+      team.hidden = true;
+    }
+    document.getElementById("forestCard").hidden = false;
+  }
+
+  function nextTierName(tier) {
+    const order = ["seedling", "grove", "forest", "guardian"];
+    return order[order.indexOf(tier) + 1];
+  }
+
+  document.getElementById("copyInviteBtn").addEventListener("click", async () => {
+    const statusEl = document.getElementById("copyStatus");
+    const code = document.getElementById("inviteCode").textContent;
+    const link = window.location.origin + "/start.html?ref=" + encodeURIComponent(code);
+    try {
+      await navigator.clipboard.writeText(link);
+      statusEl.textContent = tr("forestCopied");
+      statusEl.classList.add("ok");
+    } catch (err) {
+      window.prompt(tr("i18nForestCopy"), link);
+    }
+  });
+
+  document.addEventListener("hh:langchange", () => {
+    if (lastGrowth) renderGrowth(lastGrowth);
+    if (lastForest) renderForest(lastForest);
+  });
+
+  let sessionToken = "";
+  let currentEmail = "";
+  const WHATSAPP_NUMBER = "821047848412";
+  const LINK_API = PROGRESS_API.replace("/progress", "/link/start");
+
+  async function requestLinkCode() {
+    const statusEl = document.getElementById("linkStatus");
+    statusEl.textContent = "...";
+    statusEl.classList.remove("ok");
+    try {
+      const res = await fetch(LINK_API, {
+        method: "POST",
+        headers: { Authorization: "Bearer " + sessionToken, apikey: SUPABASE_ANON_KEY, "ngrok-skip-browser-warning": "true" },
+      });
+      const data = await res.json();
+      if (data.linked) { statusEl.textContent = ""; loadProgress(currentEmail); return; }
+      if (!res.ok || !data.code) throw new Error("no code");
+      const message = "link " + data.code;
+      document.getElementById("linkMessage").textContent = message;
+      document.getElementById("linkWaBtn").href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+      document.getElementById("linkResult").hidden = false;
+      statusEl.textContent = "";
+    } catch (err) {
+      statusEl.textContent = tr("linkError");
+    }
+  }
+
+  async function loadProgress(email) {
+    const loadingEl = document.getElementById("progressLoading");
+    const emptyEl = document.getElementById("progressEmpty");
+    const contentEl = document.getElementById("progressContent");
+    emptyEl.hidden = true;
+    try {
+      const res = await fetch(PROGRESS_API + "?email=" + encodeURIComponent(email), {
+        headers: { "ngrok-skip-browser-warning": "true" },
+      });
+      const data = await res.json();
+      loadingEl.hidden = true;
+      document.getElementById("linkCard").hidden = !!data.found;
+
+      if (data.found && data.growth) renderGrowth(data.growth);
+      if (data.found && data.forest) renderForest(data.forest);
+
+      if (!data.found || !data.day) {
+        emptyEl.hidden = false;
+        return;
+      }
+
+      document.getElementById("progressDay").textContent = data.day;
+      document.getElementById("progressCount").textContent = (data.history || []).length;
+
+      const levelRadio = document.querySelector('input[name="level"][value="' + (data.level || "beginner") + '"]');
+      if (levelRadio) levelRadio.checked = true;
+
+      const grid = document.getElementById("progressGrid");
+      grid.innerHTML = "";
+      const totalCells = Math.max(data.day, 10);
+      const doneDays = new Set((data.history || []).map((h) => h.day));
+      for (let d = 1; d <= totalCells; d++) {
+        const cell = document.createElement("div");
+        cell.className = "progress-day" + (doneDays.has(d) ? " done" : "");
+        cell.textContent = d;
+        const entry = (data.history || []).find((h) => h.day === d);
+        if (entry) cell.title = entry.topic || ("Day " + d);
+        grid.appendChild(cell);
+      }
+      contentEl.hidden = false;
+    } catch (err) {
+      loadingEl.hidden = true;
+      emptyEl.hidden = false;
+    }
+  }
+
+  client.auth.getSession().then(({ data }) => {
+    const session = data.session;
+    const loggedOutEl = document.getElementById("loggedOutState");
+    const profileArea = document.getElementById("profileArea");
+
+    if (!session || !session.user) {
+      loggedOutEl.hidden = false;
+      return;
+    }
+
+    const user = session.user;
+    const email = user.email || "(no email)";
+    const provider = (user.app_metadata && user.app_metadata.provider) || "email";
+    const providerLabel = { google: "Google", facebook: "Facebook", email: "Email" }[provider] || provider;
+    const meta = user.user_metadata || {};
+
+    document.getElementById("avatarInitial").textContent = email.charAt(0).toUpperCase();
+    document.getElementById("profileEmail").textContent = email;
+    const lang = document.documentElement.lang || "en";
+    document.getElementById("profileSub").textContent = providerLabel + (SIGNED_IN_WITH[lang] || SIGNED_IN_WITH.en);
+    document.getElementById("infoProvider").textContent = providerLabel;
+    document.getElementById("infoCreated").textContent = fmtDate(user.created_at);
+    document.getElementById("infoUserId").textContent = user.id;
+
+    document.getElementById("nameInput").value = meta.full_name || meta.name || "";
+    document.getElementById("birthdateInput").value = meta.birthdate || "";
+
+    profileArea.hidden = false;
+    sessionToken = session.access_token || "";
+    currentEmail = email;
+    document.getElementById("linkGetBtn").addEventListener("click", requestLinkCode);
+    document.getElementById("linkRecheckBtn").addEventListener("click", () => loadProgress(currentEmail));
+    loadProgress(email);
+
+    document.getElementById("saveLevelBtn").addEventListener("click", async () => {
+      const statusEl = document.getElementById("levelSaveStatus");
+      const level = document.querySelector('input[name="level"]:checked').value;
+      statusEl.textContent = "...";
+      statusEl.classList.remove("ok");
+      try {
+        const res = await fetch(PROGRESS_API.replace("/progress", "/level"), {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "ngrok-skip-browser-warning": "true" },
+          body: JSON.stringify({ email, level }),
+        });
+        const data = await res.json();
+        if (res.ok) {
+          statusEl.textContent = "✓";
+          statusEl.classList.add("ok");
+        } else {
+          statusEl.textContent = data.error || "Error";
+        }
+      } catch (err) {
+        statusEl.textContent = "Error";
+      }
+    });
+
+    document.getElementById("saveProfileBtn").addEventListener("click", async () => {
+      const statusEl = document.getElementById("saveStatus");
+      const name = document.getElementById("nameInput").value.trim();
+      const birthdate = document.getElementById("birthdateInput").value;
+      statusEl.textContent = "...";
+      statusEl.classList.remove("ok");
+      const { error } = await client.auth.updateUser({ data: { full_name: name, birthdate: birthdate } });
+      if (error) {
+        statusEl.textContent = error.message;
+      } else {
+        statusEl.textContent = "✓";
+        statusEl.classList.add("ok");
+      }
+    });
+
+    document.getElementById("logoutBtn2").addEventListener("click", async () => {
+      await client.auth.signOut();
+      window.location.href = "index.html";
+    });
+  });
+</script>
+<script>
+  window.PAGE_TRANSLATIONS = {
+    en: {
+      metaDescription: "View and edit your Hangul Habit account details.",
+      navAbout: "About", navPricing: "Pricing", navBilling: "Billing", navSignin: "Sign in / Sign up",
+      i18nEyebrow: "Account", i18nH1: "My account",
+      i18nLoggedOut: "Sign in to view your account.", i18nGoLogin: "Go to sign in →",
+      i18nInfoProvider: "Signed in with", i18nInfoCreated: "Member since", i18nInfoUserId: "User ID",
+      i18nProgressH2: "Learning progress", i18nProgressLoading: "Loading…",
+      i18nProgressEmpty: "No lessons completed yet.", i18nProgressEmptyLink: "Start the free 5-day pilot →",
+      i18nProgressDayLabel: "Current day", i18nProgressCountLabel: "Lessons completed",
+      i18nLevelH2: "Difficulty level", i18nLevelHint: "Choose how challenging your daily lessons should be. Takes effect from your next lesson.",
+      i18nLevelBeginner: "Beginner", i18nLevelBeginnerDesc: "Greetings, numbers, everyday basics",
+      i18nLevelIntermediate: "Intermediate", i18nLevelIntermediateDesc: "Past/future tense, opinions, requests",
+      i18nLevelAdvanced: "Advanced", i18nLevelAdvancedDesc: "Idioms, nuance, formal register",
+      i18nLevelSave: "Save level",
+      i18nEditH2: "Name &amp; birthday",
+      i18nEditHint: "Google/Facebook sign-in only shares your email with us — not your name or birthday. Add them here if you'd like, and we'll remember them.",
+      i18nNameLabel: "Name", i18nBirthdateLabel: "Birthday",
+      i18nBillingBtn: "View payment history",
+      i18nGrowthH2: "Your Hangul plant",
+      i18nGrowthHint: "Send a voice message on WhatsApp after your lesson to earn XP and grow your plant. One XP reward per day.",
+      i18nGrowthStreakLabel: "Day streak", i18nGrowthVoicesLabel: "Practice days", i18nGrowthBadgesH2: "Badges",
+      growthNextTpl: "{n} XP until {stage}", growthMaxed: "Fully bloomed! Keep your streak going.",
+      growthStage_seed: "Seed", growthStage_sprout: "Sprout", growthStage_sapling: "Sapling", growthStage_tree: "Tree", growthStage_mugunghwa: "Mugunghwa",
+      growthBadge_first_voice: "First Voice", growthBadgeDesc_first_voice: "Send your first voice message",
+      growthBadge_streak_3: "3-Day Streak", growthBadgeDesc_streak_3: "Practice 3 days in a row",
+      growthBadge_streak_7: "7-Day Streak", growthBadgeDesc_streak_7: "Practice 7 days in a row",
+      growthBadge_pilot_complete: "5-Day Pilot", growthBadgeDesc_pilot_complete: "Practice on 5 different days",
+      growthBadge_two_weeks: "2 Weeks", growthBadgeDesc_two_weeks: "Practice on 14 different days",
+      growthBadge_mugunghwa: "Mugunghwa Bloom", growthBadgeDesc_mugunghwa: "Grow your plant to full bloom",
+      growthBadge_first_friend: "First Friend", growthBadgeDesc_first_friend: "A friend you invited sends their first voice message",
+      growthBadge_team_goal: "Team Goal", growthBadgeDesc_team_goal: "Reach your forest's weekly practice goal",
+      i18nLinkH2: "Connect your WhatsApp", i18nLinkHint: "Your account isn't linked to a WhatsApp learner yet. Join the pilot on WhatsApp first, then link it here to see your plant, forest and progress.",
+      i18nLinkGet: "Get link code", i18nLinkSend: "Send this exact message to us on WhatsApp:", i18nLinkExpires: "The code works once and expires in 15 minutes.",
+      i18nLinkOpenWa: "Open WhatsApp", i18nLinkRecheck: "I've sent it — check again", linkError: "Couldn't get a code. Please sign in again and retry.",
+      i18nForestH2: "Your forest",
+      i18nForestHint: "Invite friends with your personal link. When a friend sends their first voice message, you both get bonus XP.",
+      i18nForestCopy: "Copy invite link", forestCopied: "Link copied ✓",
+      forestRankLabel: "Rank:", forestTier_seedling: "Seedling", forestTier_grove: "Grove", forestTier_forest: "Forest", forestTier_guardian: "Guardian",
+      forestNextTpl: "{n} more friends to reach {tier}", forestTopRank: "Highest rank reached — thank you for growing the forest!",
+      i18nForestTreesH3: "Friends in your forest", forestEmpty: "No friends in your forest yet. Share your link to plant the first tree.",
+      i18nForestLegend: "Big trees are friends you invited. Small trees are their friends. Grey trees haven't sent a voice message yet.",
+      i18nForestTeamH3: "Weekly team goal", forestTeamTpl: "{done} of {goal} practice days this week", forestTeamDone: "Goal reached — everyone earned bonus XP!",
+      i18nForestTeamHint: "Your forest is you, your friends and their friends. Practice together to reach the goal and everyone earns bonus XP.",
+    },
+    ja: {
+      metaDescription: "Hangul Habitのアカウント情報の確認・編集ができます。",
+      navAbout: "概要", navPricing: "料金", navBilling: "支払い", navSignin: "ログイン / 新規登録",
+      i18nEyebrow: "アカウント", i18nH1: "マイアカウント",
+      i18nLoggedOut: "アカウントを見るにはログインしてください。", i18nGoLogin: "ログイン画面へ →",
+      i18nInfoProvider: "ログイン方法", i18nInfoCreated: "登録日", i18nInfoUserId: "ユーザーID",
+      i18nProgressH2: "学習の進み具合", i18nProgressLoading: "読み込み中…",
+      i18nProgressEmpty: "まだ完了したレッスンはありません。", i18nProgressEmptyLink: "5日間無料パイロットを始める →",
+      i18nProgressDayLabel: "現在の日数", i18nProgressCountLabel: "完了したレッスン数",
+      i18nLevelH2: "難易度", i18nLevelHint: "毎日のレッスンの難易度を選んでください。次回のレッスンから反映されます。",
+      i18nLevelBeginner: "初級", i18nLevelBeginnerDesc: "あいさつ、数字、日常の基本",
+      i18nLevelIntermediate: "中級", i18nLevelIntermediateDesc: "過去形・未来形、意見、依頼表現",
+      i18nLevelAdvanced: "上級", i18nLevelAdvancedDesc: "慣用句、ニュアンス、フォーマルな表現",
+      i18nLevelSave: "難易度を保存",
+      i18nEditH2: "名前と誕生日",
+      i18nEditHint: "Google/Facebookログインでは、メールアドレスのみが共有され、名前や誕生日は共有されません。よければここで追加してください、記憶しておきます。",
+      i18nNameLabel: "名前", i18nBirthdateLabel: "誕生日",
+      i18nBillingBtn: "支払い履歴を見る",
+      i18nGrowthH2: "あなたのハングルの木",
+      i18nGrowthHint: "レッスンのあとにWhatsAppでボイスメッセージを送るとXPがたまり、木が育ちます。XPは1日1回です。",
+      i18nGrowthStreakLabel: "連続日数", i18nGrowthVoicesLabel: "練習した日数", i18nGrowthBadgesH2: "バッジ",
+      growthNextTpl: "{stage}まであと{n} XP", growthMaxed: "満開です！この調子で続けましょう。",
+      growthStage_seed: "たね", growthStage_sprout: "新芽", growthStage_sapling: "若木", growthStage_tree: "大きな木", growthStage_mugunghwa: "ムクゲ",
+      growthBadge_first_voice: "はじめての声", growthBadgeDesc_first_voice: "初めてボイスメッセージを送る",
+      growthBadge_streak_3: "3日連続", growthBadgeDesc_streak_3: "3日連続で練習する",
+      growthBadge_streak_7: "7日連続", growthBadgeDesc_streak_7: "7日連続で練習する",
+      growthBadge_pilot_complete: "5日パイロット", growthBadgeDesc_pilot_complete: "5日間練習する",
+      growthBadge_two_weeks: "2週間", growthBadgeDesc_two_weeks: "14日間練習する",
+      growthBadge_mugunghwa: "ムクゲ開花", growthBadgeDesc_mugunghwa: "木を満開まで育てる",
+      growthBadge_first_friend: "はじめての友だち", growthBadgeDesc_first_friend: "招待した友だちが初めてボイスメッセージを送る",
+      growthBadge_team_goal: "チーム目標", growthBadgeDesc_team_goal: "あなたの森の週間練習目標を達成する",
+      i18nLinkH2: "WhatsAppと連携する", i18nLinkHint: "このアカウントは、まだWhatsAppの学習者と連携されていません。先にWhatsAppでパイロットに参加してから、ここで連携すると、植物・森・進み具合が表示されます。",
+      i18nLinkGet: "連携コードを取得", i18nLinkSend: "次のメッセージをそのままWhatsAppで送ってください:", i18nLinkExpires: "コードは1回だけ使え、15分で無効になります。",
+      i18nLinkOpenWa: "WhatsAppを開く", i18nLinkRecheck: "送信しました — もう一度確認", linkError: "コードを取得できませんでした。もう一度ログインして、やり直してください。",
+      i18nForestH2: "あなたの森",
+      i18nForestHint: "専用リンクで友だちを招待しましょう。友だちが初めてボイスメッセージを送ると、2人ともボーナスXPがもらえます。",
+      i18nForestCopy: "招待リンクをコピー", forestCopied: "コピーしました ✓",
+      forestRankLabel: "ランク:", forestTier_seedling: "シードリング", forestTier_grove: "小さな林", forestTier_forest: "森", forestTier_guardian: "森の守り人",
+      forestNextTpl: "{tier}まであと{n}人", forestTopRank: "最高ランクに到達しました。森を育ててくれてありがとう!",
+      i18nForestTreesH3: "あなたの森の友だち", forestEmpty: "まだ森に友だちがいません。リンクを共有して最初の1本を植えましょう。",
+      i18nForestLegend: "大きな木は招待した友だち、小さな木はその友だちです。グレーの木はまだボイスメッセージを送っていません。",
+      i18nForestTeamH3: "週間チーム目標", forestTeamTpl: "今週の練習日数 {done} / {goal}", forestTeamDone: "目標達成!全員にボーナスXPが入りました。",
+      i18nForestTeamHint: "森は、あなた・友だち・友だちの友だちです。みんなで練習して目標を達成すると、全員がボーナスXPをもらえます。",
+    },
+    ka: {
+      metaDescription: "იხილეთ და დაარედაქტირეთ თქვენი Hangul Habit ანგარიშის დეტალები.",
+      navAbout: "შესახებ", navPricing: "ფასები", navBilling: "გადახდები", navSignin: "შესვლა / რეგისტრაცია",
+      i18nEyebrow: "ანგარიში", i18nH1: "ჩემი ანგარიში",
+      i18nLoggedOut: "შედით სისტემაში თქვენი ანგარიშის სანახავად.", i18nGoLogin: "შესვლის გვერდზე გადასვლა →",
+      i18nInfoProvider: "შესვლის მეთოდი", i18nInfoCreated: "წევრია", i18nInfoUserId: "მომხმარებლის ID",
+      i18nProgressH2: "სწავლის პროგრესი", i18nProgressLoading: "იტვირთება…",
+      i18nProgressEmpty: "ჯერ არცერთი გაკვეთილი არ დასრულებულა.", i18nProgressEmptyLink: "დაიწყეთ 5-დღიანი უფასო საცდელი →",
+      i18nProgressDayLabel: "მიმდინარე დღე", i18nProgressCountLabel: "დასრულებული გაკვეთილები",
+      i18nLevelH2: "სირთულის დონე", i18nLevelHint: "აირჩიეთ რამდენად რთული უნდა იყოს თქვენი ყოველდღიური გაკვეთილები. ძალაში შედის შემდეგი გაკვეთილიდან.",
+      i18nLevelBeginner: "დამწყები", i18nLevelBeginnerDesc: "მისალმებები, რიცხვები, ყოველდღიური საბაზისო ლექსიკა",
+      i18nLevelIntermediate: "საშუალო", i18nLevelIntermediateDesc: "წარსული/მომავალი დრო, აზრის გამოხატვა, თხოვნები",
+      i18nLevelAdvanced: "მაღალი დონე", i18nLevelAdvancedDesc: "იდიომები, ნიუანსები, ფორმალური რეგისტრი",
+      i18nLevelSave: "დონის შენახვა",
+      i18nEditH2: "სახელი და დაბადების დღე",
+      i18nEditHint: "Google/Facebook-ით შესვლისას მხოლოდ თქვენი ელფოსტა გვეზიარება — არა სახელი ან დაბადების დღე. თუ გსურთ, დაამატეთ აქ და დავიმახსოვრებთ.",
+      i18nNameLabel: "სახელი", i18nBirthdateLabel: "დაბადების დღე",
+      i18nBillingBtn: "გადახდების ისტორიის ნახვა",
+      i18nGrowthH2: "თქვენი ჰანგულის მცენარე",
+      i18nGrowthHint: "გაკვეთილის შემდეგ გამოგზავნეთ ხმოვანი შეტყობინება WhatsApp-ში, რომ მიიღოთ XP და გაზარდოთ მცენარე. XP დღეში ერთხელ ინიშნება.",
+      i18nGrowthStreakLabel: "დღე ზედიზედ", i18nGrowthVoicesLabel: "სავარჯიშო დღეები", i18nGrowthBadgesH2: "ბეჯები",
+      growthNextTpl: "{stage}-მდე {n} XP", growthMaxed: "სრულად აყვავდა! გააგრძელეთ.",
+      growthStage_seed: "თესლი", growthStage_sprout: "ღივი", growthStage_sapling: "ნერგი", growthStage_tree: "ხე", growthStage_mugunghwa: "მუგუნღვა",
+      growthBadge_first_voice: "პირველი ხმა", growthBadgeDesc_first_voice: "გამოგზავნეთ პირველი ხმოვანი შეტყობინება",
+      growthBadge_streak_3: "3 დღე ზედიზედ", growthBadgeDesc_streak_3: "ივარჯიშეთ 3 დღე ზედიზედ",
+      growthBadge_streak_7: "7 დღე ზედიზედ", growthBadgeDesc_streak_7: "ივარჯიშეთ 7 დღე ზედიზედ",
+      growthBadge_pilot_complete: "5-დღიანი პილოტი", growthBadgeDesc_pilot_complete: "ივარჯიშეთ 5 სხვადასხვა დღეს",
+      growthBadge_two_weeks: "2 კვირა", growthBadgeDesc_two_weeks: "ივარჯიშეთ 14 სხვადასხვა დღეს",
+      growthBadge_mugunghwa: "მუგუნღვას ყვავილობა", growthBadgeDesc_mugunghwa: "გაზარდეთ მცენარე სრულ ყვავილობამდე",
+      growthBadge_first_friend: "პირველი მეგობარი", growthBadgeDesc_first_friend: "თქვენი მოწვეული მეგობარი პირველ ხმოვან შეტყობინებას აგზავნის",
+      growthBadge_team_goal: "გუნდის მიზანი", growthBadgeDesc_team_goal: "შეასრულეთ თქვენი ტყის ყოველკვირეული სავარჯიშო მიზანი",
+      i18nLinkH2: "დააკავშირეთ WhatsApp", i18nLinkHint: "თქვენი ანგარიში ჯერ არ არის დაკავშირებული WhatsApp-ის მოსწავლესთან. ჯერ შეუერთდით პილოტს WhatsApp-ში, შემდეგ აქ დააკავშირეთ, რომ ნახოთ მცენარე, ტყე და პროგრესი.",
+      i18nLinkGet: "კავშირის კოდის მიღება", i18nLinkSend: "გამოგვიგზავნეთ ზუსტად ეს შეტყობინება WhatsApp-ში:", i18nLinkExpires: "კოდი ერთხელ მუშაობს და 15 წუთში ვადა გასდის.",
+      i18nLinkOpenWa: "WhatsApp-ის გახსნა", i18nLinkRecheck: "გავგზავნე — თავიდან შემოწმება", linkError: "კოდის მიღება ვერ მოხერხდა. შედით თავიდან და სცადეთ ხელახლა.",
+      i18nForestH2: "თქვენი ტყე",
+      i18nForestHint: "მოიწვიეთ მეგობრები პირადი ბმულით. როცა მეგობარი პირველ ხმოვან შეტყობინებას გამოგზავნის, ორივე მიიღებთ ბონუს XP-ს.",
+      i18nForestCopy: "მოწვევის ბმულის კოპირება", forestCopied: "დაკოპირდა ✓",
+      forestRankLabel: "რანგი:", forestTier_seedling: "ნერგი", forestTier_grove: "კორომი", forestTier_forest: "ტყე", forestTier_guardian: "ტყის მცველი",
+      forestNextTpl: "კიდევ {n} მეგობარი რანგამდე: {tier}", forestTopRank: "უმაღლეს რანგს მიაღწიეთ — გმადლობთ ტყის გაზრდისთვის!",
+      i18nForestTreesH3: "მეგობრები თქვენს ტყეში", forestEmpty: "თქვენს ტყეში ჯერ მეგობრები არ არიან. გააზიარეთ ბმული და დარგეთ პირველი ხე.",
+      i18nForestLegend: "დიდი ხეები თქვენი მოწვეული მეგობრებია. პატარა ხეები — მათი მეგობრები. ნაცრისფერი ხეები ჯერ ხმოვან შეტყობინებას არ აგზავნიან.",
+      i18nForestTeamH3: "გუნდის ყოველკვირეული მიზანი", forestTeamTpl: "{done} / {goal} სავარჯიშო დღე ამ კვირაში", forestTeamDone: "მიზანი შესრულდა — ყველამ მიიღო ბონუს XP!",
+      i18nForestTeamHint: "თქვენი ტყე ხართ თქვენ, თქვენი მეგობრები და მათი მეგობრები. ივარჯიშეთ ერთად, რომ მიზანს მიაღწიოთ და ყველამ ბონუს XP მიიღოს.",
+    },
+    zh: {
+      metaDescription: "查看并编辑你的 Hangul Habit 账户信息。",
+      navAbout: "关于", navPricing: "价格", navBilling: "账单", navSignin: "登录 / 注册",
+      i18nEyebrow: "账户", i18nH1: "我的账户",
+      i18nLoggedOut: "请登录查看你的账户。", i18nGoLogin: "前往登录 →",
+      i18nInfoProvider: "登录方式", i18nInfoCreated: "加入日期", i18nInfoUserId: "用户ID",
+      i18nProgressH2: "学习进度", i18nProgressLoading: "加载中…",
+      i18nProgressEmpty: "还没有完成任何课程。", i18nProgressEmptyLink: "开始5天免费试点 →",
+      i18nProgressDayLabel: "当前天数", i18nProgressCountLabel: "已完成课程数",
+      i18nLevelH2: "难度等级", i18nLevelHint: "选择你每日课程的难度。将从下一课开始生效。",
+      i18nLevelBeginner: "初级", i18nLevelBeginnerDesc: "问候语、数字、日常基础用语",
+      i18nLevelIntermediate: "中级", i18nLevelIntermediateDesc: "过去时/将来时、表达观点、请求句型",
+      i18nLevelAdvanced: "高级", i18nLevelAdvancedDesc: "习语、语感细节、正式语域",
+      i18nLevelSave: "保存难度",
+      i18nEditH2: "姓名与生日",
+      i18nEditHint: "Google/Facebook 登录只会向我们分享你的邮箱——不包括姓名或生日。如果愿意,可以在这里补充,我们会记住它们。",
+      i18nNameLabel: "姓名", i18nBirthdateLabel: "生日",
+      i18nBillingBtn: "查看付款记录",
+      i18nGrowthH2: "你的韩文小植物",
+      i18nGrowthHint: "课程结束后在 WhatsApp 发送语音消息即可获得 XP，让小植物成长。每天只奖励一次。",
+      i18nGrowthStreakLabel: "连续天数", i18nGrowthVoicesLabel: "练习天数", i18nGrowthBadgesH2: "徽章",
+      growthNextTpl: "距离「{stage}」还差 {n} XP", growthMaxed: "已经盛开！继续保持。",
+      growthStage_seed: "种子", growthStage_sprout: "嫩芽", growthStage_sapling: "幼苗", growthStage_tree: "大树", growthStage_mugunghwa: "木槿花",
+      growthBadge_first_voice: "第一声", growthBadgeDesc_first_voice: "发送第一条语音消息",
+      growthBadge_streak_3: "连续3天", growthBadgeDesc_streak_3: "连续练习3天",
+      growthBadge_streak_7: "连续7天", growthBadgeDesc_streak_7: "连续练习7天",
+      growthBadge_pilot_complete: "5天试点", growthBadgeDesc_pilot_complete: "累计练习5天",
+      growthBadge_two_weeks: "两周", growthBadgeDesc_two_weeks: "累计练习14天",
+      growthBadge_mugunghwa: "木槿花开", growthBadgeDesc_mugunghwa: "把植物养到盛开",
+      growthBadge_first_friend: "第一位朋友", growthBadgeDesc_first_friend: "你邀请的朋友发送了第一条语音消息",
+      growthBadge_team_goal: "团队目标", growthBadgeDesc_team_goal: "完成你的森林每周练习目标",
+      i18nLinkH2: "关联你的 WhatsApp", i18nLinkHint: "你的账户还没有关联 WhatsApp 学员。请先在 WhatsApp 加入试点,再在这里关联,就能看到你的植物、森林和学习进度。",
+      i18nLinkGet: "获取关联码", i18nLinkSend: "请在 WhatsApp 里原样发送这条消息:", i18nLinkExpires: "关联码只能使用一次,15 分钟后失效。",
+      i18nLinkOpenWa: "打开 WhatsApp", i18nLinkRecheck: "我已发送——重新检查", linkError: "无法获取关联码。请重新登录后再试。",
+      i18nForestH2: "你的森林",
+      i18nForestHint: "用专属链接邀请朋友。朋友发送第一条语音消息后,你们双方都能获得额外 XP。",
+      i18nForestCopy: "复制邀请链接", forestCopied: "已复制 ✓",
+      forestRankLabel: "等级:", forestTier_seedling: "幼苗", forestTier_grove: "小树林", forestTier_forest: "森林", forestTier_guardian: "森林守护者",
+      forestNextTpl: "再邀请 {n} 位朋友即可升到「{tier}」", forestTopRank: "已达到最高等级——感谢你培育这片森林!",
+      i18nForestTreesH3: "你森林里的朋友", forestEmpty: "你的森林里还没有朋友。分享链接,种下第一棵树吧。",
+      i18nForestLegend: "大树是你邀请的朋友,小树是他们的朋友。灰色的树表示还没发送过语音消息。",
+      i18nForestTeamH3: "每周团队目标", forestTeamTpl: "本周练习天数 {done} / {goal}", forestTeamDone: "目标达成——所有人都获得了额外 XP!",
+      i18nForestTeamHint: "你的森林包括你、你的朋友和他们的朋友。一起练习完成目标,所有人都能获得额外 XP。",
+    },
+  };
+</script>
+<script src="lang-switch.js"></script>

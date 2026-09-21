@@ -1,0 +1,276 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://dhtmddbs2-coder.github.io/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="About — Hangul Habit">
+<meta property="og:description" content="Why Hangul Habit exists, who's behind it, and why it runs over WhatsApp instead of yet another app.">
+<meta property="og:url" content="https://dhtmddbs2-coder.github.io/about.html">
+<meta property="og:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Hangul Habit">
+<meta name="twitter:description" content="Why Hangul Habit exists, who's behind it, and why it runs over WhatsApp instead of yet another app.">
+<meta name="twitter:image" content="https://dhtmddbs2-coder.github.io/og-image.png">
+<title>About — Hangul Habit</title>
+<meta name="description" id="metaDescription" content="Why Hangul Habit exists, who's behind it, and why it runs over WhatsApp instead of yet another app.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --coral-dim: #c94c3f; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="light"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+      --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+      --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+      --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+    --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+    --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+    --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+  .obang-strip { height: 6px; background: repeating-linear-gradient(90deg, #1a3b6e 0 40px, #c62b2b 40px 80px, #d9b64e 80px 120px, #e7e2d3 120px 160px, #1a1a1a 160px 200px); }
+
+  nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 680px; margin: 0 auto; padding: 18px 24px; }
+  nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; }
+  nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
+  nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
+  .lang-switch { position: relative; }
+  .lang-switch button { display: flex; align-items: center; gap: 6px; background: var(--bg-inset); border: 1px solid var(--line); color: var(--ink-dim); font: inherit; font-size: 13px; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch .menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); min-width: 160px; overflow: hidden; padding: 6px; }
+  .lang-switch.open .menu { display: block; }
+  .lang-switch .menu button { all: unset; box-sizing: border-box; display: flex; width: 100%; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); cursor: pointer; }
+  .lang-switch .menu button:hover { background: var(--bg-inset); color: var(--ink); }
+
+  .pagehero { padding: 48px 0 12px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+  .eyebrow::before { content: "●"; font-size: 8px; color: var(--jade); }
+  h1.kr { font-size: clamp(26px, 4.4vw, 36px); margin: 10px 0 12px; text-wrap: balance; line-height: 1.15; }
+  .lede { font-size: 18px; color: var(--ink-dim); max-width: 52ch; text-wrap: balance; }
+
+  section.block { padding: 40px 0; border-top: 1px solid var(--line); }
+  section.block h2 { font-size: clamp(20px, 3vw, 24px); margin: 0 0 14px; text-wrap: balance; }
+  section.block p { color: var(--ink-dim); margin: 0 0 14px; font-size: 15.5px; }
+  section.block p:last-child { margin-bottom: 0; }
+
+  .honest-card {
+    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px;
+    padding: 24px; box-shadow: var(--shadow); margin-top: 8px;
+  }
+  .honest-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .honest-card li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--ink-dim); }
+  .honest-card .tick { color: var(--jade); font-weight: 700; flex-shrink: 0; }
+
+  .cta-row { text-align: center; margin: 8px 0 4px; }
+  .cta { display: inline-flex; align-items: center; gap: 10px; background: var(--coral); color: #fff9f4; font-weight: 600; font-size: 16px; padding: 14px 26px; border-radius: 12px; text-decoration: none; box-shadow: 0 14px 28px -14px color-mix(in srgb, var(--coral) 70%, transparent); }
+
+  footer { padding: 40px 0 60px; text-align: center; color: var(--ink-faint); font-size: 13px; }
+  footer .kr { font-size: 15px; color: var(--ink-dim); margin-bottom: 6px; }
+  footer a { text-decoration: underline; }
+</style>
+
+<div class="obang-strip" aria-hidden="true"></div>
+<nav class="topnav">
+  <a class="brand" href="index.html">Hangul Habit</a>
+  <div class="links">
+    <a href="about.html" aria-current="page" id="navAbout">About</a>
+    <a href="how-it-works.html" id="navHow">How it works</a>
+    <a href="pricing.html" id="navPricing">Pricing</a>
+    <a href="login.html" id="navSignin">Sign in / Sign up</a>
+    <div id="langSwitchMount"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="pagehero">
+      <span class="eyebrow" id="i18nEyebrow">About</span>
+      <h1 class="kr" id="i18nH1">Why I built Hangul Habit</h1>
+      <p class="lede" id="i18nLede">Short version: I kept meeting people who loved Korean shows, music, and food — and wanted to
+        actually speak the language, not just recognize a few words in subtitles. Most options felt too big,
+        too slow, or too impersonal for that. So I built something smaller instead.</p>
+    </div>
+
+    <section class="block">
+      <h2 id="i18nS1H2">Why Korean, why now</h2>
+      <p id="i18nS1P1">Korean film, TV, music, and food have traveled further than most people expected a decade ago. A lot
+        of that reaches people as entertainment first — and for a good number of them, curiosity grows into
+        wanting to actually understand and speak Korean, not just watch it with subtitles on.</p>
+      <p id="i18nS1P2">The gap I kept seeing: plenty of people reach that point, open a language app, do a lesson or two, and
+        quietly stop. Not because they weren't motivated — because a few minutes of solo tapping through an
+        app doesn't feel like it's going anywhere, and there's no one checking in.</p>
+    </section>
+
+    <section class="block">
+      <h2 id="i18nS2H2">Why WhatsApp instead of another app</h2>
+      <p id="i18nS2P1">I didn't want to build one more app that competes for a home-screen slot and gets deleted after a
+        week. WhatsApp is already where most of the people I'm building this for spend their day. One short
+        lesson arrives where you already are, you reply with your own voice, and a real person listens and
+        answers — not an algorithm scoring your pronunciation in isolation.</p>
+      <p id="i18nS2P2">It also keeps the whole thing small on purpose. No streak-shaming push notifications, no
+        leaderboards. Just a short daily nudge, a real reply, and a small plant that grows when you send a voice message.</p>
+    </section>
+
+    <section class="block">
+      <h2 id="i18nS3H2">Who's behind it</h2>
+      <p id="i18nS3P1">Hangul Habit is a small, founder-run pilot — not a large company. I'm a language educator (I also
+        teach English conversation and interview-style speaking practice professionally), and this project
+        grew out of the same belief that drives that work: short, consistent, spoken practice with real
+        feedback beats long infrequent study sessions almost every time.</p>
+      <p id="i18nS3P2">Right now it's just me reading every reply and writing every piece of feedback personally — which is
+        exactly why the pilot is capped to a small group while I get the format right.</p>
+    </section>
+
+    <section class="block">
+      <h2 id="i18nS4H2">Being upfront about where this is</h2>
+      <div class="honest-card">
+        <ul>
+          <li><span class="tick">✓</span> <span id="i18nHonest1">This is an early pilot, currently testing with a small group in Tbilisi, Georgia — not a large, established platform yet.</span></li>
+          <li><span class="tick">✓</span> <span id="i18nHonest2">The 5-day trial is genuinely free — no card required to start, ever.</span></li>
+          <li><span class="tick">✓</span> <span id="i18nHonest3">If you move to the paid monthly plan later, you can cancel anytime — no lock-in contract.</span></li>
+          <li><span class="tick">✓</span> <span id="i18nHonest4">A real person (me) reads and replies to your messages. This isn't a chatbot wearing a language-app costume.</span></li>
+          <li><span class="tick">✓</span> <span id="i18nHonest5">Questions, doubts, or just want to check this is legit before joining? Email me directly — <a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a> — and I'll answer personally.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="cta-row" style="padding: 20px 0 40px;">
+      <a class="cta" href="index.html#top" id="i18nBackCta">← Back to the pilot</a>
+    </div>
+  </div>
+
+  <footer>
+    <p class="kr">화이팅! 🇰🇷</p>
+    <p id="i18nFooterLine1">Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.</p>
+    <p style="margin-top:14px;">
+      <a href="index.html" id="navHome2">Home</a> · <a href="how-it-works.html" id="navHow2">How it works &amp; FAQ</a> · <a href="mailto:dhtmddbs2@gmail.com" id="navContact2">Contact</a>
+    </p>
+  </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-nav.js"></script>
+<script>
+  window.PAGE_TRANSLATIONS = {
+    en: {
+      metaDescription: "Why Hangul Habit exists, who's behind it, and why it runs over WhatsApp instead of yet another app.",
+      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navSignin: "Sign in / Sign up",
+      navHome2: "Home", navHow2: "How it works &amp; FAQ", navContact2: "Contact",
+      i18nEyebrow: "About",
+      i18nH1: "Why I built Hangul Habit",
+      i18nLede: "Short version: I kept meeting people who loved Korean shows, music, and food — and wanted to actually speak the language, not just recognize a few words in subtitles. Most options felt too big, too slow, or too impersonal for that. So I built something smaller instead.",
+      i18nS1H2: "Why Korean, why now",
+      i18nS1P1: "Korean film, TV, music, and food have traveled further than most people expected a decade ago. A lot of that reaches people as entertainment first — and for a good number of them, curiosity grows into wanting to actually understand and speak Korean, not just watch it with subtitles on.",
+      i18nS1P2: "The gap I kept seeing: plenty of people reach that point, open a language app, do a lesson or two, and quietly stop. Not because they weren't motivated — because a few minutes of solo tapping through an app doesn't feel like it's going anywhere, and there's no one checking in.",
+      i18nS2H2: "Why WhatsApp instead of another app",
+      i18nS2P1: "I didn't want to build one more app that competes for a home-screen slot and gets deleted after a week. WhatsApp is already where most of the people I'm building this for spend their day. One short lesson arrives where you already are, you reply with your own voice, and a real person listens and answers — not an algorithm scoring your pronunciation in isolation.",
+      i18nS2P2: "It also keeps the whole thing small on purpose. No streak-shaming push notifications, no leaderboards. Just a short daily nudge, a real reply, and a small plant that grows when you send a voice message.",
+      i18nS3H2: "Who's behind it",
+      i18nS3P1: "Hangul Habit is a small, founder-run pilot — not a large company. I'm a language educator (I also teach English conversation and interview-style speaking practice professionally), and this project grew out of the same belief that drives that work: short, consistent, spoken practice with real feedback beats long infrequent study sessions almost every time.",
+      i18nS3P2: "Right now it's just me reading every reply and writing every piece of feedback personally — which is exactly why the pilot is capped to a small group while I get the format right.",
+      i18nS4H2: "Being upfront about where this is",
+      i18nHonest1: "This is an early pilot, currently testing with a small group in Tbilisi, Georgia — not a large, established platform yet.",
+      i18nHonest2: "The 5-day trial is genuinely free — no card required to start, ever.",
+      i18nHonest3: "If you move to the paid monthly plan later, you can cancel anytime — no lock-in contract.",
+      i18nHonest4: "A real person (me) reads and replies to your messages. This isn't a chatbot wearing a language-app costume.",
+      i18nHonest5: 'Questions, doubts, or just want to check this is legit before joining? Email me directly — <a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a> — and I\'ll answer personally.',
+      i18nBackCta: "← Back to the pilot",
+      i18nFooterLine1: "Hangul Habit — a small daily-habit pilot, currently testing in Tbilisi, Georgia.",
+    },
+    ja: {
+      metaDescription: "Hangul Habitがなぜ存在するのか、誰が運営しているのか、そしてなぜ別のアプリではなくWhatsAppで提供しているのか。",
+      navAbout: "概要", navHow: "使い方", navPricing: "料金", navSignin: "ログイン / 新規登録",
+      navHome2: "ホーム", navHow2: "使い方とFAQ", navContact2: "お問い合わせ",
+      i18nEyebrow: "概要",
+      i18nH1: "Hangul Habitを作った理由",
+      i18nLede: "簡単に言うと:韓国のドラマ、音楽、食べ物が好きで、字幕の中の単語をいくつか認識するだけでなく、実際に言葉を話せるようになりたいという人によく出会いました。既存の選択肢の多くは大きすぎたり、遅すぎたり、個人的すぎなかったりで合いませんでした。だからもっと小さなものを作りました。",
+      i18nS1H2: "なぜ今、韓国語なのか",
+      i18nS1P1: "韓国の映画、テレビ、音楽、食べ物は、10年前に多くの人が想像していたよりもずっと遠くまで広がりました。その多くは最初エンターテインメントとして届きますが、かなりの数の人にとって、それが字幕付きでただ見るだけでなく、実際に韓国語を理解し話したいという好奇心へと育っていきます。",
+      i18nS1P2: "私がずっと目にしてきたギャップはこれです:多くの人がそこまで到達し、語学アプリを開き、1〜2レッスンをこなして、静かにやめてしまいます。やる気がなかったからではなく、一人でアプリをタップする数分間が、どこにも進んでいる感じがせず、誰も様子を見てくれていないからです。",
+      i18nS2H2: "なぜ別のアプリではなくWhatsAppなのか",
+      i18nS2P1: "ホーム画面の枠を奪い合い、1週間で削除されてしまうようなアプリをもう一つ作りたくはありませんでした。WhatsAppは、私がこれを作っている相手のほとんどがすでに1日を過ごしている場所です。短いレッスンが、あなたがすでにいる場所に届き、自分の声で返信し、実在の人間が耳を傾けて答えます — 発音を単独で採点するアルゴリズムではありません。",
+      i18nS2P2: "また、意図的に全体を小さく保っています。連続記録を煽るプッシュ通知も、ランキングもありません。短い毎日の声かけと、本物の返信、そしてボイスメッセージを送ると育つ小さな木だけです。",
+      i18nS3H2: "運営者について",
+      i18nS3P1: "Hangul Habitは、大企業ではなく、創業者一人が運営する小さなパイロットプロジェクトです。私は語学教育者で(英会話や面接形式のスピーキング練習も専門的に教えています)、このプロジェクトは、その仕事を支えているのと同じ信念から生まれました:短く一貫した、本物のフィードバックを伴う音声練習は、長く不定期な学習セッションにほぼ毎回勝るということです。",
+      i18nS3P2: "今のところ、すべての返信を読み、すべてのフィードバックを個人的に書いているのは私一人です — だからこそ、正しい形を見つけるまでパイロットは少人数のグループに限定しています。",
+      i18nS4H2: "今の状況について正直にお伝えします",
+      i18nHonest1: "これは初期段階のパイロットで、現在ジョージア・トビリシの少人数グループでテスト中です — まだ大きく確立されたプラットフォームではありません。",
+      i18nHonest2: "5日間のトライアルは本当に無料です — 開始にカードは一切必要ありません。",
+      i18nHonest3: "後で月額有料プランに移行しても、いつでもキャンセルできます — 縛りの契約はありません。",
+      i18nHonest4: "実在の人間(私)があなたのメッセージを読んで返信します。語学アプリの仮面をかぶったチャットボットではありません。",
+      i18nHonest5: '質問や不安がある、参加前にこれが本物か確認したい場合は、直接メールしてください — <a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a> — 私が個人的に返信します。',
+      i18nBackCta: "← パイロットに戻る",
+      i18nFooterLine1: "Hangul Habit — 小さな毎日の習慣づくりパイロット。現在ジョージア・トビリシでテスト中です。",
+    },
+    ka: {
+      metaDescription: "რატომ არსებობს Hangul Habit, ვინ დგას მის უკან და რატომ მუშაობს WhatsApp-ში კიდევ ერთი აპლიკაციის ნაცვლად.",
+      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navSignin: "შესვლა / რეგისტრაცია",
+      navHome2: "მთავარი", navHow2: "როგორ მუშაობს და კითხვები", navContact2: "კონტაქტი",
+      i18nEyebrow: "შესახებ",
+      i18nH1: "რატომ შევქმენი Hangul Habit",
+      i18nLede: "მოკლედ: მუდმივად ვხვდებოდი ადამიანებს, რომლებსაც უყვართ კორეული სერიალები, მუსიკა და საკვები — და სურდათ ენის რეალურად საუბარი, არა მხოლოდ სუბტიტრებში რამდენიმე სიტყვის ცნობა. არსებული ვარიანტების უმეტესობა ან ზედმეტად დიდი იყო, ან ნელი, ან უპიროვნო. ამიტომ უფრო პატარა რამ შევქმენი.",
+      i18nS1H2: "რატომ კორეული, რატომ ახლა",
+      i18nS1P1: "კორეულმა კინომ, ტელევიზიამ, მუსიკამ და საკვებმა ბევრად უფრო შორს იმოგზაურა, ვიდრე ათწლეულის წინ ბევრს წარმოედგინა. ეს ყველაფერი თავდაპირველად როგორც გართობა აღწევს ადამიანებამდე — და ბევრისთვის ცნობისმოყვარეობა იზრდება იმის სურვილში, რომ რეალურად გაიგონ და ილაპარაკონ კორეულად, არა მხოლოდ სუბტიტრებით უყურონ.",
+      i18nS1P2: "ხარვეზი, რომელსაც მუდამ ვხედავდი: ბევრი ადამიანი აღწევს ამ წერტილამდე, ხსნის ენის აპლიკაციას, აკეთებს ერთ-ორ გაკვეთილს და მშვიდად წყვეტს. არა იმიტომ, რომ მოტივაცია არ ჰქონდათ — არამედ იმიტომ, რომ აპლიკაციაში მარტო რამდენიმე წუთის თითის დაჭერა არსად მიდის შეგრძნებით, და არავინ ამოწმებს.",
+      i18nS2H2: "რატომ WhatsApp და არა კიდევ ერთი აპლიკაცია",
+      i18nS2P1: "არ მინდოდა კიდევ ერთი აპლიკაციის შექმნა, რომელიც იბრძვის მთავარ ეკრანზე ადგილისთვის და კვირაში წაიშლება. WhatsApp უკვე იქ არის, სადაც იმ ადამიანების უმეტესობა ატარებს დღეს, ვისთვისაც ამას ვაშენებ. მოკლე გაკვეთილი მოდის იქ, სადაც უკვე ხართ, პასუხობთ საკუთარი ხმით, და რეალური ადამიანი უსმენს და პასუხობს — არა ალგორითმი, რომელიც იზოლირებულად აფასებს თქვენს გამოთქმას.",
+      i18nS2P2: "ეს ასევე შეგნებულად პატარას ინახავს მთელ საქმეს. არანაირი შემაშფოთებელი push შეტყობინება, არანაირი რეიტინგი. მხოლოდ მოკლე ყოველდღიური შეხსენება, რეალური პასუხი და პატარა მცენარე, რომელიც იზრდება, როცა ხმოვან შეტყობინებას აგზავნით.",
+      i18nS3H2: "ვინ დგას ამის უკან",
+      i18nS3P1: "Hangul Habit არის პატარა, დამფუძნებლის მიერ მართული საცდელი პროექტი — არა დიდი კომპანია. მე ვარ ენის პედაგოგი (პროფესიონალურად ვასწავლი ინგლისურ საუბარსა და გასაუბრების სტილის მეტყველების ვარჯიშსაც), და ეს პროექტი იმავე რწმენიდან გაიზარდა, რაც იმ საქმეს განაპირობებს: მოკლე, თანმიმდევრული, ხმოვანი ვარჯიში რეალური გამოხმაურებით თითქმის ყოველთვის სჯობს გრძელ, იშვიათ სასწავლო სესიებს.",
+      i18nS3P2: "ამჟამად მხოლოდ მე ვკითხულობ ყველა პასუხს და პირადად ვწერ ყველა გამოხმაურებას — სწორედ ამიტომ არის საცდელი პროექტი შეზღუდული პატარა ჯგუფით, სანამ ფორმატს სწორად არ მოვირგებ.",
+      i18nS4H2: "გულწრფელად იმის შესახებ, სად ვართ ახლა",
+      i18nHonest1: "ეს ადრეული საცდელი პროექტია, ამჟამად ტესტირება მიმდინარეობს პატარა ჯგუფთან თბილისში, საქართველოში — ჯერ არა დიდი, დამკვიდრებული პლატფორმა.",
+      i18nHonest2: "5-დღიანი საცდელი პერიოდი ნამდვილად უფასოა — დასაწყებად ბარათი არასდროს არის საჭირო.",
+      i18nHonest3: "თუ მოგვიანებით გადახვალთ ფასიან ყოველთვიურ გეგმაზე, შეგიძლიათ ნებისმიერ დროს გააუქმოთ — არანაირი მავალდებულებელი კონტრაქტი.",
+      i18nHonest4: "რეალური ადამიანი (მე) კითხულობს და პასუხობს თქვენს შეტყობინებებს. ეს არ არის ჩატბოტი ენის აპლიკაციის კოსტიუმში.",
+      i18nHonest5: 'კითხვები, ეჭვები, ან უბრალოდ გინდათ შემოწმდეთ, რომ ეს ნამდვილია, სანამ შეუერთდებით? მომწერეთ პირდაპირ — <a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a> — და პირადად გიპასუხებთ.',
+      i18nBackCta: "← უკან, საცდელ პროექტთან",
+      i18nFooterLine1: "Hangul Habit — პატარა ყოველდღიური ჩვევის საცდელი პროექტი, ამჟამად ტესტირება მიმდინარეობს თბილისში, საქართველოში.",
+    },
+    zh: {
+      metaDescription: "Hangul Habit 为什么存在、由谁运营,以及为什么选择在 WhatsApp 上运行而不是另做一个App。",
+      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navSignin: "登录 / 注册",
+      navHome2: "首页", navHow2: "使用方法与常见问题", navContact2: "联系方式",
+      i18nEyebrow: "关于",
+      i18nH1: "我为什么做了 Hangul Habit",
+      i18nLede: "简单说:我不断遇到喜欢韩剧、韩国音乐和美食的人——他们想真正开口说这门语言,而不只是在字幕里认出几个词。大多数现有选项要么太庞大、太慢,要么太缺乏人情味。所以我做了一个更小的东西。",
+      i18nS1H2: "为什么是韩语,为什么是现在",
+      i18nS1P1: "韩国的电影、电视、音乐和美食,传播得比十年前大多数人预想的都要远。这些内容大多首先以娱乐的形式触达大家——而对相当一部分人来说,这种好奇心会逐渐变成想真正听懂、会说韩语,而不只是开着字幕看。",
+      i18nS1P2: "我一直看到的落差是:很多人走到这一步,打开一个语言App,上一两节课,然后悄悄放弃了。不是因为没有动力——而是因为一个人对着App点几分钟,感觉不到在往前走,也没有人在关注你。",
+      i18nS2H2: "为什么是 WhatsApp,而不是再做一个App",
+      i18nS2P1: "我不想再做一个争夺主屏幕位置、一周后就被删掉的App。WhatsApp 已经是我想服务的这群人每天花时间最多的地方。一节简短的课程会送到你已经在的地方,你用自己的声音回复,一个真实的人会倾听并回答——而不是一个孤立地给发音打分的算法。",
+      i18nS2P2: "这也让整件事刻意保持简单。没有制造连胜焦虑的推送通知,没有排行榜。只有每天一条简短的提醒、一个真实的回复,以及一株你发送语音消息就会长大的小植物。",
+      i18nS3H2: "背后是谁在做",
+      i18nS3P1: "Hangul Habit 是一个由创始人独立运营的小型试点项目——不是一家大公司。我是一名语言教育者(同时也专业教授英语口语和面试式口语练习),这个项目源于支撑那份工作的同一个信念:简短、持续、带有真实反馈的口语练习,几乎总是胜过冗长而不规律的学习。",
+      i18nS3P2: "目前,是我一个人在阅读每一条回复、亲自撰写每一条反馈——这正是为什么在我把这个形式打磨好之前,试点会控制在一个小群体范围内。",
+      i18nS4H2: "坦诚地说说现在的进展",
+      i18nHonest1: "这是一个早期试点,目前正在格鲁吉亚第比利斯的一个小群体中测试——还不是一个大型的、成熟的平台。",
+      i18nHonest2: "5天试用是真正免费的——开始使用完全不需要信用卡。",
+      i18nHonest3: "如果之后转为付费月度套餐,你可以随时取消——没有绑定合同。",
+      i18nHonest4: "一个真实的人(就是我)会阅读并回复你的消息。这不是披着语言App外壳的聊天机器人。",
+      i18nHonest5: '有疑问,或者只是想在加入前确认这是真实可信的?直接给我发邮件——<a href="mailto:dhtmddbs2@gmail.com">dhtmddbs2@gmail.com</a>——我会亲自回复。',
+      i18nBackCta: "← 返回试点页面",
+      i18nFooterLine1: "Hangul Habit——一个小型的每日习惯养成试点项目,目前正在格鲁吉亚第比利斯进行测试。",
+    },
+  };
+</script>
+<script src="lang-switch.js"></script>
