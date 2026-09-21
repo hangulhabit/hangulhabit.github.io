@@ -5,4 +5,4 @@ Disallow: /billing.html
 Disallow: /login.html
 Disallow: /success.html
 
-Sitemap: https://dhtmddbs2-coder.github.io/sitemap.xml
+Sitemap: https://hangulhabit.github.io/sitemap.xml
