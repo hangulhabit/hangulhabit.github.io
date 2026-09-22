@@ -161,10 +161,12 @@
   .invite-code { font-family: "Black Han Sans", monospace; font-size: 20px; letter-spacing: 0.08em; padding: 8px 14px; border-radius: 10px; background: var(--bg-inset); border: 1px dashed var(--ink-faint); color: var(--gold); }
   .forest-rank { font-size: 14px; color: var(--ink-dim); margin-bottom: 4px; }
   .forest-rank strong { color: var(--jade); font-family: "Black Han Sans", sans-serif; font-weight: 400; font-size: 18px; margin-left: 4px; }
-  .forest-trees { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px; margin: 12px 0 6px; min-height: 40px; }
-  .forest-trees img.d1 { width: 52px; height: 52px; object-fit: contain; }
-  .forest-trees img.d2 { width: 32px; height: 32px; object-fit: contain; opacity: 0.8; }
-  .forest-trees img.pending { filter: grayscale(1); opacity: 0.45; }
+  .forest-trees { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px; margin: 12px 0 6px; min-height: 40px; }
+  .tree-item { display: flex; flex-direction: column; align-items: center; gap: 3px; max-width: 66px; }
+  .tree-item img.d1 { width: 52px; height: 52px; object-fit: contain; }
+  .tree-item img.d2 { width: 32px; height: 32px; object-fit: contain; opacity: 0.8; }
+  .tree-item img.pending { filter: grayscale(1); opacity: 0.45; }
+  .tree-caption { font-size: 11px; color: var(--ink-faint); text-align: center; line-height: 1.25; word-break: break-word; }
   .forest-empty { font-size: 13px; color: var(--ink-faint); }
   .forest-legend { font-size: 12px; color: var(--ink-faint); margin: 0 0 4px; }
   .forest-team { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
@@ -457,11 +459,7 @@
       trees.appendChild(empty);
     }
     fst.trees.forEach((t) => {
-      const img = document.createElement("img");
-      img.src = "assets/character/" + t.stage + ".png";
-      img.alt = tr("growthStage_" + t.stage);
-      img.className = (t.depth === 1 ? "d1" : "d2") + (t.confirmed ? "" : " pending");
-      trees.appendChild(img);
+      trees.appendChild(treeItem(t.stage, t.depth === 1 ? "d1" : "d2", t.confirmed, t.flag, t.nickname));
     });
 
     const team = document.getElementById("forestTeam");
@@ -493,14 +491,24 @@
       friendsList.appendChild(empty);
     }
     fst.friends.forEach((f) => {
-      const img = document.createElement("img");
-      img.src = "assets/character/" + f.stage + ".png";
-      img.alt = tr("growthStage_" + f.stage);
-      img.className = "d1";
-      friendsList.appendChild(img);
+      friendsList.appendChild(treeItem(f.stage, "d1", true, f.flag, f.nickname));
     });
 
     document.getElementById("forestCard").hidden = false;
+  }
+
+  function treeItem(stage, sizeClass, confirmed, flag, nickname) {
+    const wrap = document.createElement("div");
+    wrap.className = "tree-item";
+    const img = document.createElement("img");
+    img.src = "assets/character/" + stage + ".png";
+    img.alt = tr("growthStage_" + stage);
+    img.className = sizeClass + (confirmed ? "" : " pending");
+    const caption = document.createElement("span");
+    caption.className = "tree-caption";
+    caption.textContent = nickname ? (flag || "") + " " + nickname : (flag || "");
+    wrap.append(img, caption);
+    return wrap;
   }
 
   function renderCommunity(comm) {

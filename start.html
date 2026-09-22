@@ -77,6 +77,11 @@
   .chip:has(input:checked)::after { content: "✓"; margin-left: auto; color: var(--jade); font-weight: 700; }
   .chip:has(input:focus-visible) { outline: 2px solid var(--coral); outline-offset: 2px; }
 
+  .text-input, .select-input {
+    width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line);
+    background: var(--bg-inset); color: var(--ink); font: inherit; font-size: 14.5px;
+  }
+  .text-input:focus, .select-input:focus { outline: 2px solid var(--coral); outline-offset: 1px; }
   .cta { display: flex; align-items: center; justify-content: center; width: 100%; background: var(--coral); color: #fff9f4; font-weight: 700; font-size: 17px; text-decoration: none; padding: 16px 20px; border-radius: 13px; }
   .cta:hover { filter: brightness(1.06); }
   .cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
@@ -129,6 +134,29 @@
         <label class="chip"><input type="radio" name="goal" value="curious"><span class="name" id="i18nGoal3">Just curious</span></label>
       </div>
     </fieldset>
+    <fieldset>
+      <legend><span id="i18nQ3">Where are you from?</span> <span class="opt-tag" id="i18nOpt2">(optional)</span></legend>
+      <select id="nationSelect" class="select-input">
+        <option value="">—</option>
+        <option value="US">🇺🇸 United States</option>
+        <option value="GB">🇬🇧 United Kingdom</option>
+        <option value="CA">🇨🇦 Canada</option>
+        <option value="AU">🇦🇺 Australia</option>
+        <option value="JP">🇯🇵 Japan</option>
+        <option value="GE">🇬🇪 Georgia</option>
+        <option value="CN">🇨🇳 China</option>
+        <option value="TW">🇹🇼 Taiwan</option>
+        <option value="PH">🇵🇭 Philippines</option>
+        <option value="VN">🇻🇳 Vietnam</option>
+        <option value="ID">🇮🇩 Indonesia</option>
+        <option value="IN">🇮🇳 India</option>
+        <option value="OT">🌐 Other</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend><span id="i18nQ4">What should we call you?</span> <span class="opt-tag" id="i18nOpt3">(optional)</span></legend>
+      <input type="text" id="nicknameInput" class="text-input" maxlength="20" placeholder="One word, no spaces">
+    </fieldset>
     <a class="cta" id="waCta" href="#" target="_blank" rel="noopener"><span id="i18nCta">Start free on WhatsApp →</span></a>
     <ul class="trust">
       <li><span class="tick">✓</span><span id="i18nTrust1">No card needed</span></li>
@@ -175,7 +203,11 @@
     function buildMessage() {
       var level = document.querySelector('input[name="level"]:checked').value;
       var goalEl = document.querySelector('input[name="goal"]:checked');
+      var nation = document.getElementById("nationSelect").value;
+      var nickname = document.getElementById("nicknameInput").value.trim().replace(/\s+/g, "").slice(0, 20);
       var text = "Hi! I'd like to join the Hangul Habit 5-day pilot. Level: " + level + ".";
+      if (nation) text += " Nation: " + nation + ".";
+      if (nickname) text += " Name: " + nickname + ".";
       if (goalEl) text += " Goal: " + goalEl.value + ".";
       return text + " Ref: " + ref;
     }
@@ -183,6 +215,7 @@
       document.getElementById("waCta").href = "https://wa.me/" + NUMBER + "?text=" + encodeURIComponent(buildMessage());
     }
     document.getElementById("picker").addEventListener("change", refresh);
+    document.getElementById("nicknameInput").addEventListener("input", refresh);
     refresh();
   })();
 </script>
@@ -195,6 +228,8 @@
       i18nSub: "Two quick taps and we'll set up your lessons. No card, no signup form.",
       i18nQ1: "Your Korean level", i18nLvl1: "Beginner", i18nLvl1D: "I'm just starting", i18nLvl2: "Intermediate", i18nLvl2D: "I know the basics", i18nLvl3: "Advanced", i18nLvl3D: "I want nuance and idioms",
       i18nQ2: "Why Korean?", i18nOpt: "(optional)", i18nGoal1: "K-drama &amp; K-pop", i18nGoal2: "Study or work in Korea", i18nGoal3: "Just curious",
+      i18nQ3: "Where are you from?", i18nOpt2: "(optional)",
+      i18nQ4: "What should we call you?", i18nOpt3: "(optional)",
       i18nCta: "Start free on WhatsApp →",
       i18nTrust1: "No card needed", i18nTrust2: "Cancel anytime", i18nTrust3: "Only your WhatsApp number is used", i18nTrust4: "Then ₩3,000/month, if you continue",
       i18nWhatH2: "What happens next",
@@ -212,6 +247,8 @@
       i18nSub: "2回タップするだけで、レッスンを設定します。カードも登録フォームも不要です。",
       i18nQ1: "韓国語のレベル", i18nLvl1: "初級", i18nLvl1D: "これから始めます", i18nLvl2: "中級", i18nLvl2D: "基本は分かります", i18nLvl3: "上級", i18nLvl3D: "ニュアンスや慣用句を学びたい",
       i18nQ2: "韓国語を学ぶ理由は?", i18nOpt: "(任意)", i18nGoal1: "K-ドラマ・K-POP", i18nGoal2: "韓国での留学・仕事", i18nGoal3: "なんとなく興味がある",
+      i18nQ3: "どちらの国からですか?", i18nOpt2: "(任意)",
+      i18nQ4: "呼び方を教えてください", i18nOpt3: "(任意)",
       i18nCta: "WhatsAppで無料で始める →",
       i18nTrust1: "カード不要", i18nTrust2: "いつでもキャンセル", i18nTrust3: "使うのはWhatsAppの番号だけ", i18nTrust4: "続ける場合は月額₩3,000",
       i18nWhatH2: "このあとの流れ",
@@ -229,6 +266,8 @@
       i18nSub: "ორი შეხება და გაკვეთილებს მოგიწყობთ. ბარათი და რეგისტრაციის ფორმა საჭირო არ არის.",
       i18nQ1: "თქვენი კორეულის დონე", i18nLvl1: "დამწყები", i18nLvl1D: "ახლა ვიწყებ", i18nLvl2: "საშუალო", i18nLvl2D: "საფუძვლები ვიცი", i18nLvl3: "მაღალი", i18nLvl3D: "ნიუანსები და იდიომები მინდა",
       i18nQ2: "რატომ კორეული?", i18nOpt: "(არასავალდებულო)", i18nGoal1: "K-დრამა და K-pop", i18nGoal2: "სწავლა ან მუშაობა კორეაში", i18nGoal3: "უბრალოდ მაინტერესებს",
+      i18nQ3: "საიდან ხართ?", i18nOpt2: "(არასავალდებულო)",
+      i18nQ4: "როგორ დაგიძახოთ?", i18nOpt3: "(არასავალდებულო)",
       i18nCta: "დაიწყეთ უფასოდ WhatsApp-ში →",
       i18nTrust1: "ბარათი საჭირო არ არის", i18nTrust2: "გაუქმება ნებისმიერ დროს", i18nTrust3: "გამოიყენება მხოლოდ თქვენი WhatsApp ნომერი", i18nTrust4: "გაგრძელების შემთხვევაში ₩3,000 თვეში",
       i18nWhatH2: "რა მოხდება შემდეგ",
@@ -246,6 +285,8 @@
       i18nSub: "点两下,我们就为你安排好课程。无需信用卡,也无需填写注册表。",
       i18nQ1: "你的韩语水平", i18nLvl1: "初级", i18nLvl1D: "刚刚开始", i18nLvl2: "中级", i18nLvl2D: "掌握基础", i18nLvl3: "高级", i18nLvl3D: "想学语感和惯用语",
       i18nQ2: "为什么学韩语?", i18nOpt: "(可选)", i18nGoal1: "韩剧和K-pop", i18nGoal2: "去韩国学习或工作", i18nGoal3: "只是好奇",
+      i18nQ3: "你来自哪里?", i18nOpt2: "(可选)",
+      i18nQ4: "怎么称呼你?", i18nOpt3: "(可选)",
       i18nCta: "在WhatsApp免费开始 →",
       i18nTrust1: "无需信用卡", i18nTrust2: "随时取消", i18nTrust3: "只使用你的WhatsApp号码", i18nTrust4: "继续使用每月₩3,000",
       i18nWhatH2: "接下来会发生什么",
