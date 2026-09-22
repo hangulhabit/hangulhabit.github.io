@@ -260,6 +260,7 @@
         </div>
         <div class="forest-rank"><span id="forestRankLabel">Rank</span><strong id="forestRank"></strong></div>
         <div class="growth-next" id="forestNext"></div>
+        <div class="forest-rank" id="freeMonthLine" hidden><span id="i18nFreeMonthLabel">Free months earned</span><strong id="freeMonthCount"></strong></div>
         <h3 style="margin:16px 0 0; font-size:14.5px;" id="i18nForestTreesH3">Friends in your forest</h3>
         <div class="forest-trees" id="forestTrees"></div>
         <p class="forest-legend" id="i18nForestLegend">Big trees are friends you invited. Small trees are their friends. Grey trees haven't sent a voice message yet.</p>
@@ -268,6 +269,22 @@
           <div class="growth-xp" id="forestTeamText"></div>
           <div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="teamBar"><div class="xp-fill" id="teamFill"></div></div>
           <div class="growth-next" id="i18nForestTeamHint">Your forest is you, your friends and their friends. Practice together to reach the goal and everyone earns bonus XP.</div>
+        </div>
+        <h3 style="margin:16px 0 0; font-size:14.5px;" id="i18nFriendsH3">Friends</h3>
+        <div class="forest-trees" id="friendsList"></div>
+        <p class="forest-legend" id="i18nFriendsHint">Add a friend by sending "friend CODE" on WhatsApp with their invite code. Falling behind? Send "poke CODE" to nudge them.</p>
+      </div>
+
+      <div class="growth-card" id="communityCard" hidden>
+        <h2 id="i18nCommunityH2">The whole community's forest</h2>
+        <p class="hint" id="i18nCommunityHint">Every learner's practice adds to one shared tree. When it grows, every active learner gets a small bonus.</p>
+        <div class="growth-top">
+          <img class="growth-plant" id="communityPlant" src="assets/character/seed.png" alt="" width="112" height="112">
+          <div class="growth-info">
+            <div class="growth-stage" id="communityStage"></div>
+            <div class="growth-xp" id="communityCount"></div>
+            <div class="growth-next" id="communityNext"></div>
+          </div>
         </div>
       </div>
 
@@ -356,7 +373,7 @@
   const PROGRESS_API = "https://panning-fountain-scuba.ngrok-free.dev/hangulhabit/progress";
 
   const STAGE_STARTS = [["seed", 0], ["sprout", 30], ["sapling", 100], ["tree", 200], ["mugunghwa", 350]];
-  const BADGES = [["first_voice", "말"], ["streak_3", "3"], ["streak_7", "7"], ["pilot_complete", "5"], ["two_weeks", "14"], ["mugunghwa", "꽃"], ["first_friend", "친"], ["team_goal", "팀"]];
+  const BADGES = [["first_voice", "말"], ["streak_3", "3"], ["streak_7", "7"], ["pilot_complete", "5"], ["two_weeks", "14"], ["mugunghwa", "꽃"], ["first_friend", "친"], ["team_goal", "팀"], ["community_grower", "🌍"], ["study_buddy", "짝"]];
   let lastGrowth = null;
 
   function tr(key) {
@@ -420,6 +437,7 @@
   }
 
   let lastForest = null;
+  let lastCommunity = null;
 
   function renderForest(fst) {
     lastForest = fst;
@@ -458,7 +476,47 @@
     } else {
       team.hidden = true;
     }
+    const freeMonthLine = document.getElementById("freeMonthLine");
+    if (fst.free_month_credits) {
+      document.getElementById("freeMonthCount").textContent = fst.free_month_credits;
+      freeMonthLine.hidden = false;
+    } else {
+      freeMonthLine.hidden = true;
+    }
+
+    const friendsList = document.getElementById("friendsList");
+    friendsList.innerHTML = "";
+    if (!fst.friends.length) {
+      const empty = document.createElement("span");
+      empty.className = "forest-empty";
+      empty.textContent = tr("friendsEmpty");
+      friendsList.appendChild(empty);
+    }
+    fst.friends.forEach((f) => {
+      const img = document.createElement("img");
+      img.src = "assets/character/" + f.stage + ".png";
+      img.alt = tr("growthStage_" + f.stage);
+      img.className = "d1";
+      friendsList.appendChild(img);
+    });
+
     document.getElementById("forestCard").hidden = false;
+  }
+
+  function renderCommunity(comm) {
+    lastCommunity = comm;
+    document.getElementById("communityPlant").src = "assets/character/" + comm.stage + ".png";
+    document.getElementById("communityStage").textContent = tr("growthStage_" + comm.stage);
+    document.getElementById("communityCount").textContent = tr("communityCountTpl").replace("{n}", comm.count);
+    document.getElementById("communityNext").textContent = comm.next_stage_at
+      ? tr("communityNextTpl").replace("{n}", comm.next_stage_at - comm.count).replace("{stage}", tr("growthStage_" + nextCommunityStage(comm.stage)))
+      : tr("growthMaxed");
+    document.getElementById("communityCard").hidden = false;
+  }
+
+  function nextCommunityStage(stage) {
+    const order = ["seed", "sprout", "sapling", "tree", "mugunghwa"];
+    return order[order.indexOf(stage) + 1];
   }
 
   function nextTierName(tier) {
@@ -482,6 +540,7 @@
   document.addEventListener("hh:langchange", () => {
     if (lastGrowth) renderGrowth(lastGrowth);
     if (lastForest) renderForest(lastForest);
+    if (lastCommunity) renderCommunity(lastCommunity);
   });
 
   let sessionToken = "";
@@ -525,7 +584,10 @@
       document.getElementById("linkCard").hidden = !!data.found;
 
       if (data.found && data.growth) renderGrowth(data.growth);
-      if (data.found && data.forest) renderForest(data.forest);
+      if (data.found && data.forest) {
+        renderForest(Object.assign({}, data.forest, { free_month_credits: data.free_month_credits, friends: data.friends || [] }));
+      }
+      if (data.found && data.community) renderCommunity(data.community);
 
       if (!data.found || !data.day) {
         emptyEl.hidden = false;
@@ -680,6 +742,14 @@
       i18nForestLegend: "Big trees are friends you invited. Small trees are their friends. Grey trees haven't sent a voice message yet.",
       i18nForestTeamH3: "Weekly team goal", forestTeamTpl: "{done} of {goal} practice days this week", forestTeamDone: "Goal reached — everyone earned bonus XP!",
       i18nForestTeamHint: "Your forest is you, your friends and their friends. Practice together to reach the goal and everyone earns bonus XP.",
+      i18nFreeMonthLabel: "Free months earned",
+      i18nFriendsH3: "Friends", friendsEmpty: "No friends yet. Add one by sending \"friend CODE\" on WhatsApp.",
+      i18nFriendsHint: "Add a friend by sending \"friend CODE\" on WhatsApp with their invite code. Falling behind? Send \"poke CODE\" to nudge them.",
+      i18nCommunityH2: "The whole community's forest",
+      i18nCommunityHint: "Every learner's practice adds to one shared tree. When it grows, every active learner gets a small bonus.",
+      communityCountTpl: "{n} practice days, all learners combined", communityNextTpl: "{n} more to reach {stage}",
+      growthBadge_community_grower: "Community Grower", growthBadgeDesc_community_grower: "Be active when the whole community's tree levels up",
+      growthBadge_study_buddy: "Study Buddy", growthBadgeDesc_study_buddy: "Practice on the same day as a friend",
     },
     ja: {
       metaDescription: "Hangul Habitのアカウント情報の確認・編集ができます。",
@@ -724,6 +794,14 @@
       i18nForestLegend: "大きな木は招待した友だち、小さな木はその友だちです。グレーの木はまだボイスメッセージを送っていません。",
       i18nForestTeamH3: "週間チーム目標", forestTeamTpl: "今週の練習日数 {done} / {goal}", forestTeamDone: "目標達成!全員にボーナスXPが入りました。",
       i18nForestTeamHint: "森は、あなた・友だち・友だちの友だちです。みんなで練習して目標を達成すると、全員がボーナスXPをもらえます。",
+      i18nFreeMonthLabel: "獲得した無料月数",
+      i18nFriendsH3: "友だち", friendsEmpty: "まだ友だちがいません。WhatsAppで「friend コード」と送って追加しましょう。",
+      i18nFriendsHint: "友だちの招待コードを使って、WhatsAppで「friend コード」と送ると友だちになれます。友だちが練習を忘れていたら「poke コード」で声をかけましょう。",
+      i18nCommunityH2: "みんなの森",
+      i18nCommunityHint: "学習者みんなの練習が、1つの木につながっています。木が育つと、そのときアクティブな学習者全員に小さなボーナスが入ります。",
+      communityCountTpl: "みんなの練習日数の合計: {n}日", communityNextTpl: "{stage}まであと{n}",
+      growthBadge_community_grower: "みんなの森の育成者", growthBadgeDesc_community_grower: "みんなの森の木が育ったときにアクティブだった",
+      growthBadge_study_buddy: "勉強仲間", growthBadgeDesc_study_buddy: "友だちと同じ日に練習する",
     },
     ka: {
       metaDescription: "იხილეთ და დაარედაქტირეთ თქვენი Hangul Habit ანგარიშის დეტალები.",
@@ -768,6 +846,14 @@
       i18nForestLegend: "დიდი ხეები თქვენი მოწვეული მეგობრებია. პატარა ხეები — მათი მეგობრები. ნაცრისფერი ხეები ჯერ ხმოვან შეტყობინებას არ აგზავნიან.",
       i18nForestTeamH3: "გუნდის ყოველკვირეული მიზანი", forestTeamTpl: "{done} / {goal} სავარჯიშო დღე ამ კვირაში", forestTeamDone: "მიზანი შესრულდა — ყველამ მიიღო ბონუს XP!",
       i18nForestTeamHint: "თქვენი ტყე ხართ თქვენ, თქვენი მეგობრები და მათი მეგობრები. ივარჯიშეთ ერთად, რომ მიზანს მიაღწიოთ და ყველამ ბონუს XP მიიღოს.",
+      i18nFreeMonthLabel: "მიღებული უფასო თვეები",
+      i18nFriendsH3: "მეგობრები", friendsEmpty: "ჯერ მეგობრები არ გყავთ. დაამატეთ WhatsApp-ში „friend კოდი“-ს გაგზავნით.",
+      i18nFriendsHint: "დაამატეთ მეგობარი WhatsApp-ში „friend კოდი“-ს გაგზავნით მისი მოწვევის კოდით. თუ მეგობარი ჩამორჩა, გაუგზავნეთ „poke კოდი“ შესახსენებლად.",
+      i18nCommunityH2: "მთელი საზოგადოების ტყე",
+      i18nCommunityHint: "ყოველი მოსწავლის ვარჯიში ერთ საერთო ხეს ემატება. როცა ის იზრდება, ყველა აქტიური მოსწავლე იღებს მცირე ბონუსს.",
+      communityCountTpl: "{n} სავარჯიშო დღე, ყველა მოსწავლე ერთად", communityNextTpl: "კიდევ {n} — {stage}-მდე",
+      growthBadge_community_grower: "საზოგადოების გამზრდელი", growthBadgeDesc_community_grower: "აქტიური იყავით, როცა საზოგადოების საერთო ხე გაიზარდა",
+      growthBadge_study_buddy: "სასწავლო მეგობარი", growthBadgeDesc_study_buddy: "ივარჯიშეთ მეგობართან ერთსა და იმავე დღეს",
     },
     zh: {
       metaDescription: "查看并编辑你的 Hangul Habit 账户信息。",
@@ -812,6 +898,14 @@
       i18nForestLegend: "大树是你邀请的朋友,小树是他们的朋友。灰色的树表示还没发送过语音消息。",
       i18nForestTeamH3: "每周团队目标", forestTeamTpl: "本周练习天数 {done} / {goal}", forestTeamDone: "目标达成——所有人都获得了额外 XP!",
       i18nForestTeamHint: "你的森林包括你、你的朋友和他们的朋友。一起练习完成目标,所有人都能获得额外 XP。",
+      i18nFreeMonthLabel: "已获得的免费月数",
+      i18nFriendsH3: "朋友", friendsEmpty: "还没有朋友。在 WhatsApp 发送“friend 代码”即可添加。",
+      i18nFriendsHint: "用朋友的邀请码,在 WhatsApp 发送“friend 代码”即可成为朋友。朋友落后了?发送“poke 代码”提醒他们一下。",
+      i18nCommunityH2: "全体学员共同的森林",
+      i18nCommunityHint: "每位学员的练习都会汇入同一株树。它每成长一次,当时活跃的所有学员都能获得一点额外奖励。",
+      communityCountTpl: "全体学员合计练习 {n} 天", communityNextTpl: "还差 {n} 天到「{stage}」",
+      growthBadge_community_grower: "社群共建者", growthBadgeDesc_community_grower: "在全体学员的大树升级时保持活跃",
+      growthBadge_study_buddy: "学习搭档", growthBadgeDesc_study_buddy: "和朋友在同一天练习",
     },
   };
 </script>

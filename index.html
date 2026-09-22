@@ -878,8 +878,32 @@
           <h3 id="i18nFor4H3">Weekly team goal</h3>
           <p id="i18nFor4P">Practice together each week. Reach the goal as a forest and everyone earns bonus XP.</p>
         </div>
+        <div class="card">
+          <span class="mark">5</span>
+          <h3 id="i18nFor5H3">Friend nudges</h3>
+          <p id="i18nFor5P">Add any learner as a mutual friend with their code. Practice the same day for bonus XP, or send a playful nudge if they've gone quiet.</p>
+        </div>
       </div>
-      <p class="road-note" id="i18nForestNote">Rewards are XP, badges and ranks only — no cash, no commissions. Bonus XP is capped each month.</p>
+      <p class="road-note" id="i18nForestNote">Rewards are XP, badges and ranks only — no cash. Every 3 confirmed friends also earns you a free month of Hangul Habit. Bonus XP is capped each month.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="kr" id="i18nWorldH2">One tree, everyone growing it together</h2>
+        <p id="i18nWorldSub">Every learner's practice — yours included — adds to this single shared tree.</p>
+      </div>
+      <div class="prog-preview" style="max-width:420px;">
+        <div style="display:flex; gap:18px; align-items:center;">
+          <img id="worldPlant" src="assets/character/seed.png" alt="" width="88" height="88" style="border-radius:12px; background:var(--bg-inset); flex-shrink:0;">
+          <div>
+            <div class="growth-stage-fallback" id="worldStage" style="font-family:'Black Han Sans',sans-serif; font-size:20px; color:var(--jade);"></div>
+            <div id="worldCount" style="font-size:13.5px; color:var(--ink-dim); margin-top:4px;"></div>
+            <div id="worldNext" style="font-size:12.5px; color:var(--ink-faint); margin-top:2px;"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1073,7 +1097,10 @@
       i18nFor2H3: "Your friend joins", i18nFor2P: "They start with your link and send their first voice message. You both earn bonus XP, and you get the First Friend badge.",
       i18nFor3H3: "Your forest grows", i18nFor3P: "Friends become big trees and their friends small ones. Ranks: Seedling, Grove (3 friends), Forest (10), Guardian (30).",
       i18nFor4H3: "Weekly team goal", i18nFor4P: "Practice together each week. Reach the goal as a forest and everyone earns bonus XP.",
-      i18nForestNote: "Rewards are XP, badges and ranks only — no cash, no commissions. Bonus XP is capped each month.",
+      i18nFor5H3: "Friend nudges", i18nFor5P: "Add any learner as a mutual friend with their code. Practice the same day for bonus XP, or send a playful nudge if they've gone quiet.",
+      i18nForestNote: "Rewards are XP, badges and ranks only — no cash. Every 3 confirmed friends also earns you a free month of Hangul Habit. Bonus XP is capped each month.",
+      i18nWorldH2: "One tree, everyone growing it together", i18nWorldSub: "Every learner's practice — yours included — adds to this single shared tree.",
+      worldCountTpl: "{n} practice days, every learner combined", worldNextTpl: "{n} more to the next stage", worldMaxed: "Fully bloomed — thank you for growing it!",
       i18nPriceH2: "Simple pricing", i18nPriceSub: "Start free for 5 days on WhatsApp. If you'd like to continue, pick a plan — every plan starts with a 14-day free trial.",
       i18nPr1Name: "Monthly", i18nPr1Per: "/ month", i18nPr2Name: "6 months", i18nPr2Per: "/ 6 months", i18nPr2Tag: "10% off",
       i18nPr3Name: "Yearly", i18nPr3Per: "/ year", i18nPr3Tag: "20% off", i18nPriceLink: "See plans and start your trial →",
@@ -1153,7 +1180,10 @@
       i18nFor2H3: "友だちが参加", i18nFor2P: "友だちがリンクから始めて最初のボイスメッセージを送ると、2人ともボーナスXPがもらえ、あなたには「はじめての友だち」バッジが贈られます。",
       i18nFor3H3: "森が育つ", i18nFor3P: "友だちは大きな木、その友だちは小さな木になります。ランクは、シードリング、小さな林(友だち3人)、森(10人)、森の守り人(30人)です。",
       i18nFor4H3: "週間チーム目標", i18nFor4P: "毎週みんなで練習しましょう。森として目標を達成すると、全員がボーナスXPをもらえます。",
-      i18nForestNote: "報酬はXP、バッジ、ランクだけです。現金や紹介手数料はありません。ボーナスXPには月ごとの上限があります。",
+      i18nFor5H3: "友だちに声かけ", i18nFor5P: "誰でも、そのコードを使って相互フォローの友だちに追加できます。同じ日に練習するとボーナスXPがもらえ、しばらく静かなときは軽く声をかけられます。",
+      i18nForestNote: "報酬はXP、バッジ、ランクだけです。現金はありません。確定した友だち3人ごとに、Hangul Habitの無料1ヶ月ももらえます。ボーナスXPには月ごとの上限があります。",
+      i18nWorldH2: "みんなで育てる、ひとつの木", i18nWorldSub: "あなたを含む、すべての学習者の練習が、この1本の共有の木に加わります。",
+      worldCountTpl: "みんなの練習日数の合計: {n}日", worldNextTpl: "次の段階まであと{n}", worldMaxed: "満開になりました。育ててくれてありがとう!",
       i18nPriceH2: "シンプルな料金", i18nPriceSub: "最初の5日間はWhatsAppで無料。続けたい場合はプランを選んでください。どのプランも14日間の無料トライアルから始まります。",
       i18nPr1Name: "月額", i18nPr1Per: "/ 月", i18nPr2Name: "6ヶ月", i18nPr2Per: "/ 6ヶ月", i18nPr2Tag: "10%オフ",
       i18nPr3Name: "年額", i18nPr3Per: "/ 年", i18nPr3Tag: "20%オフ", i18nPriceLink: "プランを見て無料トライアルを始める →",
@@ -1233,7 +1263,10 @@
       i18nFor2H3: "მეგობარი უერთდება", i18nFor2P: "ის იწყებს თქვენი ბმულით და აგზავნის პირველ ხმოვან შეტყობინებას. ორივე იღებთ ბონუს XP-ს, თქვენ კი — „პირველი მეგობრის“ ბეჯს.",
       i18nFor3H3: "თქვენი ტყე იზრდება", i18nFor3P: "მეგობრები დიდი ხეები ხდებიან, მათი მეგობრები — პატარა. რანგები: ნერგი, კორომი (3 მეგობარი), ტყე (10), ტყის მცველი (30).",
       i18nFor4H3: "გუნდის ყოველკვირეული მიზანი", i18nFor4P: "ივარჯიშეთ ერთად ყოველ კვირას. როცა ტყე მიზანს აღწევს, ყველა იღებს ბონუს XP-ს.",
-      i18nForestNote: "ჯილდო მხოლოდ XP, ბეჯები და რანგებია — ფული და საკომისიო არ არის. ბონუს XP-ს თვეში ლიმიტი აქვს.",
+      i18nFor5H3: "მეგობრული შეხსენება", i18nFor5P: "დაამატეთ ნებისმიერი მოსწავლე ურთიერთმეგობრად მისი კოდით. ივარჯიშეთ ერთსა და იმავე დღეს ბონუს XP-სთვის, ან გაუგზავნეთ მხიარული შეხსენება, თუ დიდი ხანია დაწყნარებულია.",
+      i18nForestNote: "ჯილდო მხოლოდ XP, ბეჯები და რანგებია — ფული არ არის. ყოველი 3 დადასტურებული მეგობარი ასევე გაძლევთ Hangul Habit-ის უფასო თვეს. ბონუს XP-ს თვეში ლიმიტი აქვს.",
+      i18nWorldH2: "ერთი ხე, რომელსაც ყველანი ერთად ვზრდით", i18nWorldSub: "ყოველი მოსწავლის — თქვენც ჩათვლით — ვარჯიში ამ ერთ საერთო ხეს ემატება.",
+      worldCountTpl: "{n} სავარჯიშო დღე, ყველა მოსწავლე ერთად", worldNextTpl: "შემდეგ საფეხურამდე კიდევ {n}", worldMaxed: "სრულად აყვავდა — გმადლობთ, რომ გაზარდეთ!",
       i18nPriceH2: "მარტივი ფასები", i18nPriceSub: "პირველი 5 დღე WhatsApp-ში უფასოა. გაგრძელება თუ გსურთ, აირჩიეთ გეგმა — ყველა გეგმა 14-დღიანი უფასო საცდელით იწყება.",
       i18nPr1Name: "ყოველთვიური", i18nPr1Per: "/ თვე", i18nPr2Name: "6 თვე", i18nPr2Per: "/ 6 თვე", i18nPr2Tag: "10% ფასდაკლება",
       i18nPr3Name: "წლიური", i18nPr3Per: "/ წელი", i18nPr3Tag: "20% ფასდაკლება", i18nPriceLink: "გეგმების ნახვა და საცდელის დაწყება →",
@@ -1313,7 +1346,10 @@
       i18nFor2H3: "朋友加入", i18nFor2P: "朋友通过你的链接开始,并发送第一条语音消息。你们都能获得额外 XP,你还会获得“第一位朋友”徽章。",
       i18nFor3H3: "森林成长", i18nFor3P: "朋友是大树,朋友的朋友是小树。等级:幼苗、小树林(3位朋友)、森林(10位)、森林守护者(30位)。",
       i18nFor4H3: "每周团队目标", i18nFor4P: "每周一起练习。整片森林达成目标,所有人都能获得额外 XP。",
-      i18nForestNote: "奖励只有 XP、徽章和等级——没有现金,也没有佣金。额外 XP 每月有上限。",
+      i18nFor5H3: "提醒朋友", i18nFor5P: "用对方的代码把任何学员加为互相好友。同一天一起练习可得额外 XP;要是朋友安静下来了,发条轻松的提醒催催他。",
+      i18nForestNote: "奖励只有 XP、徽章和等级——没有现金。每确认 3 位朋友,还能获得一个月的 Hangul Habit 免费使用。额外 XP 每月有上限。",
+      i18nWorldH2: "一株大家一起养大的树", i18nWorldSub: "每位学员的练习——包括你——都会加到这同一株共享的树上。",
+      worldCountTpl: "全体学员合计练习 {n} 天", worldNextTpl: "还差 {n} 天到下一阶段", worldMaxed: "已经盛开——这是社群目前达到的最高阶段!",
       i18nPriceH2: "简单的价格", i18nPriceSub: "前5天在 WhatsApp 免费体验。想继续的话选择一个方案——所有方案都从14天免费试用开始。",
       i18nPr1Name: "月付", i18nPr1Per: "/ 月", i18nPr2Name: "6个月", i18nPr2Per: "/ 6个月", i18nPr2Tag: "9折优惠",
       i18nPr3Name: "年付", i18nPr3Per: "/ 年", i18nPr3Tag: "8折优惠", i18nPriceLink: "查看方案并开始试用 →",
@@ -1334,6 +1370,31 @@
   };
 </script>
 <script src="lang-switch.js"></script>
+<script>
+  (function () {
+    function tr(key) {
+      var lang = document.documentElement.lang || "en";
+      var dict = (window.PAGE_TRANSLATIONS && window.PAGE_TRANSLATIONS[lang]) || {};
+      var fallback = (window.PAGE_TRANSLATIONS && window.PAGE_TRANSLATIONS.en) || {};
+      return dict[key] || fallback[key] || key;
+    }
+    var STAGE_KEYS = { seed: "i18nStage1", sprout: "i18nStage2", sapling: "i18nStage3", tree: "i18nStage4", mugunghwa: "i18nStage5" };
+    function render(data) {
+      document.getElementById("worldPlant").src = "assets/character/" + data.stage + ".png";
+      document.getElementById("worldStage").textContent = tr(STAGE_KEYS[data.stage]);
+      document.getElementById("worldCount").textContent = tr("worldCountTpl").replace("{n}", data.count);
+      document.getElementById("worldNext").textContent = data.next_stage_at
+        ? tr("worldNextTpl").replace("{n}", data.next_stage_at - data.count)
+        : tr("worldMaxed");
+    }
+    fetch("https://panning-fountain-scuba.ngrok-free.dev/hangulhabit/community", {
+      headers: { "ngrok-skip-browser-warning": "true" },
+    })
+      .then(function (res) { return res.json(); })
+      .then(render)
+      .catch(function () {});
+  })();
+</script>
 <script>
   (function () {
     var btn = document.getElementById("stickyCta");
