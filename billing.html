@@ -172,10 +172,14 @@
     return new Intl.NumberFormat("en-US", { style: "currency", currency: currency || "KRW", maximumFractionDigits: 0 }).format(currency === "KRW" ? n : n / 100);
   }
 
-  async function loadBilling(email) {
+  function escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  async function loadBilling(accessToken) {
     try {
-      const res = await fetch(BILLING_API + "?email=" + encodeURIComponent(email), {
-        headers: { "ngrok-skip-browser-warning": "true" },
+      const res = await fetch(BILLING_API, {
+        headers: { Authorization: "Bearer " + accessToken, apikey: SUPABASE_ANON_KEY, "ngrok-skip-browser-warning": "true" },
       });
       if (!res.ok) throw new Error("bad status " + res.status);
       const data = await res.json();
@@ -191,13 +195,15 @@
         const tr = document.createElement("tr");
         const lang = document.documentElement.lang || "en";
         const viewReceiptText = (window.PAGE_TRANSLATIONS && window.PAGE_TRANSLATIONS[lang] && window.PAGE_TRANSLATIONS[lang].i18nViewReceipt) || "View receipt ↗";
-        const receiptCell = t.receipt_url
-          ? `<a class="receipt-link" href="${t.receipt_url}" target="_blank" rel="noopener">${viewReceiptText}</a>`
+        const safeReceipt = typeof t.receipt_url === "string" && /^https:\/\//i.test(t.receipt_url) ? t.receipt_url : "";
+        const receiptCell = safeReceipt
+          ? `<a class="receipt-link" href="${escapeHtml(safeReceipt)}" target="_blank" rel="noopener noreferrer">${viewReceiptText}</a>`
           : `<span style="color:var(--ink-faint); font-size:13px;">-</span>`;
+        const status = String(t.status || "").replace(/[^a-z_]/gi, "");
         tr.innerHTML = `
-          <td>${fmtDate(t.billed_at)}</td>
-          <td class="amount">${fmtAmount(t.total, t.currency)}</td>
-          <td><span class="status-pill ${t.status}">${t.status}</span></td>
+          <td>${escapeHtml(fmtDate(t.billed_at))}</td>
+          <td class="amount">${escapeHtml(fmtAmount(t.total, t.currency))}</td>
+          <td><span class="status-pill ${status}">${status}</span></td>
           <td>${receiptCell}</td>
         `;
         bodyEl.appendChild(tr);
@@ -222,7 +228,7 @@
     const lang = document.documentElement.lang || "en";
     const suffix = { en: "'s payment history", ja: "の支払い履歴", ka: "-ის გადახდების ისტორია", zh: "的付款记录" }[lang] || "'s payment history";
     whoamiEl.textContent = session.user.email + suffix;
-    loadBilling(session.user.email);
+    loadBilling(session.access_token);
   });
 </script>
 <script>
