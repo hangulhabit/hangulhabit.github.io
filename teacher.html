@@ -1,0 +1,367 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Teacher Portal — Hangul Habit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+      --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+      --coral: #e14f3e; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+    --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+    --coral: #e14f3e; --jade: #1f7d64; --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", system-ui, sans-serif; line-height: 1.55; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 20px 60px; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+  header a { color: var(--ink-dim); font-size: 14px; text-decoration: none; }
+  h1 { font-family: "Black Han Sans", "Work Sans", sans-serif; font-weight: 400; font-size: 28px; margin: 0; }
+  h2 { font-size: 17px; margin: 0 0 4px; }
+  .card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; margin-top: 18px; }
+  .hint, .meta { color: var(--ink-faint); font-size: 13px; margin: 0 0 12px; }
+  .msg { text-align: center; color: var(--ink-dim); padding: 40px 0; }
+  label { display: block; font-size: 13px; color: var(--ink-dim); margin: 12px 0 5px; }
+  input, select, textarea { width: 100%; font: inherit; font-size: 14.5px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-inset); color: var(--ink); }
+  textarea { min-height: 84px; resize: vertical; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row3 { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .row, .row3 { grid-template-columns: 1fr; } }
+  .entry { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-top: 10px; background: var(--bg-inset); }
+  button { font: inherit; font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 10px; border: 0; cursor: pointer; }
+  .primary { background: var(--jade); color: #fff9f4; }
+  .ghost { background: var(--bg-inset); color: var(--ink-dim); border: 1px solid var(--line); }
+  .danger { background: transparent; color: var(--coral); border: 1px solid var(--coral); }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+  .status { font-size: 13.5px; color: var(--ink-dim); }
+  .status.ok { color: var(--jade); }
+  .status.err { color: var(--coral); }
+  .stats { display: flex; gap: 22px; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 24px; font-family: "Black Han Sans", sans-serif; font-weight: 400; color: var(--gold); }
+  .stat span { font-size: 12.5px; color: var(--ink-faint); }
+  .item { border-top: 1px solid var(--line); padding: 12px 0; font-size: 14px; }
+  .item:first-child { border-top: 0; }
+  .pill { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: color-mix(in srgb, var(--gold) 20%, transparent); color: var(--gold); }
+  .pill.ok { background: color-mix(in srgb, var(--jade) 20%, transparent); color: var(--jade); }
+  .scoreform { margin-top: 10px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Teacher Portal <span style="font-size:15px;color:var(--ink-faint);font-family:'Work Sans',sans-serif;">선생님 페이지</span></h1>
+    <a href="live.html">← Live classes</a>
+  </header>
+  <div id="state" class="msg">Loading… / 불러오는 중…</div>
+  <div id="portal" hidden>
+    <div class="card">
+      <h2>Your ranking / 내 순위</h2>
+      <div class="stats" id="stats"></div>
+      <p class="hint" style="margin-top:12px;">Students can only review a lesson you have marked as completed. Comments below are private — students never see each other's, and you can't see who wrote them.<br>수강생은 선생님이 수업 완료 처리한 수업에만 후기를 남길 수 있습니다. 후기는 작성자 이름 없이 본인에게만 보입니다.</p>
+      <div id="reviews"></div>
+    </div>
+
+    <div class="card">
+      <h2>Trial requests / 체험 수업 신청</h2>
+      <p class="hint">New students who asked for a free Zoom trial. Use their number when you schedule the lesson below.</p>
+      <div id="requests"></div>
+    </div>
+
+    <div class="card">
+      <h2>Schedule a lesson / 수업 잡기</h2>
+      <p class="hint">The student gets the time and Zoom link on WhatsApp. Paid lessons: the link is sent only after payment is confirmed.<br>Times use this device's time zone (<span id="tzName"></span>).</p>
+      <div class="row">
+        <div><label for="bkPhone">Student WhatsApp number (digits, with country code)</label><input id="bkPhone" list="reqPhones" inputmode="numeric" placeholder="e.g. 995555123456"><datalist id="reqPhones"></datalist></div>
+        <div><label for="bkPlan">Plan</label>
+          <select id="bkPlan">
+            <option value="trial">Free trial lesson</option>
+            <option value="single">1:1 lesson ($19)</option>
+            <option value="pack4">1:1 · 4 lessons ($72)</option>
+            <option value="pack8">1:1 · 8 lessons ($136)</option>
+            <option value="group">Small group · 4 weeks ($89)</option>
+          </select></div>
+      </div>
+      <div class="row">
+        <div><label for="bkWhen">Start time</label><input id="bkWhen" type="datetime-local"></div>
+        <div><label for="bkZoom">Zoom meeting link</label><input id="bkZoom" type="url" placeholder="https://us02web.zoom.us/j/…"></div>
+      </div>
+      <label for="bkPack">Extra session of an already-paid package? Paste that package's lesson ID (optional)</label>
+      <input id="bkPack" placeholder="L-XXXXXX">
+      <div class="actions"><button class="primary" id="bkSubmit" type="button">Schedule &amp; notify student</button><span class="status" id="bkStatus"></span></div>
+    </div>
+
+    <div class="card">
+      <h2>My lessons / 내 수업</h2>
+      <p class="hint">After class, score the student — their score grows the student's forest and their WhatsApp message includes your note.</p>
+      <div id="bookings"></div>
+    </div>
+
+    <div class="card">
+      <h2>Profile / 프로필</h2>
+      <p class="hint">This is what students see on the Live classes page. Career details are shown as provided by you.</p>
+      <div class="row">
+        <div><label for="pName">Display name</label><input id="pName" maxlength="40"></div>
+        <div><label for="pHeadline">Headline</label><input id="pHeadline" maxlength="90" placeholder="e.g. TOPIK coach · 6 years teaching adults"></div>
+      </div>
+      <label for="pLangs">Languages you teach in (comma separated)</label><input id="pLangs" placeholder="Korean, English">
+      <label for="pBio">About you</label><textarea id="pBio" maxlength="800"></textarea>
+      <label>Your curriculum / 커리큘럼</label>
+      <div id="curList"></div>
+      <div class="actions"><button class="ghost" type="button" id="curAdd">+ Add a course</button></div>
+      <label>Career / 경력</label>
+      <div id="carList"></div>
+      <div class="actions"><button class="ghost" type="button" id="carAdd">+ Add a position</button></div>
+      <div class="actions"><button class="primary" id="pSave" type="button">Save profile</button><span class="status" id="pStatus"></span></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-nav.js"></script>
+<script>
+  const API = "https://panning-fountain-scuba.ngrok-free.dev/hangulhabit";
+  const SUPABASE_URL = "https://czaydegitctvkskpvoaa.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN6YXlkZWdpdGN0dmtza3B2b2FhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2NzI5OTEsImV4cCI6MjEwNDI0ODk5MX0.lssrDd1lBKnx71YuwrFa_Umci1H_U5u4V1Rni3YUD_w";
+  const client = window.__hhSupabase || supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const $ = (id) => document.getElementById(id);
+  let token = "";
+
+  function el(tag, cls, text) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function say(node, text, kind) { node.textContent = text; node.className = "status" + (kind ? " " + kind : ""); }
+  function when(epoch) {
+    return new Date(epoch * 1000).toLocaleString(undefined, { weekday: "short", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
+  }
+
+  async function api(path, method, body) {
+    const res = await fetch(API + path, {
+      method: method || "GET",
+      headers: Object.assign({ Authorization: "Bearer " + token, apikey: SUPABASE_ANON_KEY, "ngrok-skip-browser-warning": "true" }, body ? { "Content-Type": "application/json" } : {}),
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    let data = {};
+    try { data = await res.json(); } catch (e) { /* non-JSON error page */ }
+    return { ok: res.ok, status: res.status, data };
+  }
+
+  // ---------- profile editor
+  function entryRow(kind, values) {
+    const box = el("div", "entry");
+    const fields = kind === "cur"
+      ? [["title", "Course title", 60], ["level", "Level", 0], ["description", "What students learn", 400]]
+      : [["period", "Period (e.g. 2019–2024)", 30], ["role", "Role", 80], ["organization", "Organization", 80]];
+    const inputs = {};
+    const grid = el("div", kind === "cur" ? "row" : "row3");
+    fields.forEach(([key, label, max]) => {
+      const wrap = el("div");
+      wrap.appendChild(el("label", "", label));
+      let input;
+      if (key === "level") {
+        input = el("select");
+        [["", "Any level"], ["beginner", "Beginner"], ["intermediate", "Intermediate"], ["advanced", "Advanced"]].forEach(([v, t]) => { const o = el("option", "", t); o.value = v; input.appendChild(o); });
+      } else if (key === "description") {
+        input = el("textarea");
+        input.style.minHeight = "60px";
+      } else {
+        input = el("input");
+      }
+      if (max) input.maxLength = max;
+      input.value = (values && values[key]) || "";
+      inputs[key] = input;
+      wrap.appendChild(input);
+      grid.appendChild(wrap);
+    });
+    box.appendChild(grid);
+    const remove = el("button", "ghost", "Remove");
+    remove.type = "button";
+    remove.style.marginTop = "10px";
+    remove.addEventListener("click", () => box.remove());
+    box.appendChild(remove);
+    box.readValues = () => Object.fromEntries(Object.entries(inputs).map(([k, i]) => [k, i.value]));
+    return box;
+  }
+  function collect(listId) { return [...$(listId).children].map((b) => b.readValues()); }
+
+  function fillProfile(p) {
+    $("pName").value = p.display_name || "";
+    $("pHeadline").value = p.headline || "";
+    $("pLangs").value = (p.languages || []).join(", ");
+    $("pBio").value = p.bio || "";
+    $("curList").replaceChildren(...(p.curriculum || []).map((c) => entryRow("cur", c)));
+    $("carList").replaceChildren(...(p.career || []).map((c) => entryRow("car", c)));
+  }
+
+  $("curAdd").addEventListener("click", () => $("curList").appendChild(entryRow("cur")));
+  $("carAdd").addEventListener("click", () => $("carList").appendChild(entryRow("car")));
+  $("pSave").addEventListener("click", async () => {
+    say($("pStatus"), "…");
+    const r = await api("/teacher/profile", "POST", {
+      display_name: $("pName").value, headline: $("pHeadline").value, bio: $("pBio").value,
+      languages: $("pLangs").value.split(",").map((x) => x.trim()).filter(Boolean),
+      curriculum: collect("curList"), career: collect("carList"),
+    });
+    r.ok ? say($("pStatus"), "Saved ✓ — live on the site now", "ok") : say($("pStatus"), r.data.error || "Could not save", "err");
+  });
+
+  // ---------- stats / reviews
+  function renderStats(me) {
+    const stat = (value, label) => { const d = el("div", "stat"); d.appendChild(el("b", "", value)); d.appendChild(el("span", "", label)); return d; };
+    $("stats").replaceChildren(
+      stat(me.rank ? "#" + me.rank : "—", "Rank"),
+      stat(me.average != null ? me.average.toFixed(2) : "—", "Average rating"),
+      stat(String(me.review_count), "Reviews"),
+    );
+    $("reviews").replaceChildren(...me.reviews.map((r) => {
+      const d = el("div", "item");
+      d.appendChild(el("b", "", "★".repeat(r.rating) + "☆".repeat(5 - r.rating)));
+      if (r.comment) d.appendChild(el("div", "", r.comment));
+      return d;
+    }));
+  }
+
+  // ---------- requests
+  function renderRequests(requests) {
+    $("reqPhones").replaceChildren(...requests.map((r) => { const o = el("option"); o.value = r.phone; return o; }));
+    $("requests").replaceChildren(...(requests.length ? requests.map((r) => {
+      const d = el("div", "item");
+      d.appendChild(el("b", "", "…" + r.phone.slice(-4) + " · " + r.level + (r.timezone ? " · " + r.timezone : "")));
+      d.appendChild(el("div", "meta", new Date(r.requested_at * 1000).toLocaleString()));
+      const use = el("button", "ghost", "Use this number");
+      use.type = "button";
+      use.addEventListener("click", () => { $("bkPhone").value = r.phone; $("bkPhone").scrollIntoView({ behavior: "smooth", block: "center" }); });
+      d.appendChild(use);
+      return d;
+    }) : [el("p", "meta", "No requests yet.")]));
+  }
+
+  // ---------- bookings
+  function scoreForm(b) {
+    const form = el("div", "scoreform");
+    const selects = {};
+    const row = el("div", "row3");
+    [["pronunciation", "Pronunciation 발음"], ["grammar", "Grammar 문법"], ["participation", "Participation 참여도"]].forEach(([key, label]) => {
+      const wrap = el("div");
+      wrap.appendChild(el("label", "", label + " (1–5)"));
+      const sel = el("select");
+      [5, 4, 3, 2, 1].forEach((n) => { const o = el("option", "", String(n)); o.value = n; sel.appendChild(o); });
+      selects[key] = sel;
+      wrap.appendChild(sel);
+      row.appendChild(wrap);
+    });
+    const note = el("textarea");
+    note.maxLength = 500;
+    note.placeholder = "A short note for the student (shown on WhatsApp)";
+    const send = el("button", "primary", "Save score & send feedback");
+    send.type = "button";
+    const status = el("span", "status");
+    send.addEventListener("click", async () => {
+      say(status, "…");
+      const r = await api("/teacher/complete", "POST", {
+        booking_id: b.id, note: note.value,
+        pronunciation: Number(selects.pronunciation.value), grammar: Number(selects.grammar.value), participation: Number(selects.participation.value),
+      });
+      if (r.ok) { say(status, "Done ✓ +" + r.data.xp_gained + " XP for the student", "ok"); setTimeout(loadAll, 900); }
+      else say(status, r.data.error || "Could not save", "err");
+    });
+    const actions = el("div", "actions");
+    actions.append(send, status);
+    form.append(row, el("label", "", "Note"), note, actions);
+    return form;
+  }
+
+  function renderBookings(list) {
+    $("bookings").replaceChildren(...(list.length ? list.map((b) => {
+      const d = el("div", "item");
+      d.appendChild(el("b", "", when(b.start_at) + " · …" + b.student_phone.slice(-4)));
+      const meta = el("div", "meta", b.plan + " · " + (b.payment === "due" ? "waiting for payment" : b.payment) + " · ID " + b.id);
+      d.appendChild(meta);
+      d.appendChild(el("span", b.status === "completed" ? "pill ok" : "pill", b.status));
+      if (b.status === "completed" && b.scores) {
+        d.appendChild(el("div", "meta", "Pronunciation " + b.scores.pronunciation + " · Grammar " + b.scores.grammar + " · Participation " + b.scores.participation));
+      }
+      if (b.status === "scheduled") {
+        const actions = el("div", "actions");
+        if (b.payment !== "due") {
+          const score = el("button", "ghost", "Score this lesson");
+          score.type = "button";
+          score.addEventListener("click", () => { score.remove(); d.appendChild(scoreForm(b)); });
+          actions.appendChild(score);
+        }
+        const cancel = el("button", "danger", "Cancel");
+        cancel.type = "button";
+        cancel.addEventListener("click", async () => {
+          if (!window.confirm("Cancel this lesson? The student will be told on WhatsApp.")) return;
+          await api("/teacher/booking/cancel", "POST", { booking_id: b.id });
+          loadAll();
+        });
+        actions.appendChild(cancel);
+        d.appendChild(actions);
+      }
+      return d;
+    }) : [el("p", "meta", "No lessons yet.")]));
+  }
+
+  $("bkSubmit").addEventListener("click", async () => {
+    const start = Date.parse($("bkWhen").value);
+    if (!start) { say($("bkStatus"), "Pick a start time", "err"); return; }
+    say($("bkStatus"), "…");
+    const body = { student_phone: $("bkPhone").value, plan: $("bkPlan").value, start_at: start / 1000, zoom_url: $("bkZoom").value.trim() };
+    if ($("bkPack").value.trim()) body.pack_id = $("bkPack").value.trim();
+    const r = await api("/teacher/booking", "POST", body);
+    if (r.ok) {
+      say($("bkStatus"), r.data.booking.payment === "due" ? "Booked ✓ — the Zoom link goes out once payment is confirmed (ID " + r.data.booking.id + ")" : "Booked ✓ — the student was sent the time and Zoom link (ID " + r.data.booking.id + ")", "ok");
+      loadAll();
+    } else {
+      say($("bkStatus"), r.data.error || "Could not book", "err");
+    }
+  });
+
+  // ---------- boot
+  async function loadAll() {
+    const me = await api("/teacher/me");
+    if (me.status === 401) { $("state").textContent = "Your session expired — please sign in again."; return; }
+    if (me.status === 403) {
+      $("state").textContent = "This account isn't registered as a teacher. Sign in with the email address you gave us, or contact us to be added.";
+      return;
+    }
+    if (!me.ok) { $("state").textContent = "Couldn't load your teacher page. Please try again."; return; }
+    $("state").hidden = true;
+    $("portal").hidden = false;
+    renderStats(me.data);
+    renderBookings(me.data.bookings);
+    if (!$("pName").dataset.filled) { fillProfile(me.data.profile); $("pName").dataset.filled = "1"; }
+    const requests = await api("/teacher/requests");
+    if (requests.ok) renderRequests(requests.data.requests);
+  }
+
+  $("tzName").textContent = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  client.auth.getSession().then(({ data }) => {
+    const session = data.session;
+    if (!session) {
+      const link = el("a", "", "Sign in →");
+      link.href = "login.html";
+      link.style.color = "var(--coral)";
+      $("state").replaceChildren(document.createTextNode("Please sign in with your teacher email (Google or Facebook). "), link);
+      return;
+    }
+    token = session.access_token;
+    loadAll();
+  });
+</script>

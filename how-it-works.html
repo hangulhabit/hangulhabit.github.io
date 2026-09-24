@@ -54,7 +54,7 @@
   nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 680px; margin: 0 auto; padding: 18px 24px; }
   nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
-  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; flex-wrap: wrap; align-items: center; justify-content: flex-end; row-gap: 8px; }
   nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
   nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
   .lang-switch { position: relative; }
@@ -146,6 +146,7 @@
   <div class="links">
     <a href="about.html" id="navAbout">About</a>
     <a href="how-it-works.html" aria-current="page" id="navHow">How it works</a>
+    <a href="live.html" id="navLive">Live classes</a>
     <a href="pricing.html" id="navPricing">Pricing</a>
     <a href="login.html" id="navSignin">Sign in / Sign up</a>
     <div id="langSwitchMount"></div>
@@ -258,7 +259,7 @@
   window.PAGE_TRANSLATIONS = {
     en: {
       metaDescription: "What the 5-day Hangul Habit pilot actually looks like, day by day, plus answers to the questions people ask before joining.",
-      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navSignin: "Sign in / Sign up",
+      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navLive: "Live classes", navSignin: "Sign in / Sign up",
       navHome2: "Home", navAbout2: "About", navContact2: "Contact",
       i18nEyebrow: "How it works",
       i18nH1: "Five days, five real conversations",
@@ -290,7 +291,7 @@
     },
     ja: {
       metaDescription: "5日間のHangul Habitパイロットが実際にどんなものか、1日ごとの流れと、参加前によく聞かれる質問への答え。",
-      navAbout: "概要", navHow: "使い方", navPricing: "料金", navSignin: "ログイン / 新規登録",
+      navAbout: "概要", navHow: "使い方", navPricing: "料金", navLive: "ライブレッスン", navSignin: "ログイン / 新規登録",
       navHome2: "ホーム", navAbout2: "概要", navContact2: "お問い合わせ",
       i18nEyebrow: "使い方",
       i18nH1: "5日間、5つの本物の会話",
@@ -322,7 +323,7 @@
     },
     ka: {
       metaDescription: "როგორ გამოიყურება Hangul Habit-ის 5-დღიანი საცდელი პროექტი დღეების მიხედვით, პლუს პასუხები კითხვებზე, რომლებსაც ადამიანები სვამენ შეერთებამდე.",
-      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navSignin: "შესვლა / რეგისტრაცია",
+      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navLive: "ლაივ გაკვეთილები", navSignin: "შესვლა / რეგისტრაცია",
       navHome2: "მთავარი", navAbout2: "შესახებ", navContact2: "კონტაქტი",
       i18nEyebrow: "როგორ მუშაობს",
       i18nH1: "ხუთი დღე, ხუთი რეალური საუბარი",
@@ -354,7 +355,7 @@
     },
     zh: {
       metaDescription: "Hangul Habit 5天试点每天到底是什么样子,以及大家加入前常问的问题解答。",
-      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navSignin: "登录 / 注册",
+      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navLive: "直播课", navSignin: "登录 / 注册",
       navHome2: "首页", navAbout2: "关于", navContact2: "联系方式",
       i18nEyebrow: "使用方法",
       i18nH1: "五天,五次真实的对话",

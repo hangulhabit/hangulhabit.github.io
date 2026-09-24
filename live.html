@@ -1,0 +1,461 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://hangulhabit.github.io/live.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hangul Habit">
+<meta property="og:title" content="Live Korean classes on Zoom — Hangul Habit">
+<meta property="og:description" content="Small-group and 1:1 Korean lessons on Zoom with teachers from Korea. Start with a free trial lesson.">
+<meta property="og:url" content="https://hangulhabit.github.io/live.html">
+<meta property="og:image" content="https://hangulhabit.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Live Korean classes on Zoom — Hangul Habit">
+<meta name="twitter:description" content="Small-group and 1:1 Korean lessons on Zoom with teachers from Korea. Start with a free trial lesson.">
+<meta name="twitter:image" content="https://hangulhabit.github.io/og-image.png">
+<title>Live Korean Classes — Hangul Habit</title>
+<meta name="description" id="metaDescription" content="Small-group and 1:1 Korean lessons on Zoom with teachers from Korea. Start with a free trial lesson.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --coral-dim: #c94c3f; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+      --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+      --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+      --line: rgba(28, 26, 20, 0.12);
+      --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
+    --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
+    --coral: #e14f3e; --coral-dim: #c23c2d; --jade: #1f7d64; --gold: #a9781e;
+    --line: rgba(28, 26, 20, 0.12);
+    --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  .obang-strip { height: 6px; background: repeating-linear-gradient(90deg, #1a3b6e 0 40px, #c62b2b 40px 80px, #d9b64e 80px 120px, #e7e2d3 120px 160px, #1a1a1a 160px 200px); }
+
+  nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 900px; margin: 0 auto; padding: 18px 24px; }
+  nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+  nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
+  nav.topnav .links { display: flex; align-items: center; gap: 24px; font-size: 14px; flex-wrap: wrap; justify-content: flex-end; }
+  nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
+  nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
+  .lang-switch { position: relative; }
+  .lang-switch button { display: flex; align-items: center; gap: 6px; background: var(--bg-inset); border: 1px solid var(--line); color: var(--ink-dim); font: inherit; font-size: 13px; padding: 7px 11px; border-radius: 999px; cursor: pointer; }
+  .lang-switch button:hover { color: var(--ink); }
+  .lang-switch .menu { display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 20; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); min-width: 160px; overflow: hidden; padding: 6px; }
+  .lang-switch.open .menu { display: block; }
+  .lang-switch .menu button { all: unset; box-sizing: border-box; display: flex; width: 100%; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 8px; font-size: 13.5px; color: var(--ink-dim); cursor: pointer; }
+  .lang-switch .menu button:hover { background: var(--bg-inset); color: var(--ink); }
+
+  .pagehero { padding: 48px 0 8px; text-align: center; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+  .eyebrow::before { content: "●"; font-size: 8px; color: var(--jade); }
+  h1.kr { font-size: clamp(26px, 4.4vw, 36px); margin: 10px 0 12px; text-wrap: balance; line-height: 1.15; }
+  .lede { font-size: 17px; color: var(--ink-dim); max-width: 54ch; text-wrap: balance; margin: 0 auto; }
+
+  .trial-banner {
+    margin-top: 24px; display: flex; align-items: center; gap: 10px; justify-content: center;
+    background: color-mix(in srgb, var(--jade) 14%, transparent); border: 1px solid color-mix(in srgb, var(--jade) 40%, transparent);
+    border-radius: 12px; padding: 14px 18px; font-size: 14px; color: var(--ink-dim); text-align: center;
+  }
+
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 28px 0 8px; }
+  @media (max-width: 720px) { .plans { grid-template-columns: 1fr; } }
+  .plan {
+    background: var(--bg-raised); border: 1px solid var(--line); border-radius: 18px;
+    padding: 28px 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 12px; position: relative;
+  }
+  .plan.featured { border-color: var(--jade); }
+  .badge { position: absolute; top: -12px; right: 20px; background: var(--jade); color: #fff9f4; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+  .plan h3 { margin: 0; font-size: 15px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+  .plan .price { font-family: "Black Han Sans", sans-serif; font-size: 34px; margin: 0; }
+  .plan .price small { font-family: "Work Sans", sans-serif; font-size: 14px; font-weight: 500; color: var(--ink-dim); }
+  .plan .sub { font-size: 13.5px; color: var(--ink-faint); margin: -6px 0 0; }
+  .plan ul { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 8px; }
+  .plan li { font-size: 14px; color: var(--ink-dim); display: flex; gap: 8px; }
+  .plan li::before { content: "✓"; color: var(--jade); flex-shrink: 0; }
+
+  section.block { padding: 40px 0 0; }
+  section.block h2 { font-family: "Black Han Sans", "Work Sans", sans-serif; font-weight: 400; font-size: 24px; margin: 0 0 16px; text-wrap: balance; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  @media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
+  .checks, .steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; color: var(--ink-dim); font-size: 15px; }
+  .checks li { display: flex; gap: 10px; }
+  .checks li::before { content: "✓"; color: var(--jade); flex-shrink: 0; }
+  .steps { counter-reset: step; }
+  .steps li { display: flex; gap: 12px; align-items: flex-start; counter-increment: step; }
+  .steps li::before { content: counter(step); flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--bg-inset); border: 1px solid var(--line); color: var(--gold); font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+
+  .book { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 18px; padding: 26px 24px; box-shadow: var(--shadow); }
+  .book h2 { margin-top: 0; }
+  .book .lede { margin: 0 0 18px; text-align: left; font-size: 15.5px; }
+  fieldset { border: 0; padding: 0; margin: 0 0 16px; }
+  legend, label.field { display: block; font-size: 13px; color: var(--ink-dim); margin-bottom: 8px; padding: 0; }
+  .levels { display: flex; flex-wrap: wrap; gap: 10px; }
+  .levels label { cursor: pointer; }
+  .levels input { position: absolute; opacity: 0; pointer-events: none; }
+  .levels span { display: inline-block; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; color: var(--ink-dim); background: var(--bg-inset); }
+  .levels input:checked + span { border-color: var(--jade); color: var(--ink); background: color-mix(in srgb, var(--jade) 18%, transparent); }
+  .levels input:focus-visible + span, .book input[type="text"]:focus-visible, .cta:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .book input[type="text"] { width: 100%; font: inherit; font-size: 15px; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-inset); color: var(--ink); }
+  .cta { display: inline-block; margin-top: 18px; background: var(--jade); color: #fff9f4; text-decoration: none; font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: 11px; box-shadow: 0 14px 28px -14px color-mix(in srgb, var(--jade) 70%, transparent); }
+  .book .small { margin: 12px 0 0; font-size: 13px; color: var(--ink-faint); }
+
+  .teachers { display: flex; flex-direction: column; gap: 16px; }
+  .tcard { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px; }
+  .tcard .head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .tcard .rank { font-family: "Black Han Sans", sans-serif; font-size: 20px; color: var(--gold); min-width: 34px; }
+  .tcard .newtag { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: color-mix(in srgb, var(--coral) 16%, transparent); color: var(--coral); }
+  .tcard h3 { margin: 0; font-size: 18px; }
+  .tcard .headline { color: var(--ink-dim); font-size: 14.5px; margin: 0; }
+  .tcard .rating { font-size: 14px; color: var(--ink-dim); }
+  .tcard .rating b { color: var(--gold); }
+  .tcard .bio { font-size: 14.5px; color: var(--ink-dim); margin: 0; white-space: pre-line; }
+  .tcard details { border-top: 1px solid var(--line); padding-top: 10px; }
+  .tcard summary { cursor: pointer; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .tcard ul { margin: 10px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--ink-dim); }
+  .tcard li strong { color: var(--ink); }
+  .tcard .lvl { font-size: 11.5px; padding: 1px 8px; margin-left: 6px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-faint); }
+  .tcard .fine { font-size: 12px; color: var(--ink-faint); margin: 8px 0 0; }
+  .teach-msg { text-align: center; color: var(--ink-faint); font-size: 14.5px; padding: 18px 0; }
+
+  .note { text-align: center; color: var(--ink-faint); font-size: 13.5px; padding: 28px 0 8px; }
+  footer { padding: 32px 0 60px; text-align: center; color: var(--ink-faint); font-size: 13px; }
+  footer .kr { font-size: 15px; color: var(--ink-dim); margin-bottom: 6px; }
+  footer a { text-decoration: underline; }
+  @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="obang-strip" aria-hidden="true"></div>
+<nav class="topnav">
+  <a class="brand" href="index.html">Hangul Habit</a>
+  <div class="links">
+    <a href="about.html" id="navAbout">About</a>
+    <a href="how-it-works.html" id="navHow">How it works</a>
+    <a href="live.html" aria-current="page" id="navLive">Live classes</a>
+    <a href="pricing.html" id="navPricing">Pricing</a>
+    <a href="login.html" id="navSignin">Sign in / Sign up</a>
+    <div id="langSwitchMount"></div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="pagehero">
+      <span class="eyebrow" id="i18nEyebrow">Live classes on Zoom</span>
+      <h1 class="kr" id="i18nH1">Learn Korean live, with Korean teachers</h1>
+      <p class="lede" id="i18nLede">Small Zoom classes and 1:1 lessons taught by teachers from Korea — with daily WhatsApp practice in between.</p>
+    </div>
+
+    <div class="trial-banner"><span>🎥</span><span id="i18nTrialBanner">Your first lesson is a free trial with a level check. No card needed.</span></div>
+
+    <div class="plans">
+      <div class="plan featured">
+        <span class="badge" id="i18nP1Badge">Best value</span>
+        <h3 id="i18nP1Name">Small group</h3>
+        <p class="price">$89 <small id="i18nP1Unit">/ 4 weeks</small></p>
+        <p class="sub" id="i18nP1Sub">About $11 per class</p>
+        <ul>
+          <li id="i18nP1L1">8 live classes · 2 per week · 50 min</li>
+          <li id="i18nP1L2">Max 4 learners, grouped by level</li>
+          <li id="i18nP1L3">Speaking practice from the first class</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3 id="i18nP2Name">1:1 lesson</h3>
+        <p class="price">$19 <small id="i18nP2Unit">/ lesson</small></p>
+        <p class="sub" id="i18nP2Sub">Or 4 lessons for $72 ($18 each)</p>
+        <ul>
+          <li id="i18nP2L1">50-minute private lesson</li>
+          <li id="i18nP2L2">Built around your goal: travel, work, TOPIK, K-culture</li>
+          <li id="i18nP2L3">Pick a time that suits your time zone</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3 id="i18nP3Name">1:1 · 8 lessons</h3>
+        <p class="price">$136 <small id="i18nP3Unit">/ 8 lessons</small></p>
+        <p class="sub" id="i18nP3Sub">$17 per lesson</p>
+        <ul>
+          <li id="i18nP3L1">8 private 50-minute lessons</li>
+          <li id="i18nP3L2">A study plan built from your level check</li>
+          <li id="i18nP3L3">Homework feedback on WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note" id="i18nRefNote">For reference, 1:1 online Korean lessons typically cost about $10–40 per hour on tutor marketplaces. Prices are in USD.</p>
+
+    <section class="block">
+      <h2 id="i18nTeachH2">Meet your Korean teachers</h2>
+      <p class="lede" style="text-align:left;margin:0 0 18px;font-size:15px;" id="i18nTeachSub">Ranked by student feedback after real lessons. A teacher is shown as new until they have 3 reviews.</p>
+      <div class="teachers" id="teachers"><p class="teach-msg" id="teachersMsg">…</p></div>
+    </section>
+
+    <section class="block split">
+      <div>
+        <h2 id="i18nIncH2">Every live plan includes</h2>
+        <ul class="checks">
+          <li id="i18nInc1">Teachers from Korea, so you hear natural everyday Korean</li>
+          <li id="i18nInc2">Level-matched lessons: beginner, intermediate or advanced</li>
+          <li id="i18nInc3">Daily practice on WhatsApp between classes</li>
+          <li id="i18nInc4">Pronunciation feedback on your voice messages</li>
+          <li id="i18nInc5">A Zoom link to join — no account needed</li>
+        </ul>
+      </div>
+      <div>
+        <h2 id="i18nStepsH2">How it works</h2>
+        <ol class="steps">
+          <li id="i18nStep1">Request a free trial on WhatsApp</li>
+          <li id="i18nStep2">A teacher replies within 24 hours with a time and your Zoom link</li>
+          <li id="i18nStep3">Take the trial lesson and get your level check</li>
+          <li id="i18nStep4">Choose a plan — we send a secure payment link</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block">
+      <form class="book" id="bookForm">
+        <h2 id="i18nBookH2">Book your free trial</h2>
+        <p class="lede" id="i18nBookLede">Tell us your level and time zone. We'll open WhatsApp with your request ready to send.</p>
+        <fieldset>
+          <legend id="i18nLevelLabel">Your level</legend>
+          <div class="levels">
+            <label><input type="radio" name="level" value="beginner" checked><span id="i18nLvl1">Beginner</span></label>
+            <label><input type="radio" name="level" value="intermediate"><span id="i18nLvl2">Intermediate</span></label>
+            <label><input type="radio" name="level" value="advanced"><span id="i18nLvl3">Advanced</span></label>
+          </div>
+        </fieldset>
+        <label class="field" for="tz" id="i18nTzLabel">Your time zone</label>
+        <input type="text" id="tz" maxlength="40" placeholder="e.g. Tbilisi, GMT+4" autocomplete="off">
+        <a class="cta" id="bookBtn" href="#" target="_blank" rel="noopener"><span id="i18nBookBtn">Request on WhatsApp →</span></a>
+        <p class="small" id="i18nBookNote">Nothing is charged for the trial.</p>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p class="kr">화이팅! 🇰🇷</p>
+    <p id="i18nFooterLine1">Hangul Habit — Korean, one small habit at a time.</p>
+    <p style="margin-top:14px;">
+      <a href="index.html" id="navHome2">Home</a> · <a href="how-it-works.html" id="navHow2">How it works &amp; FAQ</a> · <a href="mailto:dhtmddbs2@gmail.com" id="navContact2">Contact</a> · <a href="teacher.html" id="navTeacherLogin">Teacher login</a>
+    </p>
+  </footer>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="auth-nav.js"></script>
+<script>
+  window.PAGE_TRANSLATIONS = {
+    en: {
+      metaDescription: "Small-group and 1:1 Korean lessons on Zoom with teachers from Korea. Start with a free trial lesson.",
+      i18nTeachH2: "Meet your Korean teachers", i18nTeachSub: "Ranked by student feedback after real lessons. A teacher is shown as new until they have 3 reviews.", teachEmpty: "Our teacher line-up is being finalised. Request a free trial and we'll match you with a Korean teacher.", teachError: "Couldn't load the teachers right now. Please try again in a moment.", teachNew: "New teacher", teachReviews: "reviews", teachSpeaks: "Speaks:", teachCurriculum: "Curriculum", teachCareer: "Career", teachSelfReported: "Career details are provided by the teacher.", teachLevel_beginner: "Beginner", teachLevel_intermediate: "Intermediate", teachLevel_advanced: "Advanced", navTeacherLogin: "Teacher login",
+      navAbout: "About", navHow: "How it works", navLive: "Live classes", navPricing: "Pricing", navSignin: "Sign in / Sign up",
+      i18nEyebrow: "Live classes on Zoom", i18nH1: "Learn Korean live, with Korean teachers",
+      i18nLede: "Small Zoom classes and 1:1 lessons taught by teachers from Korea — with daily WhatsApp practice in between.",
+      i18nTrialBanner: "Your first lesson is a free trial with a level check. No card needed.",
+      i18nP1Badge: "Best value", i18nP1Name: "Small group", i18nP1Unit: "/ 4 weeks", i18nP1Sub: "About $11 per class",
+      i18nP1L1: "8 live classes · 2 per week · 50 min", i18nP1L2: "Max 4 learners, grouped by level", i18nP1L3: "Speaking practice from the first class",
+      i18nP2Name: "1:1 lesson", i18nP2Unit: "/ lesson", i18nP2Sub: "Or 4 lessons for $72 ($18 each)",
+      i18nP2L1: "50-minute private lesson", i18nP2L2: "Built around your goal: travel, work, TOPIK, K-culture", i18nP2L3: "Pick a time that suits your time zone",
+      i18nP3Name: "1:1 · 8 lessons", i18nP3Unit: "/ 8 lessons", i18nP3Sub: "$17 per lesson",
+      i18nP3L1: "8 private 50-minute lessons", i18nP3L2: "A study plan built from your level check", i18nP3L3: "Homework feedback on WhatsApp",
+      i18nRefNote: "For reference, 1:1 online Korean lessons typically cost about $10–40 per hour on tutor marketplaces. Prices are in USD.",
+      i18nIncH2: "Every live plan includes",
+      i18nInc1: "Teachers from Korea, so you hear natural everyday Korean", i18nInc2: "Level-matched lessons: beginner, intermediate or advanced",
+      i18nInc3: "Daily practice on WhatsApp between classes", i18nInc4: "Pronunciation feedback on your voice messages", i18nInc5: "A Zoom link to join — no account needed",
+      i18nStepsH2: "How it works",
+      i18nStep1: "Request a free trial on WhatsApp", i18nStep2: "A teacher replies within 24 hours with a time and your Zoom link",
+      i18nStep3: "Take the trial lesson and get your level check", i18nStep4: "Choose a plan — we send a secure payment link",
+      i18nBookH2: "Book your free trial", i18nBookLede: "Tell us your level and time zone. We'll open WhatsApp with your request ready to send.",
+      i18nLevelLabel: "Your level", i18nLvl1: "Beginner", i18nLvl2: "Intermediate", i18nLvl3: "Advanced", i18nTzLabel: "Your time zone",
+      i18nBookBtn: "Request on WhatsApp →", i18nBookNote: "Nothing is charged for the trial.",
+      i18nFooterLine1: "Hangul Habit — Korean, one small habit at a time.", navHome2: "Home", navHow2: "How it works &amp; FAQ", navContact2: "Contact",
+    },
+    ja: {
+      metaDescription: "韓国の先生とZoomで学ぶ少人数グループ＆マンツーマンの韓国語レッスン。まずは無料体験から。",
+      i18nTeachH2: "韓国人の先生を紹介", i18nTeachSub: "実際のレッスン後の受講生の評価順に表示しています。レビューが3件未満の先生は「新任」と表示されます。", teachEmpty: "講師ラインナップを準備中です。無料体験をリクエストいただければ、韓国人の先生をご紹介します。", teachError: "講師情報を読み込めませんでした。しばらくしてからもう一度お試しください。", teachNew: "新任講師", teachReviews: "件のレビュー", teachSpeaks: "話せる言語：", teachCurriculum: "カリキュラム", teachCareer: "経歴", teachSelfReported: "経歴は講師本人が入力した内容です。", teachLevel_beginner: "初級", teachLevel_intermediate: "中級", teachLevel_advanced: "上級", navTeacherLogin: "講師ログイン",
+      navAbout: "概要", navHow: "使い方", navLive: "ライブレッスン", navPricing: "料金", navSignin: "ログイン / 新規登録",
+      i18nEyebrow: "Zoomライブレッスン", i18nH1: "韓国の先生と、ライブで韓国語を学ぼう",
+      i18nLede: "韓国出身の先生による少人数Zoomクラスとマンツーマンレッスン。レッスンの合間はWhatsAppで毎日練習できます。",
+      i18nTrialBanner: "最初のレッスンは、レベルチェック付きの無料体験です。カード登録は不要です。",
+      i18nP1Badge: "一番お得", i18nP1Name: "少人数グループ", i18nP1Unit: "/ 4週間", i18nP1Sub: "1回あたり約$11",
+      i18nP1L1: "ライブ授業8回 · 週2回 · 各50分", i18nP1L2: "最大4人、レベル別クラス", i18nP1L3: "初回から会話練習",
+      i18nP2Name: "マンツーマン", i18nP2Unit: "/ 1回", i18nP2Sub: "または4回で$72（1回$18）",
+      i18nP2L1: "50分のプライベートレッスン", i18nP2L2: "旅行・仕事・TOPIK・K-カルチャーなど目的に合わせて", i18nP2L3: "お住まいのタイムゾーンに合わせた時間を選べます",
+      i18nP3Name: "マンツーマン · 8回", i18nP3Unit: "/ 8回", i18nP3Sub: "1回あたり$17",
+      i18nP3L1: "50分のプライベートレッスン8回", i18nP3L2: "レベルチェックをもとにした学習プラン", i18nP3L3: "宿題のフィードバックをWhatsAppで",
+      i18nRefNote: "参考：オンラインのマンツーマン韓国語レッスンは、講師マッチングサイトでは1時間あたり約$10〜40が目安です。料金はUSDです。",
+      i18nIncH2: "すべてのライブプランに含まれるもの",
+      i18nInc1: "韓国出身の先生だから、自然な日常の韓国語が聞けます", i18nInc2: "レベル別レッスン：初級・中級・上級",
+      i18nInc3: "レッスンの合間にWhatsAppで毎日練習", i18nInc4: "ボイスメッセージへの発音フィードバック", i18nInc5: "ZoomのリンクからOK — アカウント不要",
+      i18nStepsH2: "ご利用の流れ",
+      i18nStep1: "WhatsAppで無料体験をリクエスト", i18nStep2: "24時間以内に先生から日時とZoomリンクが届きます",
+      i18nStep3: "体験レッスンを受けて、レベルチェック", i18nStep4: "プランを選択 — 安全な支払いリンクをお送りします",
+      i18nBookH2: "無料体験を予約", i18nBookLede: "レベルとタイムゾーンを教えてください。リクエスト入りのWhatsAppが開きます。",
+      i18nLevelLabel: "あなたのレベル", i18nLvl1: "初級", i18nLvl2: "中級", i18nLvl3: "上級", i18nTzLabel: "タイムゾーン",
+      i18nBookBtn: "WhatsAppでリクエスト →", i18nBookNote: "体験レッスンでは料金は一切かかりません。",
+      i18nFooterLine1: "Hangul Habit — 韓国語を、小さな習慣で。", navHome2: "ホーム", navHow2: "使い方 &amp; FAQ", navContact2: "お問い合わせ",
+    },
+    ka: {
+      metaDescription: "მცირე ჯგუფური და ინდივიდუალური კორეულის გაკვეთილები Zoom-ზე კორეელ მასწავლებლებთან. დაიწყეთ უფასო საცდელი გაკვეთილით.",
+      i18nTeachH2: "გაიცანით თქვენი კორეელი მასწავლებლები", i18nTeachSub: "დალაგებულია მოსწავლეთა შეფასებით რეალური გაკვეთილების შემდეგ. მასწავლებელი „ახალია“, სანამ 3 შეფასებას არ მიიღებს.", teachEmpty: "მასწავლებელთა შემადგენლობა მზადდება. მოითხოვეთ უფასო საცდელი გაკვეთილი და შეგარჩევთ კორეელ მასწავლებელს.", teachError: "მასწავლებლების ჩატვირთვა ახლა ვერ მოხერხდა. სცადეთ მოგვიანებით.", teachNew: "ახალი მასწავლებელი", teachReviews: "შეფასება", teachSpeaks: "ლაპარაკობს:", teachCurriculum: "სასწავლო პროგრამა", teachCareer: "კარიერა", teachSelfReported: "კარიერის დეტალებს მასწავლებელი თავად წარმოადგენს.", teachLevel_beginner: "დამწყები", teachLevel_intermediate: "საშუალო", teachLevel_advanced: "მოწინავე", navTeacherLogin: "მასწავლებლის შესვლა",
+      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navLive: "ლაივ გაკვეთილები", navPricing: "ფასები", navSignin: "შესვლა / რეგისტრაცია",
+      i18nEyebrow: "ლაივ გაკვეთილები Zoom-ზე", i18nH1: "ისწავლეთ კორეული ლაივში, კორეელ მასწავლებლებთან",
+      i18nLede: "მცირე ჯგუფური Zoom გაკვეთილები და ინდივიდუალური გაკვეთილები კორეელი მასწავლებლებისგან — გაკვეთილებს შორის კი ყოველდღიური პრაქტიკა WhatsApp-ში.",
+      i18nTrialBanner: "პირველი გაკვეთილი უფასო საცდელია დონის შემოწმებით. ბარათი საჭირო არ არის.",
+      i18nP1Badge: "ყველაზე ხელსაყრელი", i18nP1Name: "მცირე ჯგუფი", i18nP1Unit: "/ 4 კვირა", i18nP1Sub: "დაახლოებით $11 გაკვეთილზე",
+      i18nP1L1: "8 ლაივ გაკვეთილი · კვირაში 2 · 50 წუთი", i18nP1L2: "მაქსიმუმ 4 მოსწავლე, დონის მიხედვით", i18nP1L3: "სალაპარაკო პრაქტიკა პირველივე გაკვეთილიდან",
+      i18nP2Name: "1:1 გაკვეთილი", i18nP2Unit: "/ გაკვეთილი", i18nP2Sub: "ან 4 გაკვეთილი $72-ად ($18 თითო)",
+      i18nP2L1: "50-წუთიანი ინდივიდუალური გაკვეთილი", i18nP2L2: "თქვენი მიზნის მიხედვით: მოგზაურობა, სამუშაო, TOPIK, K-კულტურა", i18nP2L3: "აირჩიეთ თქვენს დროის სარტყელზე მორგებული დრო",
+      i18nP3Name: "1:1 · 8 გაკვეთილი", i18nP3Unit: "/ 8 გაკვეთილი", i18nP3Sub: "$17 თითო გაკვეთილზე",
+      i18nP3L1: "8 ინდივიდუალური 50-წუთიანი გაკვეთილი", i18nP3L2: "სასწავლო გეგმა დონის შემოწმების საფუძველზე", i18nP3L3: "საშინაო დავალების უკუკავშირი WhatsApp-ში",
+      i18nRefNote: "შედარებისთვის: ონლაინ 1:1 კორეულის გაკვეთილი მასწავლებელთა პლატფორმებზე ჩვეულებრივ საათში დაახლოებით $10–40 ღირს. ფასები აშშ დოლარშია.",
+      i18nIncH2: "ყველა ლაივ გეგმაში შედის",
+      i18nInc1: "მასწავლებლები კორეიდან — გაიგონებთ ბუნებრივ, ყოველდღიურ კორეულს", i18nInc2: "დონის მიხედვით გაკვეთილები: დამწყები, საშუალო ან მოწინავე",
+      i18nInc3: "ყოველდღიური პრაქტიკა WhatsApp-ში გაკვეთილებს შორის", i18nInc4: "გამოთქმის უკუკავშირი თქვენს ხმოვან შეტყობინებებზე", i18nInc5: "Zoom-ის ბმული შესასვლელად — ანგარიში არ არის საჭირო",
+      i18nStepsH2: "როგორ მუშაობს",
+      i18nStep1: "მოითხოვეთ უფასო საცდელი გაკვეთილი WhatsApp-ში", i18nStep2: "მასწავლებელი 24 საათში გპასუხობთ დროითა და Zoom-ის ბმულით",
+      i18nStep3: "გაიარეთ საცდელი გაკვეთილი და შეამოწმეთ დონე", i18nStep4: "აირჩიეთ გეგმა — გამოგიგზავნით უსაფრთხო გადახდის ბმულს",
+      i18nBookH2: "დაჯავშნეთ უფასო საცდელი გაკვეთილი", i18nBookLede: "მოგვწერეთ თქვენი დონე და დროის სარტყელი. გავხსნით WhatsApp-ს გაგზავნისთვის მზა მოთხოვნით.",
+      i18nLevelLabel: "თქვენი დონე", i18nLvl1: "დამწყები", i18nLvl2: "საშუალო", i18nLvl3: "მოწინავე", i18nTzLabel: "თქვენი დროის სარტყელი",
+      i18nBookBtn: "მოთხოვნა WhatsApp-ში →", i18nBookNote: "საცდელ გაკვეთილში არაფერი იხდება.",
+      i18nFooterLine1: "Hangul Habit — კორეული, პატარა ჩვევებით.", navHome2: "მთავარი", navHow2: "როგორ მუშაობს &amp; FAQ", navContact2: "კონტაქტი",
+    },
+    zh: {
+      metaDescription: "与韩国老师在Zoom上学韩语：小班课和一对一课程，从免费试听开始。",
+      i18nTeachH2: "认识你的韩国老师", i18nTeachSub: "按学员在真实课程后的评价排序。评价不足3条的老师会显示为“新老师”。", teachEmpty: "老师阵容正在筹备中。申请免费试听，我们会为你匹配韩国老师。", teachError: "暂时无法加载老师信息，请稍后再试。", teachNew: "新老师", teachReviews: "条评价", teachSpeaks: "语言：", teachCurriculum: "课程内容", teachCareer: "经历", teachSelfReported: "经历信息由老师本人提供。", teachLevel_beginner: "初级", teachLevel_intermediate: "中级", teachLevel_advanced: "高级", navTeacherLogin: "老师登录",
+      navAbout: "关于", navHow: "使用方法", navLive: "直播课", navPricing: "价格", navSignin: "登录 / 注册",
+      i18nEyebrow: "Zoom 直播课", i18nH1: "和韩国老师一起，直播学韩语",
+      i18nLede: "由来自韩国的老师授课的Zoom小班课和一对一课程，课间还可在WhatsApp上每天练习。",
+      i18nTrialBanner: "第一节课是免费试听，并包含水平测评。无需绑定银行卡。",
+      i18nP1Badge: "最超值", i18nP1Name: "小班课", i18nP1Unit: "/ 4周", i18nP1Sub: "每节约 $11",
+      i18nP1L1: "8节直播课 · 每周2节 · 每节50分钟", i18nP1L2: "最多4人，按水平分班", i18nP1L3: "第一节课就开口练习",
+      i18nP2Name: "一对一课程", i18nP2Unit: "/ 节", i18nP2Sub: "或4节 $72（每节 $18）",
+      i18nP2L1: "50分钟一对一私教课", i18nP2L2: "围绕你的目标：旅行、工作、TOPIK、K-文化", i18nP2L3: "选择适合你所在时区的时间",
+      i18nP3Name: "一对一 · 8节", i18nP3Unit: "/ 8节", i18nP3Sub: "每节 $17",
+      i18nP3L1: "8节50分钟一对一私教课", i18nP3L2: "根据水平测评制定学习计划", i18nP3L3: "在WhatsApp上获得作业反馈",
+      i18nRefNote: "参考：在线一对一韩语课在家教平台上通常约为每小时 $10–40。价格以美元计。",
+      i18nIncH2: "所有直播课程均包含",
+      i18nInc1: "来自韩国的老师，让你听到自然的日常韩语", i18nInc2: "按水平授课：初级、中级或高级",
+      i18nInc3: "课间在WhatsApp上每日练习", i18nInc4: "对你的语音消息提供发音反馈", i18nInc5: "通过Zoom链接加入——无需账号",
+      i18nStepsH2: "使用流程",
+      i18nStep1: "在WhatsApp上申请免费试听", i18nStep2: "老师会在24小时内回复上课时间和Zoom链接",
+      i18nStep3: "参加试听课并完成水平测评", i18nStep4: "选择课程方案——我们会发送安全的付款链接",
+      i18nBookH2: "预约免费试听", i18nBookLede: "告诉我们你的水平和时区，我们会打开已填好申请内容的WhatsApp。",
+      i18nLevelLabel: "你的水平", i18nLvl1: "初级", i18nLvl2: "中级", i18nLvl3: "高级", i18nTzLabel: "你的时区",
+      i18nBookBtn: "在WhatsApp上申请 →", i18nBookNote: "试听课不收取任何费用。",
+      i18nFooterLine1: "Hangul Habit — 每天一点点，学好韩语。", navHome2: "首页", navHow2: "使用方法 &amp; FAQ", navContact2: "联系我们",
+    },
+  };
+</script>
+<script src="lang-switch.js"></script>
+<script>
+  // Ranked teacher cards from the backend. Everything is inserted as text (never HTML).
+  (function () {
+    var TEACHERS_API = "https://panning-fountain-scuba.ngrok-free.dev/hangulhabit/teachers";
+    var last = null;
+
+    function tr(key) {
+      var lang = document.documentElement.lang || "en";
+      var dicts = window.PAGE_TRANSLATIONS || {};
+      return (dicts[lang] && dicts[lang][key]) || (dicts.en && dicts.en[key]) || key;
+    }
+    function el(tag, cls, text) {
+      var n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    }
+    function section(title, items, build, footnote) {
+      if (!items.length) return null;
+      var d = el("details");
+      d.appendChild(el("summary", "", title));
+      var ul = el("ul");
+      items.forEach(function (item) { ul.appendChild(build(item)); });
+      d.appendChild(ul);
+      if (footnote) d.appendChild(el("p", "fine", footnote));
+      return d;
+    }
+    function card(t) {
+      var c = el("article", "tcard");
+      var head = el("div", "head");
+      head.appendChild(t.is_new ? el("span", "newtag", tr("teachNew")) : el("span", "rank", "#" + t.rank));
+      head.appendChild(el("h3", "", t.display_name));
+      c.appendChild(head);
+      if (t.headline) c.appendChild(el("p", "headline", t.headline));
+      var rating = el("div", "rating");
+      if (t.rating != null) { rating.appendChild(el("b", "", "★ " + t.rating.toFixed(1))); rating.appendChild(document.createTextNode(" · ")); }
+      rating.appendChild(document.createTextNode(t.review_count + " " + tr("teachReviews")));
+      c.appendChild(rating);
+      if (t.languages && t.languages.length) c.appendChild(el("div", "rating", tr("teachSpeaks") + " " + t.languages.join(", ")));
+      if (t.bio) c.appendChild(el("p", "bio", t.bio));
+      var curriculum = section(tr("teachCurriculum"), t.curriculum || [], function (item) {
+        var li = el("li");
+        var strong = el("strong", "", item.title);
+        li.appendChild(strong);
+        if (item.level) strong.appendChild(el("span", "lvl", tr("teachLevel_" + item.level)));
+        if (item.description) li.appendChild(el("div", "", item.description));
+        return li;
+      });
+      var career = section(tr("teachCareer"), t.career || [], function (item) {
+        var li = el("li");
+        li.appendChild(el("strong", "", [item.role, item.organization].filter(Boolean).join(" · ")));
+        if (item.period) li.appendChild(el("div", "", item.period));
+        return li;
+      }, tr("teachSelfReported"));
+      if (curriculum) c.appendChild(curriculum);
+      if (career) c.appendChild(career);
+      return c;
+    }
+    function render(list) {
+      last = list;
+      var box = document.getElementById("teachers");
+      if (!list.length) {
+        box.replaceChildren(el("p", "teach-msg", tr("teachEmpty")));
+        return;
+      }
+      box.replaceChildren.apply(box, list.map(card));
+    }
+    function fail() {
+      document.getElementById("teachers").replaceChildren(el("p", "teach-msg", tr("teachError")));
+    }
+    fetch(TEACHERS_API, { headers: { "ngrok-skip-browser-warning": "true" } })
+      .then(function (r) { if (!r.ok) throw new Error("status " + r.status); return r.json(); })
+      .then(function (data) { render(data.teachers || []); })
+      .catch(fail);
+    document.addEventListener("hh:langchange", function () { if (last) render(last); });
+  })();
+</script>
+<script>
+  // Builds the WhatsApp link from the form. The message format ("Zoom trial request /
+  // Level / Timezone") is what the webhook parses, so the labels stay in English.
+  (function () {
+    var WHATSAPP_NUMBER = "821047848412";
+    var form = document.getElementById("bookForm");
+    var btn = document.getElementById("bookBtn");
+    var tz = document.getElementById("tz");
+
+    function refresh() {
+      var level = form.querySelector('input[name="level"]:checked').value;
+      var zone = tz.value.replace(/[\r\n]+/g, " ").trim().slice(0, 40);
+      var message = "Zoom trial request\nLevel: " + level + (zone ? "\nTimezone: " + zone : "");
+      btn.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    }
+    form.addEventListener("input", refresh);
+    form.addEventListener("submit", function (e) { e.preventDefault(); });
+    refresh();
+  })();
+</script>

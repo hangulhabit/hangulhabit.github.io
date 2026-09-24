@@ -372,6 +372,9 @@
   .feat-card h3 { font-size: 16px; margin: 0 0 6px; }
 
   /* ---------- Progress preview ---------- */
+  .forest-example { text-align: center; margin: 0 0 36px; }
+  .forest-example img { max-width: 100%; width: 340px; height: auto; border-radius: 16px; box-shadow: var(--shadow); }
+  .forest-example-caption { margin: 14px auto 0; max-width: 46ch; font-size: 13.5px; color: var(--ink-faint); }
   .prog-preview {
     position: relative; max-width: 480px; margin: 0 auto; background: var(--bg-raised);
     border: 1px solid var(--line); border-radius: 18px; padding: 28px 26px; box-shadow: var(--shadow);
@@ -541,8 +544,7 @@
   nav.topnav .links {
     display: flex;
     gap: 24px;
-    font-size: 14px;
-  }
+    font-size: 14px; flex-wrap: wrap; align-items: center; justify-content: flex-end; row-gap: 8px; }
   nav.topnav .links a {
     text-decoration: none;
     color: var(--ink-dim);
@@ -588,6 +590,7 @@
     <div class="links">
       <a href="about.html" id="navAbout">About</a>
       <a href="how-it-works.html" id="navHow">How it works</a>
+      <a href="live.html" id="navLive">Live classes</a>
       <a href="pricing.html" id="navPricing">Pricing</a>
       <a href="login.html" id="navSignin">Sign in / Sign up</a>
       <div id="langSwitchMount"></div>
@@ -857,6 +860,10 @@
         <h2 class="kr" id="i18nForestH2">Learn with a friend, grow a forest</h2>
         <p id="i18nForestSub">Invite a friend and you both get a boost. Every friend you bring becomes a tree in your forest.</p>
       </div>
+      <div class="forest-example">
+        <img src="assets/forest-example.png" alt="Example of the Your Forest feature on the account page, showing friend trees, a rank, and a weekly team goal" width="460" height="606" loading="lazy">
+        <p class="forest-example-caption" id="i18nForestImgCaption">A real look at your account page: big trees are friends you invited, small trees are their friends, and grey trees haven't practiced yet.</p>
+      </div>
       <div class="grid-3">
         <div class="card">
           <span class="mark">1</span>
@@ -1037,7 +1044,7 @@
   window.PAGE_TRANSLATIONS = {
     en: {
       metaDescription: "Free 5-day Korean lesson pilot delivered daily over WhatsApp, with voice feedback on your pronunciation.",
-      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navSignin: "Sign in / Sign up",
+      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navLive: "Live classes", navSignin: "Sign in / Sign up",
       navAbout2: "About", navHow2: "How it works &amp; FAQ", navPricing2: "Pricing", navContact2: "Contact",
       i18nEyebrow: "Free 5-day pilot",
       i18nMeaning: '<strong>안녕하세요</strong> — "Hello." Your first word, day one.',
@@ -1092,12 +1099,13 @@
       i18nEarn1H3: "Daily XP", i18nEarn1P: "+10 XP each day you send a voice message, plus +10 the very first time. One reward per day, so it can't be farmed.",
       i18nEarn2H3: "Streaks", i18nEarn2P: "Practice 3 days in a row for +5 XP, and 7 days in a row for +15 XP.",
       i18nEarn3H3: "Badges", i18nEarn3P: "Collect badges like First Voice, 7-Day Streak, 5-Day Pilot and Mugunghwa Bloom. Your account page shows them all.",
-      i18nForestH2: "Learn with a friend, grow a forest", i18nForestSub: "Invite a friend and you both get a boost. Every friend you bring becomes a tree in your forest.",
+      i18nForestH2: "Learn with a friend, grow a forest", i18nForestSub: "Invite a friend and you both get a boost. Every friend you bring becomes a tree in your forest — pick a nickname and your country when you join, and they'll show up on your tree.",
+      i18nForestImgCaption: "A real look at your account page: big trees are friends you invited, small trees are their friends, and grey trees haven't practiced yet.",
       i18nFor1H3: "Get your invite link", i18nFor1P: "You get a personal invite code when you join. Reply “invite” on WhatsApp anytime to get your link again.",
       i18nFor2H3: "Your friend joins", i18nFor2P: "They start with your link and send their first voice message. You both earn bonus XP, and you get the First Friend badge.",
-      i18nFor3H3: "Your forest grows", i18nFor3P: "Friends become big trees and their friends small ones. Ranks: Seedling, Grove (3 friends), Forest (10), Guardian (30).",
+      i18nFor3H3: "Your forest grows", i18nFor3P: "Friends become big trees and their friends small ones, each labeled with their nickname and flag. Ranks: Seedling, Grove (3 friends), Forest (10), Guardian (30).",
       i18nFor4H3: "Weekly team goal", i18nFor4P: "Practice together each week. Reach the goal as a forest and everyone earns bonus XP.",
-      i18nFor5H3: "Friend nudges", i18nFor5P: "Add any learner as a mutual friend with their code. Practice the same day for bonus XP, or send a playful nudge if they've gone quiet.",
+      i18nFor5H3: "Friend nudges", i18nFor5P: "Add any learner as a mutual friend with their code. Practice the same day for bonus XP, or send a playful nudge — delivered in their own language when we support it — if they've gone quiet.",
       i18nForestNote: "Rewards are XP, badges and ranks only — no cash. Every 3 confirmed friends also earns you a free month of Hangul Habit. Bonus XP is capped each month.",
       i18nWorldH2: "One tree, everyone growing it together", i18nWorldSub: "Every learner's practice — yours included — adds to this single shared tree.",
       worldCountTpl: "{n} practice days, every learner combined", worldNextTpl: "{n} more to the next stage", worldMaxed: "Fully bloomed — thank you for growing it!",
@@ -1120,7 +1128,7 @@
     },
     ja: {
       metaDescription: "WhatsAppで毎日届く、5日間無料の韓国語レッスン体験。あなたの発音に対する音声フィードバック付き。",
-      navAbout: "概要", navHow: "使い方", navPricing: "料金", navSignin: "ログイン / 新規登録",
+      navAbout: "概要", navHow: "使い方", navPricing: "料金", navLive: "ライブレッスン", navSignin: "ログイン / 新規登録",
       navAbout2: "概要", navHow2: "使い方とFAQ", navPricing2: "料金", navContact2: "お問い合わせ",
       i18nEyebrow: "5日間無料パイロット",
       i18nMeaning: '<strong>안녕하세요</strong> — 「こんにちは」という意味。1日目の最初の一言。',
@@ -1175,7 +1183,8 @@
       i18nEarn1H3: "毎日のXP", i18nEarn1P: "ボイスメッセージを送った日は+10 XP、初回はさらに+10 XP。報酬は1日1回なので、稼ぎ放題にはなりません。",
       i18nEarn2H3: "連続記録", i18nEarn2P: "3日連続で+5 XP、7日連続で+15 XP。",
       i18nEarn3H3: "バッジ", i18nEarn3P: "はじめての声、7日連続、5日パイロット、ムクゲ開花などのバッジを集められます。アカウントページで全部見られます。",
-      i18nForestH2: "友だちと学んで、森を育てよう", i18nForestSub: "友だちを招待すると、2人ともボーナスがもらえます。招待した友だちは、あなたの森の1本の木になります。",
+      i18nForestH2: "友だちと学んで、森を育てよう", i18nForestSub: "友だちを招待すると、2人ともボーナスがもらえます。招待した友だちは、あなたの森の1本の木になります — 参加するときにニックネームと国を選ぶと、あなたの木にも表示されます。",
+      i18nForestImgCaption: "実際のアカウントページの様子です。大きな木はあなたが招待した友だち、小さな木はその友だち、灰色の木はまだ練習していない人です。",
       i18nFor1H3: "招待リンクを受け取る", i18nFor1P: "参加すると専用の招待コードがもらえます。WhatsAppで「invite」と送れば、いつでもリンクをもう一度受け取れます。",
       i18nFor2H3: "友だちが参加", i18nFor2P: "友だちがリンクから始めて最初のボイスメッセージを送ると、2人ともボーナスXPがもらえ、あなたには「はじめての友だち」バッジが贈られます。",
       i18nFor3H3: "森が育つ", i18nFor3P: "友だちは大きな木、その友だちは小さな木になります。ランクは、シードリング、小さな林(友だち3人)、森(10人)、森の守り人(30人)です。",
@@ -1203,7 +1212,7 @@
     },
     ka: {
       metaDescription: "უფასო 5-დღიანი კორეული ენის საცდელი გაკვეთილები, რომლებიც ყოველდღიურად მოდის WhatsApp-ში, ხმოვანი გამოხმაურებით თქვენს გამოთქმაზე.",
-      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navSignin: "შესვლა / რეგისტრაცია",
+      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navLive: "ლაივ გაკვეთილები", navSignin: "შესვლა / რეგისტრაცია",
       navAbout2: "შესახებ", navHow2: "როგორ მუშაობს და კითხვები", navPricing2: "ფასები", navContact2: "კონტაქტი",
       i18nEyebrow: "5-დღიანი უფასო საცდელი",
       i18nMeaning: '<strong>안녕하세요</strong> — „გამარჯობა". თქვენი პირველი სიტყვა, პირველი დღე.',
@@ -1258,7 +1267,8 @@
       i18nEarn1H3: "ყოველდღიური XP", i18nEarn1P: "+10 XP ყოველ დღეს, როცა ხმოვან შეტყობინებას აგზავნით, და კიდევ +10 პირველად. ჯილდო დღეში ერთხელ ინიშნება, ამიტომ მას ვერ „დააგროვებთ“ ხელოვნურად.",
       i18nEarn2H3: "უწყვეტი დღეები", i18nEarn2P: "ივარჯიშეთ 3 დღე ზედიზედ +5 XP-სთვის და 7 დღე ზედიზედ +15 XP-სთვის.",
       i18nEarn3H3: "ბეჯები", i18nEarn3P: "შეაგროვეთ ბეჯები, როგორიცაა „პირველი ხმა“, „7 დღე ზედიზედ“, „5-დღიანი პილოტი“ და „მუგუნღვას ყვავილობა“. ყველა ჩანს თქვენს ანგარიშზე.",
-      i18nForestH2: "ისწავლეთ მეგობართან ერთად და გაზარდეთ ტყე", i18nForestSub: "მოიწვიეთ მეგობარი და ორივე მიიღებთ ბონუსს. თითოეული მოყვანილი მეგობარი თქვენს ტყეში ხე ხდება.",
+      i18nForestH2: "ისწავლეთ მეგობართან ერთად და გაზარდეთ ტყე", i18nForestSub: "მოიწვიეთ მეგობარი და ორივე მიიღებთ ბონუსს. თითოეული მოყვანილი მეგობარი თქვენს ტყეში ხე ხდება — აირჩიეთ მეტსახელი და ქვეყანა გაწევრიანებისას, და ისინი გამოჩნდება თქვენს ხეზე.",
+      i18nForestImgCaption: "თქვენი ანგარიშის გვერდის რეალური ხედი: დიდი ხეები მოწვეული მეგობრები არიან, პატარები — მათი მეგობრები, ხოლო ნაცრისფერებს ჯერ არ ივარჯიშია.",
       i18nFor1H3: "მიიღეთ მოწვევის ბმული", i18nFor1P: "გაწევრიანებისას მიიღებთ პირად მოწვევის კოდს. WhatsApp-ში დაწერეთ „invite“ და ბმულს ნებისმიერ დროს ისევ მიიღებთ.",
       i18nFor2H3: "მეგობარი უერთდება", i18nFor2P: "ის იწყებს თქვენი ბმულით და აგზავნის პირველ ხმოვან შეტყობინებას. ორივე იღებთ ბონუს XP-ს, თქვენ კი — „პირველი მეგობრის“ ბეჯს.",
       i18nFor3H3: "თქვენი ტყე იზრდება", i18nFor3P: "მეგობრები დიდი ხეები ხდებიან, მათი მეგობრები — პატარა. რანგები: ნერგი, კორომი (3 მეგობარი), ტყე (10), ტყის მცველი (30).",
@@ -1286,7 +1296,7 @@
     },
     zh: {
       metaDescription: "通过 WhatsApp 每天发送的5天免费韩语课程试用,并提供针对你发音的语音反馈。",
-      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navSignin: "登录 / 注册",
+      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navLive: "直播课", navSignin: "登录 / 注册",
       navAbout2: "关于", navHow2: "使用方法与常见问题", navPricing2: "价格", navContact2: "联系方式",
       i18nEyebrow: "5天免费试用",
       i18nMeaning: '<strong>안녕하세요</strong> — "你好"。你第一天要学的第一句话。',
@@ -1341,7 +1351,8 @@
       i18nEarn1H3: "每日 XP", i18nEarn1P: "每天发送语音消息可得 +10 XP,第一次再额外 +10。每天只奖励一次,无法刷分。",
       i18nEarn2H3: "连续打卡", i18nEarn2P: "连续练习3天得 +5 XP,连续7天得 +15 XP。",
       i18nEarn3H3: "徽章", i18nEarn3P: "收集「第一声」「连续7天」「5天试点」「木槿花开」等徽章。在账户页面可以看到全部。",
-      i18nForestH2: "和朋友一起学,养一片森林", i18nForestSub: "邀请朋友,你们都能获得加成。你带来的每位朋友,都会成为你森林里的一棵树。",
+      i18nForestH2: "和朋友一起学,养一片森林", i18nForestSub: "邀请朋友,你们都能获得加成。你带来的每位朋友,都会成为你森林里的一棵树——加入时选一个昵称和国家,它们就会显示在你的树上。",
+      i18nForestImgCaption: "这是账户页面的真实样子:大树是你邀请的朋友,小树是他们的朋友,灰色的树表示还没开始练习。",
       i18nFor1H3: "获取邀请链接", i18nFor1P: "加入后你会得到专属邀请码。在 WhatsApp 回复“invite”,随时都能再次获取链接。",
       i18nFor2H3: "朋友加入", i18nFor2P: "朋友通过你的链接开始,并发送第一条语音消息。你们都能获得额外 XP,你还会获得“第一位朋友”徽章。",
       i18nFor3H3: "森林成长", i18nFor3P: "朋友是大树,朋友的朋友是小树。等级:幼苗、小树林(3位朋友)、森林(10位)、森林守护者(30位)。",

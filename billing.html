@@ -52,7 +52,7 @@
   nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 720px; margin: 0 auto; padding: 18px 24px; }
   nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
-  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; flex-wrap: wrap; align-items: center; justify-content: flex-end; row-gap: 8px; }
   nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
   nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
   .lang-switch { position: relative; }
@@ -96,6 +96,7 @@
   <a class="brand" href="index.html">Hangul Habit</a>
   <div class="links">
     <a href="about.html" id="navAbout">About</a>
+    <a href="live.html" id="navLive">Live classes</a>
     <a href="pricing.html" id="navPricing">Pricing</a>
     <a href="billing.html" aria-current="page" id="navBilling">Billing</a>
     <a href="login.html" id="navSignin">Sign in / Sign up</a>
@@ -235,7 +236,7 @@
   window.PAGE_TRANSLATIONS = {
     en: {
       metaDescription: "View your Hangul Habit payment history and download receipts.",
-      navAbout: "About", navPricing: "Pricing", navBilling: "Billing", navSignin: "Sign in / Sign up",
+      navAbout: "About", navPricing: "Pricing", navLive: "Live classes", navBilling: "Billing", navSignin: "Sign in / Sign up",
       navHome2: "Home", navAbout2: "About", navContact2: "Contact",
       i18nEyebrow: "Billing", i18nH1: "Payment history &amp; receipts",
       i18nLoggedOut: "Sign in to see your payment history.", i18nGoLogin: "Go to sign in →",
@@ -248,7 +249,7 @@
     },
     ja: {
       metaDescription: "Hangul Habitの支払い履歴を確認し、領収書をダウンロードできます。",
-      navAbout: "概要", navPricing: "料金", navBilling: "支払い", navSignin: "ログイン / 新規登録",
+      navAbout: "概要", navPricing: "料金", navLive: "ライブレッスン", navBilling: "支払い", navSignin: "ログイン / 新規登録",
       navHome2: "ホーム", navAbout2: "概要", navContact2: "お問い合わせ",
       i18nEyebrow: "支払い", i18nH1: "支払い履歴と領収書",
       i18nLoggedOut: "支払い履歴を見るにはログインしてください。", i18nGoLogin: "ログイン画面へ →",
@@ -261,7 +262,7 @@
     },
     ka: {
       metaDescription: "იხილეთ თქვენი Hangul Habit-ის გადახდების ისტორია და გადმოწერეთ ქვითრები.",
-      navAbout: "შესახებ", navPricing: "ფასები", navBilling: "გადახდები", navSignin: "შესვლა / რეგისტრაცია",
+      navAbout: "შესახებ", navPricing: "ფასები", navLive: "ლაივ გაკვეთილები", navBilling: "გადახდები", navSignin: "შესვლა / რეგისტრაცია",
       navHome2: "მთავარი", navAbout2: "შესახებ", navContact2: "კონტაქტი",
       i18nEyebrow: "გადახდები", i18nH1: "გადახდების ისტორია და ქვითრები",
       i18nLoggedOut: "შედით სისტემაში გადახდების ისტორიის სანახავად.", i18nGoLogin: "შესვლის გვერდზე გადასვლა →",
@@ -274,7 +275,7 @@
     },
     zh: {
       metaDescription: "查看你的 Hangul Habit 付款记录并下载收据。",
-      navAbout: "关于", navPricing: "价格", navBilling: "账单", navSignin: "登录 / 注册",
+      navAbout: "关于", navPricing: "价格", navLive: "直播课", navBilling: "账单", navSignin: "登录 / 注册",
       navHome2: "首页", navAbout2: "关于", navContact2: "联系方式",
       i18nEyebrow: "账单", i18nH1: "付款记录与收据",
       i18nLoggedOut: "请登录查看付款记录。", i18nGoLogin: "前往登录 →",

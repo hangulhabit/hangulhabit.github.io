@@ -52,7 +52,7 @@
   nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 560px; margin: 0 auto; padding: 18px 24px; }
   nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
-  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; align-items: center; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; align-items: center; flex-wrap: wrap; align-items: center; justify-content: flex-end; row-gap: 8px; }
   nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
   nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
   .lang-switch { position: relative; }
@@ -97,6 +97,19 @@
   .edit-card { margin-top: 20px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
   .edit-card h2 { margin: 0 0 4px; font-size: 15.5px; }
   .edit-card .hint { color: var(--ink-faint); font-size: 13px; margin: 0 0 16px; }
+  .lesson { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-top: 12px; background: var(--bg-inset); display: flex; flex-direction: column; gap: 8px; }
+  .lesson .when { font-weight: 600; font-size: 15px; }
+  .lesson .meta { color: var(--ink-faint); font-size: 13px; }
+  .lesson .pill { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: color-mix(in srgb, var(--gold) 20%, transparent); color: var(--gold); }
+  .lesson .pill.done { background: color-mix(in srgb, var(--jade) 18%, transparent); color: var(--jade); }
+  .lesson .join { align-self: flex-start; background: var(--jade); color: #fff9f4; text-decoration: none; font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 10px; }
+  .lesson .note { font-size: 14px; color: var(--ink-dim); margin: 0; }
+  .lesson .scores { font-size: 13.5px; color: var(--ink-dim); }
+  .stars { display: flex; gap: 6px; }
+  .stars button { background: none; border: 0; padding: 2px; font-size: 26px; line-height: 1; cursor: pointer; color: var(--line); }
+  .stars button.on { color: var(--gold); }
+  .stars button:focus-visible, .lesson textarea:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .lesson textarea { width: 100%; font: inherit; font-size: 14px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-raised); color: var(--ink); resize: vertical; min-height: 64px; }
   .field { margin-bottom: 14px; }
   .field label { display: block; font-size: 13px; color: var(--ink-dim); margin-bottom: 6px; }
   .field input {
@@ -182,6 +195,7 @@
   <a class="brand" href="index.html">Hangul Habit</a>
   <div class="links">
     <a href="about.html" id="navAbout">About</a>
+    <a href="live.html" id="navLive">Live classes</a>
     <a href="pricing.html" id="navPricing">Pricing</a>
     <a href="billing.html" id="navBilling">Billing</a>
     <a href="account.html" aria-current="page" id="navSignin">Sign in / Sign up</a>
@@ -304,6 +318,12 @@
           </div>
           <div class="progress-grid" id="progressGrid"></div>
         </div>
+      </div>
+
+      <div class="edit-card" id="lessonsCard" hidden>
+        <h2 id="i18nLessonsH2">Your live lessons</h2>
+        <p class="hint" id="i18nLessonsHint">Zoom lessons with your Korean teacher. Your Zoom link also arrives on WhatsApp.</p>
+        <div id="lessonsList"></div>
       </div>
 
       <div class="edit-card" id="levelCard">
@@ -549,10 +569,109 @@
     if (lastGrowth) renderGrowth(lastGrowth);
     if (lastForest) renderForest(lastForest);
     if (lastCommunity) renderCommunity(lastCommunity);
+    if (lastLessons) renderLessons(lastLessons);
   });
 
   let sessionToken = "";
   let currentEmail = "";
+  const API_BASE = PROGRESS_API.replace("/progress", "");
+  let lastLessons = null;
+
+  function authHeaders(extra) {
+    return Object.assign({ Authorization: "Bearer " + sessionToken, apikey: SUPABASE_ANON_KEY, "ngrok-skip-browser-warning": "true" }, extra || {});
+  }
+  function el(tag, cls, text) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+  function fmtLessonTime(epochSeconds) {
+    const lang = document.documentElement.lang || "en";
+    const locale = { en: "en-US", ja: "ja-JP", ka: "ka-GE", zh: "zh-CN" }[lang] || "en-US";
+    return new Date(epochSeconds * 1000).toLocaleString(locale, { weekday: "short", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit", timeZoneName: "short" });
+  }
+  const ZOOM_LINK = /^https:\/\/([a-z0-9-]+\.)*zoom\.us\//i;
+
+  function ratingForm(lesson, row) {
+    const form = el("div", "rate");
+    form.appendChild(el("div", "meta", tr("lessonsRate")));
+    let rating = 0;
+    const stars = el("div", "stars");
+    const buttons = [1, 2, 3, 4, 5].map((n) => {
+      const b = el("button", "", "★");
+      b.type = "button";
+      b.setAttribute("aria-label", n + " / 5");
+      b.addEventListener("click", () => { rating = n; buttons.forEach((x, i) => x.classList.toggle("on", i < n)); });
+      stars.appendChild(b);
+      return b;
+    });
+    const comment = el("textarea");
+    comment.maxLength = 500;
+    comment.placeholder = tr("lessonsCommentPh");
+    const submit = el("button", "save-btn", tr("lessonsSubmit"));
+    submit.type = "button";
+    const status = el("span", "save-status");
+    submit.addEventListener("click", async () => {
+      if (!rating) { status.textContent = tr("lessonsPickStars"); return; }
+      status.textContent = "...";
+      try {
+        const res = await fetch(API_BASE + "/lesson-review", {
+          method: "POST",
+          headers: authHeaders({ "Content-Type": "application/json" }),
+          body: JSON.stringify({ booking_id: lesson.id, rating, comment: comment.value }),
+        });
+        if (!res.ok) throw new Error("bad status");
+        form.replaceChildren(el("div", "meta", tr("lessonsThanks")));
+      } catch (err) {
+        status.textContent = tr("lessonsError");
+      }
+    });
+    form.append(stars, comment, submit, status);
+    return form;
+  }
+
+  function lessonRow(l) {
+    const row = el("div", "lesson");
+    row.appendChild(el("div", "when", fmtLessonTime(l.start_at)));
+    row.appendChild(el("div", "meta", tr("lessonsWith") + " " + (l.teacher || "-")));
+    if (l.status === "scheduled") {
+      if (l.zoom_url && ZOOM_LINK.test(l.zoom_url)) {
+        const join = el("a", "join", tr("lessonsJoin"));
+        join.href = l.zoom_url;
+        join.target = "_blank";
+        join.rel = "noopener noreferrer";
+        row.appendChild(join);
+      } else {
+        row.appendChild(el("span", "pill", tr("lessonsWaitPay")));
+      }
+    } else if (l.status === "completed") {
+      row.appendChild(el("span", "pill done", tr("lessonsDone")));
+      if (l.scores) {
+        row.appendChild(el("div", "scores", tr("lessonsPron") + " " + l.scores.pronunciation + "/5 · " + tr("lessonsGram") + " " + l.scores.grammar + "/5 · " + tr("lessonsPart") + " " + l.scores.participation + "/5"));
+      }
+      if (l.note) row.appendChild(el("p", "note", "“" + l.note + "”"));
+      row.appendChild(l.reviewed ? el("div", "meta", tr("lessonsThanks")) : ratingForm(l, row));
+    } else {
+      row.appendChild(el("span", "pill", tr("lessonsCancelled")));
+    }
+    return row;
+  }
+
+  function renderLessons(lessons) {
+    lastLessons = lessons;
+    const list = document.getElementById("lessonsList");
+    list.replaceChildren(...lessons.map(lessonRow));
+    document.getElementById("lessonsCard").hidden = lessons.length === 0;
+  }
+
+  async function loadLessons() {
+    try {
+      const res = await fetch(API_BASE + "/my-lessons", { headers: authHeaders() });
+      if (!res.ok) return;
+      renderLessons((await res.json()).lessons || []);
+    } catch (err) { /* the card simply stays hidden */ }
+  }
   const WHATSAPP_NUMBER = "821047848412";
   const LINK_API = PROGRESS_API.replace("/progress", "/link/start");
 
@@ -660,6 +779,7 @@
     document.getElementById("linkGetBtn").addEventListener("click", requestLinkCode);
     document.getElementById("linkRecheckBtn").addEventListener("click", () => loadProgress(currentEmail));
     loadProgress(email);
+    loadLessons();
 
     document.getElementById("saveLevelBtn").addEventListener("click", async () => {
       const statusEl = document.getElementById("levelSaveStatus");
@@ -709,7 +829,8 @@
   window.PAGE_TRANSLATIONS = {
     en: {
       metaDescription: "View and edit your Hangul Habit account details.",
-      navAbout: "About", navPricing: "Pricing", navBilling: "Billing", navSignin: "Sign in / Sign up",
+      i18nLessonsH2: "Your live lessons", i18nLessonsHint: "Zoom lessons with your Korean teacher. Your Zoom link also arrives on WhatsApp.", lessonsWith: "with", lessonsJoin: "Join on Zoom", lessonsWaitPay: "Your Zoom link is released once payment is confirmed", lessonsDone: "Completed", lessonsCancelled: "Cancelled", lessonsPron: "Pronunciation", lessonsGram: "Grammar", lessonsPart: "Participation", lessonsRate: "How was this lesson? Rate your teacher", lessonsCommentPh: "Optional: what went well, what could be better?", lessonsSubmit: "Send feedback", lessonsPickStars: "Choose a star rating first", lessonsThanks: "Thanks — your feedback was sent ✓", lessonsError: "Couldn't send feedback. Please try again.",
+      navAbout: "About", navPricing: "Pricing", navLive: "Live classes", navBilling: "Billing", navSignin: "Sign in / Sign up",
       i18nEyebrow: "Account", i18nH1: "My account",
       i18nLoggedOut: "Sign in to view your account.", i18nGoLogin: "Go to sign in →",
       i18nInfoProvider: "Signed in with", i18nInfoCreated: "Member since", i18nInfoUserId: "User ID",
@@ -761,7 +882,8 @@
     },
     ja: {
       metaDescription: "Hangul Habitのアカウント情報の確認・編集ができます。",
-      navAbout: "概要", navPricing: "料金", navBilling: "支払い", navSignin: "ログイン / 新規登録",
+      i18nLessonsH2: "ライブレッスン", i18nLessonsHint: "韓国の先生とのZoomレッスンです。ZoomリンクはWhatsAppにも届きます。", lessonsWith: "講師：", lessonsJoin: "Zoomで参加", lessonsWaitPay: "お支払いが確認されるとZoomリンクが表示されます", lessonsDone: "完了", lessonsCancelled: "キャンセル", lessonsPron: "発音", lessonsGram: "文法", lessonsPart: "参加度", lessonsRate: "レッスンはいかがでしたか？先生を評価してください", lessonsCommentPh: "任意：良かった点、改善してほしい点", lessonsSubmit: "フィードバックを送信", lessonsPickStars: "先に星の数を選んでください", lessonsThanks: "ありがとうございます — フィードバックを送信しました ✓", lessonsError: "送信できませんでした。もう一度お試しください。",
+      navAbout: "概要", navPricing: "料金", navLive: "ライブレッスン", navBilling: "支払い", navSignin: "ログイン / 新規登録",
       i18nEyebrow: "アカウント", i18nH1: "マイアカウント",
       i18nLoggedOut: "アカウントを見るにはログインしてください。", i18nGoLogin: "ログイン画面へ →",
       i18nInfoProvider: "ログイン方法", i18nInfoCreated: "登録日", i18nInfoUserId: "ユーザーID",
@@ -813,7 +935,8 @@
     },
     ka: {
       metaDescription: "იხილეთ და დაარედაქტირეთ თქვენი Hangul Habit ანგარიშის დეტალები.",
-      navAbout: "შესახებ", navPricing: "ფასები", navBilling: "გადახდები", navSignin: "შესვლა / რეგისტრაცია",
+      i18nLessonsH2: "თქვენი ლაივ გაკვეთილები", i18nLessonsHint: "Zoom გაკვეთილები კორეელ მასწავლებელთან. Zoom-ის ბმული WhatsApp-შიც მოგივათ.", lessonsWith: "მასწავლებელი:", lessonsJoin: "შესვლა Zoom-ში", lessonsWaitPay: "Zoom-ის ბმული გამოჩნდება გადახდის დადასტურების შემდეგ", lessonsDone: "დასრულდა", lessonsCancelled: "გაუქმდა", lessonsPron: "გამოთქმა", lessonsGram: "გრამატიკა", lessonsPart: "მონაწილეობა", lessonsRate: "როგორი იყო გაკვეთილი? შეაფასეთ მასწავლებელი", lessonsCommentPh: "სურვილისამებრ: რა იყო კარგი, რა შეიძლება გაუმჯობესდეს?", lessonsSubmit: "უკუკავშირის გაგზავნა", lessonsPickStars: "ჯერ აირჩიეთ ვარსკვლავები", lessonsThanks: "მადლობა — თქვენი უკუკავშირი გაიგზავნა ✓", lessonsError: "ვერ გაიგზავნა. სცადეთ თავიდან.",
+      navAbout: "შესახებ", navPricing: "ფასები", navLive: "ლაივ გაკვეთილები", navBilling: "გადახდები", navSignin: "შესვლა / რეგისტრაცია",
       i18nEyebrow: "ანგარიში", i18nH1: "ჩემი ანგარიში",
       i18nLoggedOut: "შედით სისტემაში თქვენი ანგარიშის სანახავად.", i18nGoLogin: "შესვლის გვერდზე გადასვლა →",
       i18nInfoProvider: "შესვლის მეთოდი", i18nInfoCreated: "წევრია", i18nInfoUserId: "მომხმარებლის ID",
@@ -865,7 +988,8 @@
     },
     zh: {
       metaDescription: "查看并编辑你的 Hangul Habit 账户信息。",
-      navAbout: "关于", navPricing: "价格", navBilling: "账单", navSignin: "登录 / 注册",
+      i18nLessonsH2: "我的直播课", i18nLessonsHint: "与韩国老师的Zoom课程。Zoom链接也会发送到你的WhatsApp。", lessonsWith: "老师：", lessonsJoin: "通过Zoom加入", lessonsWaitPay: "付款确认后将显示Zoom链接", lessonsDone: "已完成", lessonsCancelled: "已取消", lessonsPron: "发音", lessonsGram: "语法", lessonsPart: "参与度", lessonsRate: "这节课怎么样？请为老师评分", lessonsCommentPh: "选填：哪些做得好，哪些可以改进？", lessonsSubmit: "提交反馈", lessonsPickStars: "请先选择星级", lessonsThanks: "谢谢——你的反馈已提交 ✓", lessonsError: "提交失败，请重试。",
+      navAbout: "关于", navPricing: "价格", navLive: "直播课", navBilling: "账单", navSignin: "登录 / 注册",
       i18nEyebrow: "账户", i18nH1: "我的账户",
       i18nLoggedOut: "请登录查看你的账户。", i18nGoLogin: "前往登录 →",
       i18nInfoProvider: "登录方式", i18nInfoCreated: "加入日期", i18nInfoUserId: "用户ID",

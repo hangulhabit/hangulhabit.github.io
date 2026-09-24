@@ -51,7 +51,7 @@
   nav.topnav { display: flex; align-items: center; justify-content: space-between; max-width: 680px; margin: 0 auto; padding: 18px 24px; }
   nav.topnav .brand { font-family: "Black Han Sans", sans-serif; font-size: 16px; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
   nav.topnav .brand::before { content: "안"; display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 7px; background: #1a3b6e; color: #fff; font-size: 14px; }
-  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; }
+  nav.topnav .links { display: flex; gap: 24px; font-size: 14px; flex-wrap: wrap; align-items: center; justify-content: flex-end; row-gap: 8px; }
   nav.topnav .links a { text-decoration: none; color: var(--ink-dim); }
   nav.topnav .links a:hover, nav.topnav .links a[aria-current="page"] { color: var(--coral); }
   .lang-switch { position: relative; }
@@ -95,6 +95,7 @@
   <div class="links">
     <a href="about.html" aria-current="page" id="navAbout">About</a>
     <a href="how-it-works.html" id="navHow">How it works</a>
+    <a href="live.html" id="navLive">Live classes</a>
     <a href="pricing.html" id="navPricing">Pricing</a>
     <a href="login.html" id="navSignin">Sign in / Sign up</a>
     <div id="langSwitchMount"></div>
@@ -173,7 +174,7 @@
   window.PAGE_TRANSLATIONS = {
     en: {
       metaDescription: "Why Hangul Habit exists, who's behind it, and why it runs over WhatsApp instead of yet another app.",
-      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navSignin: "Sign in / Sign up",
+      navAbout: "About", navHow: "How it works", navPricing: "Pricing", navLive: "Live classes", navSignin: "Sign in / Sign up",
       navHome2: "Home", navHow2: "How it works &amp; FAQ", navContact2: "Contact",
       i18nEyebrow: "About",
       i18nH1: "Why I built Hangul Habit",
@@ -198,7 +199,7 @@
     },
     ja: {
       metaDescription: "Hangul Habitがなぜ存在するのか、誰が運営しているのか、そしてなぜ別のアプリではなくWhatsAppで提供しているのか。",
-      navAbout: "概要", navHow: "使い方", navPricing: "料金", navSignin: "ログイン / 新規登録",
+      navAbout: "概要", navHow: "使い方", navPricing: "料金", navLive: "ライブレッスン", navSignin: "ログイン / 新規登録",
       navHome2: "ホーム", navHow2: "使い方とFAQ", navContact2: "お問い合わせ",
       i18nEyebrow: "概要",
       i18nH1: "Hangul Habitを作った理由",
@@ -223,7 +224,7 @@
     },
     ka: {
       metaDescription: "რატომ არსებობს Hangul Habit, ვინ დგას მის უკან და რატომ მუშაობს WhatsApp-ში კიდევ ერთი აპლიკაციის ნაცვლად.",
-      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navSignin: "შესვლა / რეგისტრაცია",
+      navAbout: "შესახებ", navHow: "როგორ მუშაობს", navPricing: "ფასები", navLive: "ლაივ გაკვეთილები", navSignin: "შესვლა / რეგისტრაცია",
       navHome2: "მთავარი", navHow2: "როგორ მუშაობს და კითხვები", navContact2: "კონტაქტი",
       i18nEyebrow: "შესახებ",
       i18nH1: "რატომ შევქმენი Hangul Habit",
@@ -248,7 +249,7 @@
     },
     zh: {
       metaDescription: "Hangul Habit 为什么存在、由谁运营,以及为什么选择在 WhatsApp 上运行而不是另做一个App。",
-      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navSignin: "登录 / 注册",
+      navAbout: "关于", navHow: "使用方法", navPricing: "价格", navLive: "直播课", navSignin: "登录 / 注册",
       navHome2: "首页", navHow2: "使用方法与常见问题", navContact2: "联系方式",
       i18nEyebrow: "关于",
       i18nH1: "我为什么做了 Hangul Habit",
