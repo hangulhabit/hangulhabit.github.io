@@ -16,8 +16,9 @@
 <meta name="twitter:description" content="Sign in to Hangul Habit.">
 <meta name="twitter:image" content="https://hangulhabit.github.io/og-image.png">
 <title>Hangul Habit — Sign in</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&display=swap">
-<style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@400;500;600;700;800&display=swap">
+
+<link rel="stylesheet" href="assets/site.css"><style>
   :root {
     --bg: #12172a; --bg-raised: #1a2140; --ink: #f3ede1; --ink-dim: #b9c0d6;
     --ink-faint: #7c85a3; --coral: #ff6b5b; --jade: #2fa88a; --gold: #d4a94a;
@@ -38,7 +39,7 @@
   * { box-sizing: border-box; }
   body {
     margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink);
-    font-family: "Work Sans", system-ui, sans-serif; line-height: 1.55;
+    font-family: "Inter", system-ui, sans-serif; line-height: 1.55;
     display: flex; align-items: center; justify-content: center; padding: 24px;
   }
   .card {
@@ -131,3 +132,4 @@
     document.getElementById("btnFacebook").addEventListener("click", () => signIn("facebook"));
   }
 </script>
+<script src="assets/site.js"></script>

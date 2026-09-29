@@ -15,8 +15,9 @@
 <meta name="twitter:image" content="https://hangulhabit.github.io/og-image.png">
 <title>About — Hangul Habit</title>
 <meta name="description" id="metaDescription" content="Why Hangul Habit exists, who's behind it, and why it runs over WhatsApp instead of yet another app.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
-<style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+
+<link rel="stylesheet" href="assets/site.css"><style>
   :root {
     --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
     --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
@@ -33,6 +34,13 @@
       --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
     }
   }
+    :root[data-theme="dark"] {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --coral-dim: #c94c3f; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
   :root[data-theme="light"] {
     --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
     --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
@@ -41,8 +49,8 @@
     --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
-  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Inter", sans-serif; }
   a { color: inherit; }
   .wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
 
@@ -112,7 +120,7 @@
         too slow, or too impersonal for that. So I built something smaller instead.</p>
     </div>
 
-    <section class="block">
+    <section class="block reveal">
       <h2 id="i18nS1H2">Why Korean, why now</h2>
       <p id="i18nS1P1">Korean film, TV, music, and food have traveled further than most people expected a decade ago. A lot
         of that reaches people as entertainment first — and for a good number of them, curiosity grows into
@@ -122,7 +130,7 @@
         app doesn't feel like it's going anywhere, and there's no one checking in.</p>
     </section>
 
-    <section class="block">
+    <section class="block reveal">
       <h2 id="i18nS2H2">Why WhatsApp instead of another app</h2>
       <p id="i18nS2P1">I didn't want to build one more app that competes for a home-screen slot and gets deleted after a
         week. WhatsApp is already where most of the people I'm building this for spend their day. One short
@@ -132,7 +140,7 @@
         leaderboards. Just a short daily nudge, a real reply, and a small plant that grows when you send a voice message.</p>
     </section>
 
-    <section class="block">
+    <section class="block reveal">
       <h2 id="i18nS3H2">Who's behind it</h2>
       <p id="i18nS3P1">Hangul Habit is a small, founder-run pilot — not a large company. I'm a language educator (I also
         teach English conversation and interview-style speaking practice professionally), and this project
@@ -142,7 +150,7 @@
         exactly why the pilot is capped to a small group while I get the format right.</p>
     </section>
 
-    <section class="block">
+    <section class="block reveal">
       <h2 id="i18nS4H2">Being upfront about where this is</h2>
       <div class="honest-card">
         <ul>
@@ -275,3 +283,4 @@
   };
 </script>
 <script src="lang-switch.js"></script>
+<script src="assets/site.js"></script>

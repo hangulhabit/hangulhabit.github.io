@@ -15,8 +15,9 @@
 <meta name="twitter:image" content="https://hangulhabit.github.io/og-image.png">
 <title>Live Korean Classes — Hangul Habit</title>
 <meta name="description" id="metaDescription" content="Small-group and 1:1 Korean lessons on Zoom with teachers from Korea. Start with a free trial lesson.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
-<style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+
+<link rel="stylesheet" href="assets/site.css"><style>
   :root {
     --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
     --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
@@ -41,8 +42,8 @@
     --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
-  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Inter", sans-serif; }
   a { color: inherit; }
   .wrap { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
@@ -84,14 +85,14 @@
   .badge { position: absolute; top: -12px; right: 20px; background: var(--jade); color: #fff9f4; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
   .plan h3 { margin: 0; font-size: 15px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: 0.06em; }
   .plan .price { font-family: "Black Han Sans", sans-serif; font-size: 34px; margin: 0; }
-  .plan .price small { font-family: "Work Sans", sans-serif; font-size: 14px; font-weight: 500; color: var(--ink-dim); }
+  .plan .price small { font-family: "Inter", sans-serif; font-size: 14px; font-weight: 500; color: var(--ink-dim); }
   .plan .sub { font-size: 13.5px; color: var(--ink-faint); margin: -6px 0 0; }
   .plan ul { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-direction: column; gap: 8px; }
   .plan li { font-size: 14px; color: var(--ink-dim); display: flex; gap: 8px; }
   .plan li::before { content: "✓"; color: var(--jade); flex-shrink: 0; }
 
   section.block { padding: 40px 0 0; }
-  section.block h2 { font-family: "Black Han Sans", "Work Sans", sans-serif; font-weight: 400; font-size: 24px; margin: 0 0 16px; text-wrap: balance; }
+  section.block h2 { font-family: "Black Han Sans", "Inter", sans-serif; font-weight: 400; font-size: 24px; margin: 0 0 16px; text-wrap: balance; }
   .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
   @media (max-width: 720px) { .split { grid-template-columns: 1fr; } }
   .checks, .steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; color: var(--ink-dim); font-size: 15px; }
@@ -199,7 +200,7 @@
     </div>
     <p class="note" id="i18nRefNote">For reference, 1:1 online Korean lessons typically cost about $10–40 per hour on tutor marketplaces. Prices are in USD.</p>
 
-    <section class="block">
+    <section class="block reveal">
       <h2 id="i18nTeachH2">Meet your Korean teachers</h2>
       <p class="lede" style="text-align:left;margin:0 0 18px;font-size:15px;" id="i18nTeachSub">Ranked by student feedback after real lessons. A teacher is shown as new until they have 3 reviews.</p>
       <div class="teachers" id="teachers"><p class="teach-msg" id="teachersMsg">…</p></div>
@@ -227,7 +228,7 @@
       </div>
     </section>
 
-    <section class="block">
+    <section class="block reveal">
       <form class="book" id="bookForm">
         <h2 id="i18nBookH2">Book your free trial</h2>
         <p class="lede" id="i18nBookLede">Tell us your level and time zone. We'll open WhatsApp with your request ready to send.</p>
@@ -459,3 +460,4 @@
     refresh();
   })();
 </script>
+<script src="assets/site.js"></script>

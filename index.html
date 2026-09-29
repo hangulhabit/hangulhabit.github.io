@@ -15,8 +15,9 @@
 <meta name="twitter:image" content="https://hangulhabit.github.io/og-image.png">
 <title>Hangul Habit</title>
 <meta name="description" id="metaDescription" content="Free 5-day Korean lesson pilot delivered daily over WhatsApp, with voice feedback on your pronunciation.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
-<script type="application/ld+json">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+
+<link rel="stylesheet" href="assets/site.css"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -83,6 +84,22 @@
       --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
     }
   }
+  :root[data-theme="dark"] {
+    --bg: #12172a;
+    --bg-raised: #1a2140;
+    --bg-inset: #0d1120;
+    --ink: #f3ede1;
+    --ink-dim: #b9c0d6;
+    --ink-faint: #7c85a3;
+    --coral: #ff6b5b;
+    --coral-dim: #c94c3f;
+    --jade: #2fa88a;
+    --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --bubble-in: #232a4d;
+    --bubble-out: #1f6f5c;
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
   :root[data-theme="light"] {
     --bg: #faf6ee;
     --bg-raised: #ffffff;
@@ -105,11 +122,11 @@
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif;
+    font-family: "Inter", "Noto Sans Georgian", system-ui, sans-serif;
     line-height: 1.55;
   }
-  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
-  .ka { font-family: "Noto Sans Georgian", "Work Sans", sans-serif; }
+  .kr { font-family: "Black Han Sans", "Inter", sans-serif; }
+  .ka { font-family: "Noto Sans Georgian", "Inter", sans-serif; }
 
   a { color: inherit; }
 
@@ -147,7 +164,7 @@
     margin: 0 0 6px;
     text-wrap: balance;
     line-height: 1.15;
-    font-family: "Work Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
     color: var(--ink-dim);
   }
@@ -673,7 +690,7 @@
     </div>
   </div>
 
-  <div class="diff-strip">
+  <div class="diff-strip reveal">
     <div class="wrap diff-grid">
       <div class="diff-item"><span class="diff-num">5</span><span class="diff-label" id="i18nDiff1">days, completely free</span></div>
       <div class="diff-item"><span class="diff-num">1:1</span><span class="diff-label" id="i18nDiff2">real human feedback, not AI</span></div>
@@ -682,7 +699,7 @@
     </div>
   </div>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nPainH2">Sound familiar?</h2>
@@ -705,7 +722,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nCurricH2">Your first 5 days</h2>
@@ -732,7 +749,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nFeatH2">Built to actually help you stick with it</h2>
@@ -773,7 +790,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nProgH2">Your progress, tracked automatically</h2>
@@ -796,7 +813,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nPlantH2">Send a voice message, grow a plant</h2>
@@ -826,7 +843,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nRoadH2">Where a daily habit can take you</h2>
@@ -854,7 +871,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nForestH2">Learn with a friend, grow a forest</h2>
@@ -895,7 +912,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nWorldH2">One tree, everyone growing it together</h2>
@@ -914,7 +931,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nSec1H2">How it works</h2>
@@ -945,7 +962,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nCmpH2">A different way to study</h2>
@@ -968,7 +985,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nPriceH2">Simple pricing</h2>
@@ -997,7 +1014,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nSec2H2">Good for you if...</h2>
@@ -1011,7 +1028,7 @@
     </div>
   </section>
 
-  <section>
+  <section class="reveal">
     <div class="wrap">
       <div class="section-head">
         <h2 class="kr" id="i18nSec3H2">Good to know</h2>
@@ -1419,3 +1436,4 @@
     onScroll();
   })();
 </script>
+<script src="assets/site.js"></script>

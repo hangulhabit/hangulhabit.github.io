@@ -16,8 +16,9 @@
 <meta name="twitter:image" content="https://hangulhabit.github.io/og-image.png">
 <title>Billing — Hangul Habit</title>
 <meta name="description" id="metaDescription" content="View your Hangul Habit payment history and download receipts.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
-<style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;600;700&display=swap">
+
+<link rel="stylesheet" href="assets/site.css"><style>
   :root {
     --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
     --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
@@ -34,6 +35,13 @@
       --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
     }
   }
+    :root[data-theme="dark"] {
+    --bg: #12172a; --bg-raised: #1a2140; --bg-inset: #0d1120;
+    --ink: #f3ede1; --ink-dim: #b9c0d6; --ink-faint: #7c85a3;
+    --coral: #ff6b5b; --coral-dim: #c94c3f; --jade: #2fa88a; --gold: #d4a94a;
+    --line: rgba(243, 237, 225, 0.12);
+    --shadow: 0 30px 60px -25px rgba(0,0,0,0.6);
+  }
   :root[data-theme="light"] {
     --bg: #faf6ee; --bg-raised: #ffffff; --bg-inset: #f0e9d8;
     --ink: #1c1a14; --ink-dim: #514c3e; --ink-faint: #8b8574;
@@ -42,8 +50,8 @@
     --shadow: 0 30px 60px -30px rgba(28,26,20,0.25);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Work Sans", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
-  .kr { font-family: "Black Han Sans", "Work Sans", sans-serif; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Inter", "Noto Sans Georgian", system-ui, sans-serif; line-height: 1.6; }
+  .kr { font-family: "Black Han Sans", "Inter", sans-serif; }
   a { color: inherit; }
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
@@ -289,3 +297,4 @@
   };
 </script>
 <script src="lang-switch.js"></script>
+<script src="assets/site.js"></script>
