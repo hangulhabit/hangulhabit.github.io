@@ -161,6 +161,17 @@
   .growth-card { margin-top: 20px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
   .growth-card h2 { margin: 0 0 4px; font-size: 15.5px; }
   .growth-card .hint { color: var(--ink-faint); font-size: 13px; margin: 0 0 18px; }
+  .league-badge { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; }
+  .league-rank { color: var(--ink-faint); font-size: 13.5px; margin: 4px 0 14px; }
+  .league-board { display: flex; flex-direction: column; gap: 6px; }
+  .league-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 10px; font-size: 14px; }
+  .league-row.me { background: color-mix(in srgb, var(--jade) 12%, transparent); border: 1px solid color-mix(in srgb, var(--jade) 35%, transparent); }
+  .league-row .medal { width: 22px; text-align: center; flex-shrink: 0; }
+  .league-row .lxp { margin-left: auto; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .league-zone { margin-top: 12px; font-size: 13px; padding: 10px 12px; border-radius: 10px; }
+  .league-zone.promo { background: color-mix(in srgb, var(--jade) 14%, transparent); color: var(--jade); }
+  .league-zone.drop { background: color-mix(in srgb, var(--coral) 14%, transparent); color: var(--coral); }
+  .freeze-line { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: var(--ink-faint); margin-top: 6px; }
   .growth-top { display: flex; gap: 18px; align-items: center; }
   .growth-plant { width: 112px; height: 112px; flex-shrink: 0; border-radius: 14px; background: var(--bg-inset); border: 1px solid var(--line); object-fit: contain; }
   .growth-info { flex: 1; min-width: 0; }
@@ -270,8 +281,18 @@
           <div class="progress-stat"><div class="num" id="growthStreak">0</div><div class="label" id="i18nGrowthStreakLabel">Day streak</div></div>
           <div class="progress-stat"><div class="num" id="growthVoices">0</div><div class="label" id="i18nGrowthVoicesLabel">Practice days</div></div>
         </div>
+        <div class="freeze-line" id="freezeLine" hidden>🧊 <span id="freezeCount"></span></div>
         <h2 style="margin-top:18px;" id="i18nGrowthBadgesH2">Badges</h2>
         <div class="badge-shelf" id="badgeShelf"></div>
+      </div>
+
+      <div class="growth-card" id="leagueCard" hidden>
+        <h2 id="i18nLeagueH2">Weekly league</h2>
+        <p class="hint" id="i18nLeagueHint">Every voice message and live lesson earns XP toward this week's league. Top finishers move up a league; the bottom of a league can move down. Resets every Monday.</p>
+        <div class="league-badge" id="leagueBadge"></div>
+        <div class="league-rank" id="leagueRank"></div>
+        <div class="league-board" id="leagueBoard"></div>
+        <div class="league-zone" id="leagueZone" hidden></div>
       </div>
 
       <div class="growth-card" id="forestCard" hidden>
@@ -405,6 +426,8 @@
   const STAGE_STARTS = [["seed", 0], ["sprout", 30], ["sapling", 100], ["tree", 200], ["mugunghwa", 350]];
   const BADGES = [["first_voice", "말"], ["streak_3", "3"], ["streak_7", "7"], ["pilot_complete", "5"], ["two_weeks", "14"], ["mugunghwa", "꽃"], ["first_friend", "친"], ["team_goal", "팀"], ["community_grower", "🌍"], ["study_buddy", "짝"]];
   let lastGrowth = null;
+  let lastLeague = null;
+  const LEAGUE_EMOJI = { blue: "🔵", red: "🔴", white: "⚪", black: "⚫", gold: "🟡" };
 
   function tr(key) {
     const lang = document.documentElement.lang || "en";
@@ -442,6 +465,10 @@
 
     document.getElementById("growthStreak").textContent = g.streak || 0;
     document.getElementById("growthVoices").textContent = g.voice_count || 0;
+    const freezes = g.streak_freezes || 0;
+    const freezeEl = document.getElementById("freezeLine");
+    freezeEl.hidden = freezes === 0;
+    if (freezes) document.getElementById("freezeCount").textContent = tr("freezeTpl").replace("{n}", freezes);
 
     const owned = new Set(g.badges || []);
     const shelf = document.getElementById("badgeShelf");
@@ -573,8 +600,48 @@
     }
   });
 
+  function renderLeague(lg) {
+    lastLeague = lg;
+    const card = document.getElementById("leagueCard");
+    card.hidden = false;
+    const emoji = LEAGUE_EMOJI[lg.tier] || "🔵";
+    document.getElementById("leagueBadge").textContent = emoji + " " + tr("league_" + lg.tier);
+    document.getElementById("leagueRank").textContent = tr("leagueRankTpl")
+      .replace("{rank}", lg.rank).replace("{size}", lg.cohort_size);
+
+    const board = document.getElementById("leagueBoard");
+    board.innerHTML = "";
+    (lg.board || []).forEach((row, i) => {
+      const div = document.createElement("div");
+      div.className = "league-row" + (row.you ? " me" : "");
+      const medal = document.createElement("div");
+      medal.className = "medal";
+      medal.textContent = i < 3 ? ["🥇", "🥈", "🥉"][i] : (i + 1) + ".";
+      const name = document.createElement("div");
+      name.textContent = row.you ? tr("leagueYou") : tr("leagueLearner");
+      const xp = document.createElement("div");
+      xp.className = "lxp";
+      xp.textContent = row.week_xp + " XP";
+      div.append(medal, name, xp);
+      board.appendChild(div);
+    });
+
+    const zone = document.getElementById("leagueZone");
+    zone.hidden = true;
+    if (lg.zone === "promotion") {
+      zone.hidden = false;
+      zone.className = "league-zone promo";
+      zone.textContent = tr("leaguePromoZone");
+    } else if (lg.zone === "drop") {
+      zone.hidden = false;
+      zone.className = "league-zone drop";
+      zone.textContent = tr("leagueDropZone");
+    }
+  }
+
   document.addEventListener("hh:langchange", () => {
     if (lastGrowth) renderGrowth(lastGrowth);
+    if (lastLeague) renderLeague(lastLeague);
     if (lastForest) renderForest(lastForest);
     if (lastCommunity) renderCommunity(lastCommunity);
     if (lastLessons) renderLessons(lastLessons);
@@ -719,6 +786,7 @@
       document.getElementById("linkCard").hidden = !!data.found;
 
       if (data.found && data.growth) renderGrowth(data.growth);
+      if (data.found && data.league) renderLeague(data.league);
       if (data.found && data.forest) {
         renderForest(Object.assign({}, data.forest, { free_month_credits: data.free_month_credits, friends: data.friends || [] }));
       }
@@ -857,6 +925,12 @@
       i18nGrowthH2: "Your Hangul plant",
       i18nGrowthHint: "Send a voice message on WhatsApp after your lesson to earn XP and grow your plant. One XP reward per day.",
       i18nGrowthStreakLabel: "Day streak", i18nGrowthVoicesLabel: "Practice days", i18nGrowthBadgesH2: "Badges",
+
+      i18nLeagueH2: "Weekly league", i18nLeagueHint: "Every voice message and live lesson earns XP toward this week's league. Top finishers move up a league; the bottom of a league can move down. Resets every Monday.",
+      league_blue: "Blue League", league_red: "Red League", league_white: "White League", league_black: "Black League", league_gold: "Gold League",
+      leagueRankTpl: "Rank {rank} of {size} this week", leagueYou: "You", leagueLearner: "Learner",
+      leaguePromoZone: "🔥 You're in the promotion zone — keep it up!", leagueDropZone: "⚠️ You're in the drop zone — practice today to stay up!",
+      freezeTpl: "{n} streak freeze ready — protects your streak if you miss a day",
       growthNextTpl: "{n} XP until {stage}", growthMaxed: "Fully bloomed! Keep your streak going.",
       growthStage_seed: "Seed", growthStage_sprout: "Sprout", growthStage_sapling: "Sapling", growthStage_tree: "Tree", growthStage_mugunghwa: "Mugunghwa",
       growthBadge_first_voice: "First Voice", growthBadgeDesc_first_voice: "Send your first voice message",
@@ -910,6 +984,12 @@
       i18nGrowthH2: "あなたのハングルの木",
       i18nGrowthHint: "レッスンのあとにWhatsAppでボイスメッセージを送るとXPがたまり、木が育ちます。XPは1日1回です。",
       i18nGrowthStreakLabel: "連続日数", i18nGrowthVoicesLabel: "練習した日数", i18nGrowthBadgesH2: "バッジ",
+
+      i18nLeagueH2: "週間リーグ", i18nLeagueHint: "ボイスメッセージやライブレッスンで今週のリーグXPが貯まります。上位はリーグが昇格、下位は降格することがあります。毎週月曜にリセット。",
+      league_blue: "ブルーリーグ", league_red: "レッドリーグ", league_white: "ホワイトリーグ", league_black: "ブラックリーグ", league_gold: "ゴールドリーグ",
+      leagueRankTpl: "今週 {size}人中 {rank}位", leagueYou: "あなた", leagueLearner: "学習者",
+      leaguePromoZone: "🔥 昇格圏内です — その調子！", leagueDropZone: "⚠️ 降格圏内です — 今日練習して踏みとどまろう！",
+      freezeTpl: "ストリークフリーズ {n}個 — 1日休んでも連続記録を守ります",
       growthNextTpl: "{stage}まであと{n} XP", growthMaxed: "満開です！この調子で続けましょう。",
       growthStage_seed: "たね", growthStage_sprout: "新芽", growthStage_sapling: "若木", growthStage_tree: "大きな木", growthStage_mugunghwa: "ムクゲ",
       growthBadge_first_voice: "はじめての声", growthBadgeDesc_first_voice: "初めてボイスメッセージを送る",
@@ -963,6 +1043,12 @@
       i18nGrowthH2: "თქვენი ჰანგულის მცენარე",
       i18nGrowthHint: "გაკვეთილის შემდეგ გამოგზავნეთ ხმოვანი შეტყობინება WhatsApp-ში, რომ მიიღოთ XP და გაზარდოთ მცენარე. XP დღეში ერთხელ ინიშნება.",
       i18nGrowthStreakLabel: "დღე ზედიზედ", i18nGrowthVoicesLabel: "სავარჯიშო დღეები", i18nGrowthBadgesH2: "ბეჯები",
+
+      i18nLeagueH2: "კვირეული ლიგა", i18nLeagueHint: "ყოველი ხმოვანი შეტყობინება და ლაივ გაკვეთილი მოგცემთ XP-ს ამ კვირის ლიგისთვის. საუკეთესოები მაღლა გადადიან, ბოლოები — დაბლა. ყოველ ორშაბათს ხელახლა იწყება.",
+      league_blue: "ლურჯი ლიგა", league_red: "წითელი ლიგა", league_white: "თეთრი ლიგა", league_black: "შავი ლიგა", league_gold: "ოქროს ლიგა",
+      leagueRankTpl: "ამ კვირას {rank}-ე ადგილი {size}-დან", leagueYou: "თქვენ", leagueLearner: "მოსწავლე",
+      leaguePromoZone: "🔥 თქვენ ამაღლების ზონაში ხართ — განაგრძეთ!", leagueDropZone: "⚠️ თქვენ დაწევის ზონაში ხართ — დღეს ივარჯიშეთ!",
+      freezeTpl: "{n} სტრიკის დამცავი მზადაა — დაიცავს სერიას ერთი გამოტოვებული დღისგან",
       growthNextTpl: "{stage}-მდე {n} XP", growthMaxed: "სრულად აყვავდა! გააგრძელეთ.",
       growthStage_seed: "თესლი", growthStage_sprout: "ღივი", growthStage_sapling: "ნერგი", growthStage_tree: "ხე", growthStage_mugunghwa: "მუგუნღვა",
       growthBadge_first_voice: "პირველი ხმა", growthBadgeDesc_first_voice: "გამოგზავნეთ პირველი ხმოვანი შეტყობინება",
@@ -1016,6 +1102,12 @@
       i18nGrowthH2: "你的韩文小植物",
       i18nGrowthHint: "课程结束后在 WhatsApp 发送语音消息即可获得 XP，让小植物成长。每天只奖励一次。",
       i18nGrowthStreakLabel: "连续天数", i18nGrowthVoicesLabel: "练习天数", i18nGrowthBadgesH2: "徽章",
+
+      i18nLeagueH2: "每周联赛", i18nLeagueHint: "每条语音消息和每节直播课都会为本周联赛积累经验值。排名靠前可升级联赛，靠后可能会降级。每周一重置。",
+      league_blue: "蓝色联赛", league_red: "红色联赛", league_white: "白色联赛", league_black: "黑色联赛", league_gold: "黄金联赛",
+      leagueRankTpl: "本周排名第 {rank} 位，共 {size} 人", leagueYou: "你", leagueLearner: "学习者",
+      leaguePromoZone: "🔥 你在晋级区——保持下去！", leagueDropZone: "⚠️ 你在降级区——今天练习一下稳住名次！",
+      freezeTpl: "已储备 {n} 个连续记录保护——漏一天也不会中断",
       growthNextTpl: "距离「{stage}」还差 {n} XP", growthMaxed: "已经盛开！继续保持。",
       growthStage_seed: "种子", growthStage_sprout: "嫩芽", growthStage_sapling: "幼苗", growthStage_tree: "大树", growthStage_mugunghwa: "木槿花",
       growthBadge_first_voice: "第一声", growthBadgeDesc_first_voice: "发送第一条语音消息",
